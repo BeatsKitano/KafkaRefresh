@@ -5,11 +5,6 @@
 ![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 
-[中文文档](#inchinese)
-
-### Overviews
-Highly scalable, custom, multi-style refresh framework.
-
 ### Screenshots
 <table>
 <tr height="60px" align="center">
@@ -63,6 +58,11 @@ Highly scalable, custom, multi-style refresh framework.
   <td><img src="Gif/_arrow.gif"></img></td>
 </tr>
 </table>
+
+[中文文档](#inchinese)
+
+### Overviews
+Highly scalable, custom, multi-style refresh framework.
 
 ### Comparison
 <table>
