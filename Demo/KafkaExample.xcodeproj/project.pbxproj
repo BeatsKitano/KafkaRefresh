@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		986ADD6A1FEF6DA8006575E7 /* KafkaMainListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986ADD691FEF6DA8006575E7 /* KafkaMainListController.m */; };
+		986ADD991FF60DBB006575E7 /* KafkaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986ADD971FF60DBB006575E7 /* KafkaTableViewController.m */; };
+		986ADD9E1FF60DDC006575E7 /* KafkaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986ADD9C1FF60DDC006575E7 /* KafkaCollectionViewController.m */; };
+		98766F411FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98766F401FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m */; };
+		98C2F86A1FEF6AB50039C749 /* KafkaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C2F8691FEF6AB50039C749 /* KafkaAppDelegate.m */; };
+		98C2F8701FEF6AB50039C749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C2F86E1FEF6AB50039C749 /* Main.storyboard */; };
+		98C2F8721FEF6AB50039C749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C2F8711FEF6AB50039C749 /* Assets.xcassets */; };
+		98C2F8781FEF6AB50039C749 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C2F8771FEF6AB50039C749 /* main.m */; };
+		9ABA1FD27A14CF184FB761CE /* libPods-KafkaExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C706D5C519798CE83C9D31 /* libPods-KafkaExample.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		21C706D5C519798CE83C9D31 /* libPods-KafkaExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KafkaExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45638C6D25F28D8E88A4BFEA /* Pods-KafkaExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KafkaExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KafkaExample/Pods-KafkaExample.debug.xcconfig"; sourceTree = "<group>"; };
+		803634CF31C508F82D3831FE /* Pods-KafkaExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KafkaExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-KafkaExample/Pods-KafkaExample.release.xcconfig"; sourceTree = "<group>"; };
+		986ADD681FEF6DA8006575E7 /* KafkaMainListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaMainListController.h; sourceTree = "<group>"; };
+		986ADD691FEF6DA8006575E7 /* KafkaMainListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaMainListController.m; sourceTree = "<group>"; };
+		986ADD961FF60DBB006575E7 /* KafkaTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaTableViewController.h; sourceTree = "<group>"; };
+		986ADD971FF60DBB006575E7 /* KafkaTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaTableViewController.m; sourceTree = "<group>"; };
+		986ADD9B1FF60DDC006575E7 /* KafkaCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaCollectionViewController.h; sourceTree = "<group>"; };
+		986ADD9C1FF60DDC006575E7 /* KafkaCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaCollectionViewController.m; sourceTree = "<group>"; };
+		98766F3F1FFC68DB00CC3DD0 /* KafkaCustomTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaCustomTableViewController.h; sourceTree = "<group>"; };
+		98766F401FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaCustomTableViewController.m; sourceTree = "<group>"; };
+		98C2F8651FEF6AB50039C749 /* KafkaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KafkaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C2F8681FEF6AB50039C749 /* KafkaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaAppDelegate.h; sourceTree = "<group>"; };
+		98C2F8691FEF6AB50039C749 /* KafkaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaAppDelegate.m; sourceTree = "<group>"; };
+		98C2F86F1FEF6AB50039C749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		98C2F8711FEF6AB50039C749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98C2F8761FEF6AB50039C749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98C2F8771FEF6AB50039C749 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98C2F8621FEF6AB50039C749 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ABA1FD27A14CF184FB761CE /* libPods-KafkaExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58996AE7BF1B4FF1E2A4EB85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45638C6D25F28D8E88A4BFEA /* Pods-KafkaExample.debug.xcconfig */,
+				803634CF31C508F82D3831FE /* Pods-KafkaExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		986ADD661FEF6CE1006575E7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				986ADD681FEF6DA8006575E7 /* KafkaMainListController.h */,
+				986ADD691FEF6DA8006575E7 /* KafkaMainListController.m */,
+				986ADD961FF60DBB006575E7 /* KafkaTableViewController.h */,
+				986ADD971FF60DBB006575E7 /* KafkaTableViewController.m */,
+				986ADD9B1FF60DDC006575E7 /* KafkaCollectionViewController.h */,
+				986ADD9C1FF60DDC006575E7 /* KafkaCollectionViewController.m */,
+				98766F3F1FFC68DB00CC3DD0 /* KafkaCustomTableViewController.h */,
+				98766F401FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		98C2F85C1FEF6AB50039C749 = {
+			isa = PBXGroup;
+			children = (
+				98C2F8671FEF6AB50039C749 /* KafkaExample */,
+				98C2F8661FEF6AB50039C749 /* Products */,
+				58996AE7BF1B4FF1E2A4EB85 /* Pods */,
+				9FA2E74816392184BA6E16A9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		98C2F8661FEF6AB50039C749 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98C2F8651FEF6AB50039C749 /* KafkaExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98C2F8671FEF6AB50039C749 /* KafkaExample */ = {
+			isa = PBXGroup;
+			children = (
+				98C2F8681FEF6AB50039C749 /* KafkaAppDelegate.h */,
+				98C2F8691FEF6AB50039C749 /* KafkaAppDelegate.m */,
+				986ADD661FEF6CE1006575E7 /* Controllers */,
+				98C2F86E1FEF6AB50039C749 /* Main.storyboard */,
+				98C2F8711FEF6AB50039C749 /* Assets.xcassets */,
+				98C2F8761FEF6AB50039C749 /* Info.plist */,
+				98C2F8771FEF6AB50039C749 /* main.m */,
+			);
+			path = KafkaExample;
+			sourceTree = "<group>";
+		};
+		9FA2E74816392184BA6E16A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21C706D5C519798CE83C9D31 /* libPods-KafkaExample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		98C2F8641FEF6AB50039C749 /* KafkaExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98C2F87B1FEF6AB50039C749 /* Build configuration list for PBXNativeTarget "KafkaExample" */;
+			buildPhases = (
+				88514BB239B9B899BE084C5A /* [CP] Check Pods Manifest.lock */,
+				98C2F8611FEF6AB50039C749 /* Sources */,
+				98C2F8621FEF6AB50039C749 /* Frameworks */,
+				98C2F8631FEF6AB50039C749 /* Resources */,
+				4F2683EFC34BBBC463C4104F /* [CP] Embed Pods Frameworks */,
+				234C9BB9A6D4AC1EF16F87C1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KafkaExample;
+			productName = KafkaExample;
+			productReference = 98C2F8651FEF6AB50039C749 /* KafkaExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98C2F85D1FEF6AB50039C749 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Kinx;
+				TargetAttributes = {
+					98C2F8641FEF6AB50039C749 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 98C2F8601FEF6AB50039C749 /* Build configuration list for PBXProject "KafkaExample" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98C2F85C1FEF6AB50039C749;
+			productRefGroup = 98C2F8661FEF6AB50039C749 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98C2F8641FEF6AB50039C749 /* KafkaExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98C2F8631FEF6AB50039C749 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C2F8721FEF6AB50039C749 /* Assets.xcassets in Resources */,
+				98C2F8701FEF6AB50039C749 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		234C9BB9A6D4AC1EF16F87C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KafkaExample/Pods-KafkaExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F2683EFC34BBBC463C4104F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KafkaExample/Pods-KafkaExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88514BB239B9B899BE084C5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98C2F8611FEF6AB50039C749 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C2F8781FEF6AB50039C749 /* main.m in Sources */,
+				98C2F86A1FEF6AB50039C749 /* KafkaAppDelegate.m in Sources */,
+				986ADD9E1FF60DDC006575E7 /* KafkaCollectionViewController.m in Sources */,
+				986ADD6A1FEF6DA8006575E7 /* KafkaMainListController.m in Sources */,
+				98766F411FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m in Sources */,
+				986ADD991FF60DBB006575E7 /* KafkaTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		98C2F86E1FEF6AB50039C749 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				98C2F86F1FEF6AB50039C749 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		98C2F8791FEF6AB50039C749 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		98C2F87A1FEF6AB50039C749 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		98C2F87C1FEF6AB50039C749 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45638C6D25F28D8E88A4BFEA /* Pods-KafkaExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BUL3PX47WF;
+				INFOPLIST_FILE = KafkaExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.k.KafkaExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98C2F87D1FEF6AB50039C749 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 803634CF31C508F82D3831FE /* Pods-KafkaExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BUL3PX47WF;
+				INFOPLIST_FILE = KafkaExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.k.KafkaExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98C2F8601FEF6AB50039C749 /* Build configuration list for PBXProject "KafkaExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98C2F8791FEF6AB50039C749 /* Debug */,
+				98C2F87A1FEF6AB50039C749 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98C2F87B1FEF6AB50039C749 /* Build configuration list for PBXNativeTarget "KafkaExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98C2F87C1FEF6AB50039C749 /* Debug */,
+				98C2F87D1FEF6AB50039C749 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98C2F85D1FEF6AB50039C749 /* Project object */;
+}
