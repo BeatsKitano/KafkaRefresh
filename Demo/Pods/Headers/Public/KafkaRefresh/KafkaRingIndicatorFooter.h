@@ -1,0 +1,1 @@
+../../../KafkaRefresh/KafkaRefresh/KafkaViews/FooterStyles/KafkaRingIndicatorFooter.h

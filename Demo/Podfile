@@ -8,5 +8,6 @@ target 'KafkaExample' do
   # use_frameworks!
 
   # Pods for KafkaExample
+  pod 'KafkaRefresh'
 
 end
