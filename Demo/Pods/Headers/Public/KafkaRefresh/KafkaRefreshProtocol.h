@@ -1,1 +1,1 @@
-../../../KafkaRefresh/KafkaRefresh/KafkaCore/KafkaRefreshProtocol.h
+../../../KafkaRefresh/KafkaRefresh/Core/KafkaRefreshProtocol.h

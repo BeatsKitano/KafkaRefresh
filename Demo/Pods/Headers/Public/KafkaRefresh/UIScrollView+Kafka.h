@@ -1,1 +1,1 @@
-../../../KafkaRefresh/KafkaRefresh/KafkaCategories/UIScrollView+Kafka.h
+../../../KafkaRefresh/KafkaRefresh/Category/UIScrollView+Kafka.h

@@ -1,1 +1,1 @@
-../../../KafkaRefresh/KafkaRefresh/KafkaCategories/KafkaLayoutCategories.h
+../../../KafkaRefresh/KafkaRefresh/Category/KafkaLayoutCategories.h

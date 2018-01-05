@@ -77,10 +77,12 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "KafkaRefresh/KafkaRefresh/KakfkaResources/KafkaResource.bundle"
+  install_resource "KafkaRefresh/KafkaRefresh/Resource/Image.bundle/arrow48.png"
+  install_resource "KafkaRefresh/KafkaRefresh/Resource/Image.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "KafkaRefresh/KafkaRefresh/KakfkaResources/KafkaResource.bundle"
+  install_resource "KafkaRefresh/KafkaRefresh/Resource/Image.bundle/arrow48.png"
+  install_resource "KafkaRefresh/KafkaRefresh/Resource/Image.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

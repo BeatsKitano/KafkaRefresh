@@ -1,1 +1,1 @@
-../../../KafkaRefresh/KafkaRefresh/KafkaViews/FooterStyles/KafkaReplicatorFooter.h
+../../../KafkaRefresh/KafkaRefresh/UIKit/Foot/KafkaReplicatorFooter.h
