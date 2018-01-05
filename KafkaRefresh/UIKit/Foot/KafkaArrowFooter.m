@@ -93,7 +93,7 @@
 
 - (UIImageView *)arrowImgV{
 	if (!_arrowImgV) {
-		NSString *path = [[NSBundle mainBundle] pathForResource:@"KafkaResource" ofType:@"bundle"];
+		NSString *path = [[NSBundle mainBundle] pathForResource:@"Image" ofType:@"bundle"];
 		NSString *urlString = [path stringByAppendingPathComponent:@"arrow48.png"];
 		UIImage *image = [UIImage imageWithContentsOfFile:urlString];
 		_arrowImgV = [[UIImageView alloc] initWithImage:image];

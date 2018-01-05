@@ -15,8 +15,8 @@ s.ios.deployment_target = '7.0'
 
 s.source       = { :git => "https://github.com/xorshine/KafkaRefresh.git", :tag => s.version}
 
-s.source_files = "KafkaRefresh/*.{h,m}"
+s.source_files = "KafkaRefresh/**/*"
 
-s.resource     = "KafkaRefresh/Resources/KafkaResource.bundle"
+s.resource     = "KafkaRefresh/Resource/Image.bundle"
 
 end
