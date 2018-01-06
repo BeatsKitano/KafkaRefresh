@@ -40,8 +40,12 @@ Pod::Spec.new do |s|
 
 
 	s.subspec 'Configuration' do |ss|
-	ss.source_files = "KafkaRefresh/Configuration/**/*"
-	s.dependency 'KafkaRefresh/UIKit'
+		ss.source_files = "KafkaRefresh/Configuration/**/*"
+		s.dependency 'KafkaRefresh/UIKit'
+	end
+
+	s.subspec 'Default' do |ss|
+		ss.source_files = "KafkaRefresh/Default/**/*"
 	end
 
 
@@ -51,6 +55,7 @@ Pod::Spec.new do |s|
 		ss.dependency  'KafkaRefresh/Core'
 		ss.dependency  'KafkaRefresh/Category'
 		ss.dependency  'KafkaRefresh/Resource'
+		ss.dependency  'KafkaRefresh/Default'
 
 		ss.subspec 'Head' do |s|
 			s.source_files = 'KafkaRefresh/UIKit/Head/**/*'
