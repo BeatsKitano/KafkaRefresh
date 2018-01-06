@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name         = "KafkaRefresh"
-	s.version      = "0.7.2"
+	s.version      = "0.7.1"
 	s.summary      = "Highly scalable, custom, multi-style refresh framework."
 
 	s.homepage     = "https://github.com/xorshine/KafkaRefresh"
@@ -21,12 +21,14 @@ Pod::Spec.new do |s|
 
 	s.subspec 'Category' do |ss|
 		ss.source_files = "KafkaRefresh/Category/*.{h,m}"
+		ss.public_header_files = "KafkaRefresh/Category/**/*.{h}"
 	end
 
 
 
 	s.subspec 'Core' do |ss|
 		ss.source_files = "KafkaRefresh/Core/**/*.{h,m}"
+		ss.public_header_files = "KafkaRefresh/Core/**/*.{h}"
 		ss.dependency 'KafkaRefresh/Category'
 	end
 
@@ -37,6 +39,11 @@ Pod::Spec.new do |s|
 	end
 
 
+	s.subspec 'Configuration' do |ss|
+	ss.source_files = "KafkaRefresh/Configuration/**/*"
+	s.dependency 'KafkaRefresh/UIKit'
+	end
+
 
 	s.subspec 'UIKit' do |ss|
 
@@ -46,17 +53,19 @@ Pod::Spec.new do |s|
 		ss.dependency  'KafkaRefresh/Resource'
 
 		ss.subspec 'Head' do |s|
-			s.source_files = 'KafkaRefresh/UIKit/Head/*.{h,m}'
+			s.source_files = 'KafkaRefresh/UIKit/Head/**/*'
+			s.public_header_files = "KafkaRefresh/UIKit/Head/*.{h}"
 			s.dependency 'KafkaRefresh/UIKit/Layer'
 		end
 
 		ss.subspec 'Foot' do |s|
-			s.source_files = 'KafkaRefresh/UIKit/Foot/*.{h,m}'
+			s.source_files = 'KafkaRefresh/UIKit/Foot/**/*'
+			s.public_header_files = "KafkaRefresh/UIKit/Foot/*.{h}"
 			s.dependency 'KafkaRefresh/UIKit/Layer'
 		end
 
 		ss.subspec 'Layer' do |s|
-			s.source_files = 'KafkaRefresh/UIKit/Layer/*.{h,m}'
+			s.source_files = 'KafkaRefresh/UIKit/Layer/**/*'
 		end
 
 	end
