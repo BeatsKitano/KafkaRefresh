@@ -7,35 +7,148 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84F77F7EBFE965A394922BFB4CD876CA /* Pods-KafkaExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A60A5CFC45894B0C28063DDD03C15EFE /* Pods-KafkaExample-dummy.m */; };
-		90EC342961ED4B30D468A8CA0D9212CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		03C0E90B8C537FAFF528E18C6A741C1B /* KafkaRingIndicatorHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A60265144AA4075955AADC9B1ADCBC /* KafkaRingIndicatorHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06F5E6132E42A91AC999F1B2E2CFD656 /* KafkaRefreshDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = DA9A2897D8FC06C888AD39848BB05763 /* KafkaRefreshDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		09AA3484094D9AF0E2EEC809341EF7E1 /* KafkaArrowHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD09C1B161AD56A50A4188B9D988FB5 /* KafkaArrowHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12AE35848D58E5E4D037855D97EEC328 /* UIScrollView+Kafka.m in Sources */ = {isa = PBXBuildFile; fileRef = 55841FE1CBF695E82A8D76154DE3125B /* UIScrollView+Kafka.m */; };
+		164BF37111105C50F1DCAF4BB8F8D258 /* KafkaNativeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C059C6BBE35D9767AA629ACA37CE71F7 /* KafkaNativeHeader.m */; };
+		17D72329BEA310652DFD9140158A5760 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		1E738EF7648EB72BA5C0DDFCD608FB27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		2D36E593BEF656F0F3CA4A0264933A92 /* KafkaLayoutCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = B86239A1EACA6DE9FEA3754154CEBC03 /* KafkaLayoutCategories.m */; };
+		36EF9E8654EA5291A0C26F507AF12912 /* KafkaRingIndicatorHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9782A7B83A9DF09CE1A94654ADCC7 /* KafkaRingIndicatorHeader.m */; };
+		3BC706C574E6F1B1ECECD41C673139D7 /* KafkaNativeFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 816931C3ED03D899A732581A8AC5C37E /* KafkaNativeFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D33BD0409A22EEBC2E442860008827F /* KafkaRefreshDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05F3518042C654C28863D939913D5 /* KafkaRefreshDefaults.m */; };
+		49385600855A0DA46F0A41B33381BB3B /* UIScrollView+KafkaConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E121F850D02D9BB8CC4935E8F89C9 /* UIScrollView+KafkaConfiguration.m */; };
+		4E81A08ED6D0441289F92B152A97A8B3 /* KafkaHeaderRefreshControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 95E2E32F42FCBCA655C39E9DF3EB3BA3 /* KafkaHeaderRefreshControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		525E21974AC08FE4941F5E2D6417F6CC /* KafkaReplicatorLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7896922A219509E69AE1110F9C4AB89D /* KafkaReplicatorLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54608275BB189CAD10B631EB3221C37D /* KafkaReplicatorHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EF6EC76161B1C5698B774E6764B10AE /* KafkaReplicatorHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		554D711B1DCA8713D06134AFF2218F32 /* KafkaFooterRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4303A6E442A7A44E15C8C08C8FD899E6 /* KafkaFooterRefreshControl.m */; };
+		5B20701C10FCB56E1A8C380851560744 /* KafkaRefreshControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FEAE49857485CC2A2CF3AB40720B90C /* KafkaRefreshControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6341007080D356496FB632096832A87B /* KafkaRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E54069BEA659B0D447F642502CFEF4 /* KafkaRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A05992727CBC21C65C463D0612D855C /* KafkaArrowHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEA9C348224F8D3FB1B43C903235D40 /* KafkaArrowHeader.m */; };
+		6F8D82367C08730C070E716DBAA80600 /* arrow48.png in Sources */ = {isa = PBXBuildFile; fileRef = E465FA5AE9618A0D0D06A81BCD513797 /* arrow48.png */; };
+		71937BF65014ECE4A2F491A4B19F4602 /* KafkaFooterRefreshControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 6319F12E106FB76CCD44C026E4AE1CD2 /* KafkaFooterRefreshControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		867503849474B87202F90254CDD6CBB6 /* KafkaReplicatorFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C130A3C82E73DFE7D45621296C11D /* KafkaReplicatorFooter.m */; };
+		93AE58A51A01737FA138B9A580413097 /* UIScrollView+Kafka.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A213851447B671AC421CAC75F81DE6A /* UIScrollView+Kafka.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FC79763AFB8E2E78F5A63ABFCA805E0 /* KafkaLayoutCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 601178F43F71B255ECCC9A4B0882EF4A /* KafkaLayoutCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3C896C22EF8B5AAA4E0D13180B42D67 /* KafkaArcLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CBA3E833B741CD86AA89AD917F185C /* KafkaArcLayer.m */; };
+		A691BD1901180AC71821931F0F7C8512 /* KafkaAnimatableProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC7566B65D66479069D70DD6310FCB0 /* KafkaAnimatableProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA86C9E1154E70B3FFE77F98D762B067 /* KafkaNativeFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 023DC1EE49C35BFC204AEA21851A1E8B /* KafkaNativeFooter.m */; };
+		AB4C45FF5BED0E388575333AD2414F48 /* KafkaRefreshStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D107FDF6226CB2A798A68875AAB834DA /* KafkaRefreshStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC5C368237E69791C93DD2438590FFF2 /* KafkaNativeHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A8684A103CF31AFFA6310104A9BC6D1F /* KafkaNativeHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACD123FB999FFE4F2EB178381BFFB2A8 /* KafkaRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA27D4DE95EC7EA19CC2563D9DDBE3B /* KafkaRefresh-dummy.m */; };
+		C4548B2A5578E51DEE714CAA2EA124CD /* KafkaDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = FAEDE58BDFEC61DDE7E75653B1AFDAEA /* KafkaDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5B6A5ECAEB29974EBE955BD584BFD78 /* KafkaArrowFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = E12FAAD7BA8CCFFAD852AF986A6BB7C6 /* KafkaArrowFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDC2CE1DEE168E6646CA7D70985C65BA /* KafkaRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1032AF9F033B958FCD6D4233E9ECD2 /* KafkaRefreshControl.m */; };
+		CE9DB040548FDBDBDBF8CD78A281EFC2 /* KafkaReplicatorHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B82CE63ABBAEC8A488BEB129078951 /* KafkaReplicatorHeader.m */; };
+		D6DEE6ADF6300B5384E15C0702C214EF /* KafkaArcLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = BA93387FF1DC102552C0424CB85E47D2 /* KafkaArcLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8B9164CB08A86B4EC159555AACECBF4 /* UIScrollView+KafkaConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DAADCBB2FB42F6B72BC5F7D19913D66D /* UIScrollView+KafkaConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFBDE3885AB332B39A5684D1DE9CE838 /* KafkaReplicatorLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2D6984CD20245BE6D4EB80CD3954D /* KafkaReplicatorLayer.m */; };
+		E21F73A40D1B117F7A60A009EDDE8BF0 /* Pods-KafkaExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A60A5CFC45894B0C28063DDD03C15EFE /* Pods-KafkaExample-dummy.m */; };
+		EB9E01B2C9E0718160967872564F232B /* KafkaReplicatorFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D449485D75EA465D8BAE351909225EC /* KafkaReplicatorFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EBC9CDC4ABD19E2E8A8E688B35259B79 /* KafkaRefreshProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 46506CBD9DB3C1D70C1F11D704DF3168 /* KafkaRefreshProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0C5517400C4C1DCD85F10A793020A0B /* KafkaRingIndicatorFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8B6B355C9B06739147EFDF62C0AF1E /* KafkaRingIndicatorFooter.m */; };
+		F63FCE9227357DB2F5C22CDF190D931A /* KafkaHeaderRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BCFF8E1130AEF571E13E03923825DC /* KafkaHeaderRefreshControl.m */; };
+		FED61A19280C33ED932ED54640ACFC5A /* KafkaArrowFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EADACA8AC5051452FC446BE50F4FF77 /* KafkaArrowFooter.m */; };
+		FEF63B7AF67BC60271CE750638A264FE /* KafkaRingIndicatorFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 80C6809090F34B1D2008DB376E8A4AA8 /* KafkaRingIndicatorFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		89A76FBC621DFBDCD2ABFA3FDD273D54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61D5F4FFFB24EA9D659FC49EC1E78EBD;
+			remoteInfo = KafkaRefresh;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		023DC1EE49C35BFC204AEA21851A1E8B /* KafkaNativeFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaNativeFooter.m; path = KafkaRefresh/UIKit/Foot/KafkaNativeFooter.m; sourceTree = "<group>"; };
+		0EADACA8AC5051452FC446BE50F4FF77 /* KafkaArrowFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaArrowFooter.m; path = KafkaRefresh/UIKit/Foot/KafkaArrowFooter.m; sourceTree = "<group>"; };
 		3054695177C678BB27921D3633D5E5CD /* Pods-KafkaExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KafkaExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		3BD09C1B161AD56A50A4188B9D988FB5 /* KafkaArrowHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaArrowHeader.h; path = KafkaRefresh/UIKit/Head/KafkaArrowHeader.h; sourceTree = "<group>"; };
+		3D449485D75EA465D8BAE351909225EC /* KafkaReplicatorFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaReplicatorFooter.h; path = KafkaRefresh/UIKit/Foot/KafkaReplicatorFooter.h; sourceTree = "<group>"; };
+		402E121F850D02D9BB8CC4935E8F89C9 /* UIScrollView+KafkaConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+KafkaConfiguration.m"; path = "KafkaRefresh/Category/UIScrollView+KafkaConfiguration.m"; sourceTree = "<group>"; };
+		4303A6E442A7A44E15C8C08C8FD899E6 /* KafkaFooterRefreshControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaFooterRefreshControl.m; path = KafkaRefresh/Core/KafkaFooterRefreshControl.m; sourceTree = "<group>"; };
+		46506CBD9DB3C1D70C1F11D704DF3168 /* KafkaRefreshProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaRefreshProtocol.h; path = KafkaRefresh/Core/KafkaRefreshProtocol.h; sourceTree = "<group>"; };
 		468170979A7405A1B8FBF124E631FF75 /* Pods-KafkaExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KafkaExample-frameworks.sh"; sourceTree = "<group>"; };
+		4A213851447B671AC421CAC75F81DE6A /* UIScrollView+Kafka.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Kafka.h"; path = "KafkaRefresh/Category/UIScrollView+Kafka.h"; sourceTree = "<group>"; };
+		4CA27D4DE95EC7EA19CC2563D9DDBE3B /* KafkaRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KafkaRefresh-dummy.m"; sourceTree = "<group>"; };
+		55841FE1CBF695E82A8D76154DE3125B /* UIScrollView+Kafka.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Kafka.m"; path = "KafkaRefresh/Category/UIScrollView+Kafka.m"; sourceTree = "<group>"; };
+		591DB19DA3F25A7DE1654DB5E1D9DB90 /* KafkaRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KafkaRefresh.xcconfig; sourceTree = "<group>"; };
+		601178F43F71B255ECCC9A4B0882EF4A /* KafkaLayoutCategories.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaLayoutCategories.h; path = KafkaRefresh/Category/KafkaLayoutCategories.h; sourceTree = "<group>"; };
+		602A815C48BE3F43DCDE46FD0FE88D9F /* libPods-KafkaExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-KafkaExample.a"; path = "libPods-KafkaExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61E54069BEA659B0D447F642502CFEF4 /* KafkaRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaRefresh.h; path = KafkaRefresh/KafkaRefresh.h; sourceTree = "<group>"; };
+		6319F12E106FB76CCD44C026E4AE1CD2 /* KafkaFooterRefreshControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaFooterRefreshControl.h; path = KafkaRefresh/Core/KafkaFooterRefreshControl.h; sourceTree = "<group>"; };
+		7896922A219509E69AE1110F9C4AB89D /* KafkaReplicatorLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaReplicatorLayer.h; path = KafkaRefresh/UIKit/Layer/KafkaReplicatorLayer.h; sourceTree = "<group>"; };
+		7FEAE49857485CC2A2CF3AB40720B90C /* KafkaRefreshControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaRefreshControl.h; path = KafkaRefresh/Core/KafkaRefreshControl.h; sourceTree = "<group>"; };
+		80C6809090F34B1D2008DB376E8A4AA8 /* KafkaRingIndicatorFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaRingIndicatorFooter.h; path = KafkaRefresh/UIKit/Foot/KafkaRingIndicatorFooter.h; sourceTree = "<group>"; };
+		816931C3ED03D899A732581A8AC5C37E /* KafkaNativeFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaNativeFooter.h; path = KafkaRefresh/UIKit/Foot/KafkaNativeFooter.h; sourceTree = "<group>"; };
 		8539BDA0F397D2E3F4BD0D8DB7CB8FF8 /* Pods-KafkaExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KafkaExample-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8BF7C2C252D1CE2F497003082FA5A923 /* libPods-KafkaExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-KafkaExample.a"; path = "libPods-KafkaExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1032AF9F033B958FCD6D4233E9ECD2 /* KafkaRefreshControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaRefreshControl.m; path = KafkaRefresh/Core/KafkaRefreshControl.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94910263C89420822CCBEAA8AB5238B8 /* Pods-KafkaExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KafkaExample.debug.xcconfig"; sourceTree = "<group>"; };
+		95E2E32F42FCBCA655C39E9DF3EB3BA3 /* KafkaHeaderRefreshControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaHeaderRefreshControl.h; path = KafkaRefresh/Core/KafkaHeaderRefreshControl.h; sourceTree = "<group>"; };
+		9EF6EC76161B1C5698B774E6764B10AE /* KafkaReplicatorHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaReplicatorHeader.h; path = KafkaRefresh/UIKit/Head/KafkaReplicatorHeader.h; sourceTree = "<group>"; };
+		A03C818B2B25E28138187A9905841D00 /* libKafkaRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libKafkaRefresh.a; path = libKafkaRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60A5CFC45894B0C28063DDD03C15EFE /* Pods-KafkaExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KafkaExample-dummy.m"; sourceTree = "<group>"; };
+		A7A60265144AA4075955AADC9B1ADCBC /* KafkaRingIndicatorHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaRingIndicatorHeader.h; path = KafkaRefresh/UIKit/Head/KafkaRingIndicatorHeader.h; sourceTree = "<group>"; };
+		A8684A103CF31AFFA6310104A9BC6D1F /* KafkaNativeHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaNativeHeader.h; path = KafkaRefresh/UIKit/Head/KafkaNativeHeader.h; sourceTree = "<group>"; };
+		A8B82CE63ABBAEC8A488BEB129078951 /* KafkaReplicatorHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaReplicatorHeader.m; path = KafkaRefresh/UIKit/Head/KafkaReplicatorHeader.m; sourceTree = "<group>"; };
+		AB87AD81EAACA66E759A3100344EB19E /* KafkaRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KafkaRefresh-prefix.pch"; sourceTree = "<group>"; };
 		B4EBB719792D004FBA4DDC863ED60F70 /* Pods-KafkaExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KafkaExample-resources.sh"; sourceTree = "<group>"; };
+		B7C64124DDE70530699A486A513B30C6 /* Image.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Image.bundle; path = KafkaRefresh/Resource/Image.bundle; sourceTree = "<group>"; };
+		B86239A1EACA6DE9FEA3754154CEBC03 /* KafkaLayoutCategories.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaLayoutCategories.m; path = KafkaRefresh/Category/KafkaLayoutCategories.m; sourceTree = "<group>"; };
+		BA93387FF1DC102552C0424CB85E47D2 /* KafkaArcLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaArcLayer.h; path = KafkaRefresh/UIKit/Layer/KafkaArcLayer.h; sourceTree = "<group>"; };
+		C059C6BBE35D9767AA629ACA37CE71F7 /* KafkaNativeHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaNativeHeader.m; path = KafkaRefresh/UIKit/Head/KafkaNativeHeader.m; sourceTree = "<group>"; };
+		C9CBA3E833B741CD86AA89AD917F185C /* KafkaArcLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaArcLayer.m; path = KafkaRefresh/UIKit/Layer/KafkaArcLayer.m; sourceTree = "<group>"; };
+		CAC7566B65D66479069D70DD6310FCB0 /* KafkaAnimatableProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaAnimatableProtocol.h; path = KafkaRefresh/UIKit/Layer/KafkaAnimatableProtocol.h; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CE8B6B355C9B06739147EFDF62C0AF1E /* KafkaRingIndicatorFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaRingIndicatorFooter.m; path = KafkaRefresh/UIKit/Foot/KafkaRingIndicatorFooter.m; sourceTree = "<group>"; };
+		CFF9782A7B83A9DF09CE1A94654ADCC7 /* KafkaRingIndicatorHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaRingIndicatorHeader.m; path = KafkaRefresh/UIKit/Head/KafkaRingIndicatorHeader.m; sourceTree = "<group>"; };
+		D0C05F3518042C654C28863D939913D5 /* KafkaRefreshDefaults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaRefreshDefaults.m; path = KafkaRefresh/UIKit/KafkaRefreshDefaults.m; sourceTree = "<group>"; };
+		D107FDF6226CB2A798A68875AAB834DA /* KafkaRefreshStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaRefreshStyle.h; path = KafkaRefresh/UIKit/KafkaRefreshStyle.h; sourceTree = "<group>"; };
+		DA9A2897D8FC06C888AD39848BB05763 /* KafkaRefreshDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaRefreshDefaults.h; path = KafkaRefresh/UIKit/KafkaRefreshDefaults.h; sourceTree = "<group>"; };
+		DAADCBB2FB42F6B72BC5F7D19913D66D /* UIScrollView+KafkaConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+KafkaConfiguration.h"; path = "KafkaRefresh/Category/UIScrollView+KafkaConfiguration.h"; sourceTree = "<group>"; };
+		DAC2D6984CD20245BE6D4EB80CD3954D /* KafkaReplicatorLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaReplicatorLayer.m; path = KafkaRefresh/UIKit/Layer/KafkaReplicatorLayer.m; sourceTree = "<group>"; };
+		E12FAAD7BA8CCFFAD852AF986A6BB7C6 /* KafkaArrowFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaArrowFooter.h; path = KafkaRefresh/UIKit/Foot/KafkaArrowFooter.h; sourceTree = "<group>"; };
+		E465FA5AE9618A0D0D06A81BCD513797 /* arrow48.png */ = {isa = PBXFileReference; includeInIndex = 1; name = arrow48.png; path = KafkaRefresh/Resource/Image.bundle/arrow48.png; sourceTree = "<group>"; };
+		E7BCFF8E1130AEF571E13E03923825DC /* KafkaHeaderRefreshControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaHeaderRefreshControl.m; path = KafkaRefresh/Core/KafkaHeaderRefreshControl.m; sourceTree = "<group>"; };
+		EA4C130A3C82E73DFE7D45621296C11D /* KafkaReplicatorFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaReplicatorFooter.m; path = KafkaRefresh/UIKit/Foot/KafkaReplicatorFooter.m; sourceTree = "<group>"; };
 		ED4C488ECDF2EEB2E9415C19517BEAC2 /* Pods-KafkaExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KafkaExample.release.xcconfig"; sourceTree = "<group>"; };
+		FAEA9C348224F8D3FB1B43C903235D40 /* KafkaArrowHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KafkaArrowHeader.m; path = KafkaRefresh/UIKit/Head/KafkaArrowHeader.m; sourceTree = "<group>"; };
+		FAEDE58BDFEC61DDE7E75653B1AFDAEA /* KafkaDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KafkaDefines.h; path = KafkaRefresh/Core/KafkaDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		865F78500FA2882ED6E32AD3ED533739 /* Frameworks */ = {
+		1C5C76EDF95116E6645CDD9EEF6AE5CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90EC342961ED4B30D468A8CA0D9212CA /* Foundation.framework in Frameworks */,
+				17D72329BEA310652DFD9140158A5760 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37F4DCC666FA4C27FFE831DD2B7D08D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E738EF7648EB72BA5C0DDFCD608FB27 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01612D2611B740856FBBE26BBEDB8D0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2655A1E44547167EE7BA0D17418C95C /* KafkaRefresh */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1E752DA777DE52F11F21663D1409135A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -44,10 +157,11 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		2D24EAC1D6E44FE55033E5938C32249A /* Products */ = {
+		723C5EDEE2E3DC7AACA2E3221162E979 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BF7C2C252D1CE2F497003082FA5A923 /* libPods-KafkaExample.a */,
+				A03C818B2B25E28138187A9905841D00 /* libKafkaRefresh.a */,
+				602A815C48BE3F43DCDE46FD0FE88D9F /* libPods-KafkaExample.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,9 +179,68 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				2D24EAC1D6E44FE55033E5938C32249A /* Products */,
+				01612D2611B740856FBBE26BBEDB8D0B /* Pods */,
+				723C5EDEE2E3DC7AACA2E3221162E979 /* Products */,
 				1E752DA777DE52F11F21663D1409135A /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		A2655A1E44547167EE7BA0D17418C95C /* KafkaRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				E465FA5AE9618A0D0D06A81BCD513797 /* arrow48.png */,
+				CAC7566B65D66479069D70DD6310FCB0 /* KafkaAnimatableProtocol.h */,
+				BA93387FF1DC102552C0424CB85E47D2 /* KafkaArcLayer.h */,
+				C9CBA3E833B741CD86AA89AD917F185C /* KafkaArcLayer.m */,
+				E12FAAD7BA8CCFFAD852AF986A6BB7C6 /* KafkaArrowFooter.h */,
+				0EADACA8AC5051452FC446BE50F4FF77 /* KafkaArrowFooter.m */,
+				3BD09C1B161AD56A50A4188B9D988FB5 /* KafkaArrowHeader.h */,
+				FAEA9C348224F8D3FB1B43C903235D40 /* KafkaArrowHeader.m */,
+				FAEDE58BDFEC61DDE7E75653B1AFDAEA /* KafkaDefines.h */,
+				6319F12E106FB76CCD44C026E4AE1CD2 /* KafkaFooterRefreshControl.h */,
+				4303A6E442A7A44E15C8C08C8FD899E6 /* KafkaFooterRefreshControl.m */,
+				95E2E32F42FCBCA655C39E9DF3EB3BA3 /* KafkaHeaderRefreshControl.h */,
+				E7BCFF8E1130AEF571E13E03923825DC /* KafkaHeaderRefreshControl.m */,
+				601178F43F71B255ECCC9A4B0882EF4A /* KafkaLayoutCategories.h */,
+				B86239A1EACA6DE9FEA3754154CEBC03 /* KafkaLayoutCategories.m */,
+				816931C3ED03D899A732581A8AC5C37E /* KafkaNativeFooter.h */,
+				023DC1EE49C35BFC204AEA21851A1E8B /* KafkaNativeFooter.m */,
+				A8684A103CF31AFFA6310104A9BC6D1F /* KafkaNativeHeader.h */,
+				C059C6BBE35D9767AA629ACA37CE71F7 /* KafkaNativeHeader.m */,
+				61E54069BEA659B0D447F642502CFEF4 /* KafkaRefresh.h */,
+				7FEAE49857485CC2A2CF3AB40720B90C /* KafkaRefreshControl.h */,
+				8B1032AF9F033B958FCD6D4233E9ECD2 /* KafkaRefreshControl.m */,
+				DA9A2897D8FC06C888AD39848BB05763 /* KafkaRefreshDefaults.h */,
+				D0C05F3518042C654C28863D939913D5 /* KafkaRefreshDefaults.m */,
+				46506CBD9DB3C1D70C1F11D704DF3168 /* KafkaRefreshProtocol.h */,
+				D107FDF6226CB2A798A68875AAB834DA /* KafkaRefreshStyle.h */,
+				3D449485D75EA465D8BAE351909225EC /* KafkaReplicatorFooter.h */,
+				EA4C130A3C82E73DFE7D45621296C11D /* KafkaReplicatorFooter.m */,
+				9EF6EC76161B1C5698B774E6764B10AE /* KafkaReplicatorHeader.h */,
+				A8B82CE63ABBAEC8A488BEB129078951 /* KafkaReplicatorHeader.m */,
+				7896922A219509E69AE1110F9C4AB89D /* KafkaReplicatorLayer.h */,
+				DAC2D6984CD20245BE6D4EB80CD3954D /* KafkaReplicatorLayer.m */,
+				80C6809090F34B1D2008DB376E8A4AA8 /* KafkaRingIndicatorFooter.h */,
+				CE8B6B355C9B06739147EFDF62C0AF1E /* KafkaRingIndicatorFooter.m */,
+				A7A60265144AA4075955AADC9B1ADCBC /* KafkaRingIndicatorHeader.h */,
+				CFF9782A7B83A9DF09CE1A94654ADCC7 /* KafkaRingIndicatorHeader.m */,
+				4A213851447B671AC421CAC75F81DE6A /* UIScrollView+Kafka.h */,
+				55841FE1CBF695E82A8D76154DE3125B /* UIScrollView+Kafka.m */,
+				DAADCBB2FB42F6B72BC5F7D19913D66D /* UIScrollView+KafkaConfiguration.h */,
+				402E121F850D02D9BB8CC4935E8F89C9 /* UIScrollView+KafkaConfiguration.m */,
+				B0A2CE9E7EAE05A6E7A891195819889F /* Resources */,
+				FCF7DD7E247D0CDB3D7BEAE66D1050D6 /* Support Files */,
+			);
+			name = KafkaRefresh;
+			path = KafkaRefresh;
+			sourceTree = "<group>";
+		};
+		B0A2CE9E7EAE05A6E7A891195819889F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7C64124DDE70530699A486A513B30C6 /* Image.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B1132DC5D9D3CF9677F6B28DF56EF476 /* Pods-KafkaExample */ = {
@@ -93,23 +266,84 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FCF7DD7E247D0CDB3D7BEAE66D1050D6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				591DB19DA3F25A7DE1654DB5E1D9DB90 /* KafkaRefresh.xcconfig */,
+				4CA27D4DE95EC7EA19CC2563D9DDBE3B /* KafkaRefresh-dummy.m */,
+				AB87AD81EAACA66E759A3100344EB19E /* KafkaRefresh-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KafkaRefresh";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		E2429523F4ADFF73CCF2557A83E7D766 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A691BD1901180AC71821931F0F7C8512 /* KafkaAnimatableProtocol.h in Headers */,
+				D6DEE6ADF6300B5384E15C0702C214EF /* KafkaArcLayer.h in Headers */,
+				C5B6A5ECAEB29974EBE955BD584BFD78 /* KafkaArrowFooter.h in Headers */,
+				09AA3484094D9AF0E2EEC809341EF7E1 /* KafkaArrowHeader.h in Headers */,
+				C4548B2A5578E51DEE714CAA2EA124CD /* KafkaDefines.h in Headers */,
+				71937BF65014ECE4A2F491A4B19F4602 /* KafkaFooterRefreshControl.h in Headers */,
+				4E81A08ED6D0441289F92B152A97A8B3 /* KafkaHeaderRefreshControl.h in Headers */,
+				9FC79763AFB8E2E78F5A63ABFCA805E0 /* KafkaLayoutCategories.h in Headers */,
+				3BC706C574E6F1B1ECECD41C673139D7 /* KafkaNativeFooter.h in Headers */,
+				AC5C368237E69791C93DD2438590FFF2 /* KafkaNativeHeader.h in Headers */,
+				6341007080D356496FB632096832A87B /* KafkaRefresh.h in Headers */,
+				5B20701C10FCB56E1A8C380851560744 /* KafkaRefreshControl.h in Headers */,
+				06F5E6132E42A91AC999F1B2E2CFD656 /* KafkaRefreshDefaults.h in Headers */,
+				EBC9CDC4ABD19E2E8A8E688B35259B79 /* KafkaRefreshProtocol.h in Headers */,
+				AB4C45FF5BED0E388575333AD2414F48 /* KafkaRefreshStyle.h in Headers */,
+				EB9E01B2C9E0718160967872564F232B /* KafkaReplicatorFooter.h in Headers */,
+				54608275BB189CAD10B631EB3221C37D /* KafkaReplicatorHeader.h in Headers */,
+				525E21974AC08FE4941F5E2D6417F6CC /* KafkaReplicatorLayer.h in Headers */,
+				FEF63B7AF67BC60271CE750638A264FE /* KafkaRingIndicatorFooter.h in Headers */,
+				03C0E90B8C537FAFF528E18C6A741C1B /* KafkaRingIndicatorHeader.h in Headers */,
+				93AE58A51A01737FA138B9A580413097 /* UIScrollView+Kafka.h in Headers */,
+				D8B9164CB08A86B4EC159555AACECBF4 /* UIScrollView+KafkaConfiguration.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		BCFC9D016C5464FE4CF45715EB029543 /* Pods-KafkaExample */ = {
+		5012A51D097F762CB174C4BC42FD04A4 /* Pods-KafkaExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7D288CA8467324F78F8899E792E592B /* Build configuration list for PBXNativeTarget "Pods-KafkaExample" */;
+			buildConfigurationList = 33993086187D9959867E83D6DEB10969 /* Build configuration list for PBXNativeTarget "Pods-KafkaExample" */;
 			buildPhases = (
-				59FF268C62CCE77A90A5FE33EFD7EA3C /* Sources */,
-				865F78500FA2882ED6E32AD3ED533739 /* Frameworks */,
+				DAF7131CCA2062D9E63BD298CB744E6D /* Sources */,
+				1C5C76EDF95116E6645CDD9EEF6AE5CA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE60841910D5E655CFE2DFB443B52B3B /* PBXTargetDependency */,
+			);
+			name = "Pods-KafkaExample";
+			productName = "Pods-KafkaExample";
+			productReference = 602A815C48BE3F43DCDE46FD0FE88D9F /* libPods-KafkaExample.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		61D5F4FFFB24EA9D659FC49EC1E78EBD /* KafkaRefresh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F65E67BC8A169673EF3740A7F2B00B2 /* Build configuration list for PBXNativeTarget "KafkaRefresh" */;
+			buildPhases = (
+				2EA038FE787DD02290770F4A920E4D4F /* Sources */,
+				37F4DCC666FA4C27FFE831DD2B7D08D7 /* Frameworks */,
+				E2429523F4ADFF73CCF2557A83E7D766 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-KafkaExample";
-			productName = "Pods-KafkaExample";
-			productReference = 8BF7C2C252D1CE2F497003082FA5A923 /* libPods-KafkaExample.a */;
+			name = KafkaRefresh;
+			productName = KafkaRefresh;
+			productReference = A03C818B2B25E28138187A9905841D00 /* libKafkaRefresh.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -129,25 +363,61 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 2D24EAC1D6E44FE55033E5938C32249A /* Products */;
+			productRefGroup = 723C5EDEE2E3DC7AACA2E3221162E979 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BCFC9D016C5464FE4CF45715EB029543 /* Pods-KafkaExample */,
+				61D5F4FFFB24EA9D659FC49EC1E78EBD /* KafkaRefresh */,
+				5012A51D097F762CB174C4BC42FD04A4 /* Pods-KafkaExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		59FF268C62CCE77A90A5FE33EFD7EA3C /* Sources */ = {
+		2EA038FE787DD02290770F4A920E4D4F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F77F7EBFE965A394922BFB4CD876CA /* Pods-KafkaExample-dummy.m in Sources */,
+				6F8D82367C08730C070E716DBAA80600 /* arrow48.png in Sources */,
+				A3C896C22EF8B5AAA4E0D13180B42D67 /* KafkaArcLayer.m in Sources */,
+				FED61A19280C33ED932ED54640ACFC5A /* KafkaArrowFooter.m in Sources */,
+				6A05992727CBC21C65C463D0612D855C /* KafkaArrowHeader.m in Sources */,
+				554D711B1DCA8713D06134AFF2218F32 /* KafkaFooterRefreshControl.m in Sources */,
+				F63FCE9227357DB2F5C22CDF190D931A /* KafkaHeaderRefreshControl.m in Sources */,
+				2D36E593BEF656F0F3CA4A0264933A92 /* KafkaLayoutCategories.m in Sources */,
+				AA86C9E1154E70B3FFE77F98D762B067 /* KafkaNativeFooter.m in Sources */,
+				164BF37111105C50F1DCAF4BB8F8D258 /* KafkaNativeHeader.m in Sources */,
+				ACD123FB999FFE4F2EB178381BFFB2A8 /* KafkaRefresh-dummy.m in Sources */,
+				CDC2CE1DEE168E6646CA7D70985C65BA /* KafkaRefreshControl.m in Sources */,
+				3D33BD0409A22EEBC2E442860008827F /* KafkaRefreshDefaults.m in Sources */,
+				867503849474B87202F90254CDD6CBB6 /* KafkaReplicatorFooter.m in Sources */,
+				CE9DB040548FDBDBDBF8CD78A281EFC2 /* KafkaReplicatorHeader.m in Sources */,
+				DFBDE3885AB332B39A5684D1DE9CE838 /* KafkaReplicatorLayer.m in Sources */,
+				F0C5517400C4C1DCD85F10A793020A0B /* KafkaRingIndicatorFooter.m in Sources */,
+				36EF9E8654EA5291A0C26F507AF12912 /* KafkaRingIndicatorHeader.m in Sources */,
+				12AE35848D58E5E4D037855D97EEC328 /* UIScrollView+Kafka.m in Sources */,
+				49385600855A0DA46F0A41B33381BB3B /* UIScrollView+KafkaConfiguration.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAF7131CCA2062D9E63BD298CB744E6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E21F73A40D1B117F7A60A009EDDE8BF0 /* Pods-KafkaExample-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE60841910D5E655CFE2DFB443B52B3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KafkaRefresh;
+			target = 61D5F4FFFB24EA9D659FC49EC1E78EBD /* KafkaRefresh */;
+			targetProxy = 89A76FBC621DFBDCD2ABFA3FDD273D54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		015A368F878AC3E2CEAE21DDE8026304 /* Debug */ = {
@@ -194,7 +464,30 @@
 			};
 			name = Debug;
 		};
-		433B463C502C126361283D6BF8BE1BC6 /* Debug */ = {
+		22E3F641E3826C0138FCD3B08B4DA502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 591DB19DA3F25A7DE1654DB5E1D9DB90 /* KafkaRefresh.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KafkaRefresh/KafkaRefresh-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		32BF944314530D06732D6C18A8F8EDEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94910263C89420822CCBEAA8AB5238B8 /* Pods-KafkaExample.debug.xcconfig */;
 			buildSettings = {
@@ -257,7 +550,7 @@
 			};
 			name = Release;
 		};
-		BF917B27389BF49AE767F3BB918A2B11 /* Release */ = {
+		B4A74163B0F8313895DF5B17AFD022CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED4C488ECDF2EEB2E9415C19517BEAC2 /* Pods-KafkaExample.release.xcconfig */;
 			buildSettings = {
@@ -280,6 +573,29 @@
 			};
 			name = Release;
 		};
+		DE66903141DD1932D7ABC419F07E01B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 591DB19DA3F25A7DE1654DB5E1D9DB90 /* KafkaRefresh.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KafkaRefresh/KafkaRefresh-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -292,11 +608,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7D288CA8467324F78F8899E792E592B /* Build configuration list for PBXNativeTarget "Pods-KafkaExample" */ = {
+		33993086187D9959867E83D6DEB10969 /* Build configuration list for PBXNativeTarget "Pods-KafkaExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				433B463C502C126361283D6BF8BE1BC6 /* Debug */,
-				BF917B27389BF49AE767F3BB918A2B11 /* Release */,
+				32BF944314530D06732D6C18A8F8EDEF /* Debug */,
+				B4A74163B0F8313895DF5B17AFD022CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F65E67BC8A169673EF3740A7F2B00B2 /* Build configuration list for PBXNativeTarget "KafkaRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE66903141DD1932D7ABC419F07E01B9 /* Debug */,
+				22E3F641E3826C0138FCD3B08B4DA502 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
