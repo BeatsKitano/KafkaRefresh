@@ -186,10 +186,14 @@ Highly scalable, custom, multi-style refresh framework.
 
 ### Installation 
 * CocoaPods
-
 ```ruby
 pod 'KafkaRefresh'
 ```
+
+* Carthage 
+
+If anyone wants to install by *carthage* , please supply a pull request. I'm not using this package manager myself.
+
 ### Usage
 
 ##### 1.Introduce header files
@@ -414,6 +418,11 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 ```ruby
 pod 'KafkaRefresh'
 ```
+
+* Carthage 
+
+如果您想通过*carthage*安装 , 请您申请一个pull request.
+
 ### Usage
 
 ##### 1.引入头文件
