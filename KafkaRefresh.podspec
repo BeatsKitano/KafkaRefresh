@@ -15,25 +15,21 @@ Pod::Spec.new do |s|
 
 	s.source_files = "KafkaRefresh/KafkaRefresh.h"
 	s.public_header_files = "KafkaRefresh/KafkaRefresh.h"
-	s.resource     = "KafkaRefresh/Resource/**/*"
+	s.resource     = 'KafkaRefresh/Resource/**/*'
 
 	s.subspec 'Category' do |ss|
-		ss.source_files = "KafkaRefresh/Category/*.{h,m}"
-		ss.public_header_files = "KafkaRefresh/Category/**/*.{h}"
+		ss.source_files = "KafkaRefresh/Category/**/*"
+		ss.public_header_files = "KafkaRefresh/Category/*.{h}"
 	end
 
 	s.subspec 'Core' do |ss|
-		ss.source_files = "KafkaRefresh/Core/**/*.{h,m}"
-		ss.public_header_files = "KafkaRefresh/Core/**/*.{h}"
+		ss.source_files = "KafkaRefresh/Core/**/*"
+		ss.public_header_files = "KafkaRefresh/Core/*.{h}"
 		ss.dependency 'KafkaRefresh/Category'
 	end
-
-	s.subspec 'Resource' do |ss|
-		ss.source_files = "KafkaRefresh/Resource/**/*.{h,m}"
-	end
-
+  
 	s.subspec 'Configuration' do |ss|
-		ss.source_files = "KafkaRefresh/Configuration/**/*.{h,m}"
+		ss.source_files = "KafkaRefresh/Configuration/**/*"
 		ss.public_header_files = "KafkaRefresh/Configuration/**/*.{h}"
 		ss.dependency 'KafkaRefresh/UIKit/HeadKit'
 		ss.dependency 'KafkaRefresh/UIKit/FootKit'
@@ -45,23 +41,32 @@ Pod::Spec.new do |s|
 	end
 
 	s.subspec 'UIKit' do |ss|
+
+		ss.source_files = "KafkaRefresh/UIKit/KafkaRefreshStyle.h"
+		ss.public_header_files = "KafkaRefresh/UIKit/KafkaRefreshStyle.h"
+
 		ss.subspec 'HeadKit' do |sss|
-			sss.source_files = "KafkaRefresh/UIKit/HeadKit/*.{h,m}"
+			sss.source_files = "KafkaRefresh/UIKit/HeadKit/**/*"
 			sss.public_header_files = "KafkaRefresh/UIKit/HeadKit/*.{h}"
 			sss.dependency 'KafkaRefresh/UIKit/LayerKit'
-			sss.resource     = "KafkaRefresh/Resource/**/*"
+			sss.dependency 'KafkaRefresh/Category'
+			sss.dependency 'KafkaRefresh/Core'
+			sss.dependency 'KafkaRefresh/Configuration/KafkaRefreshStyle.h'
 		end
 
 		ss.subspec 'FootKit' do |sss|
-			sss.source_files = "KafkaRefresh/UIKit/FootKit/*.{h,m}"
+			sss.source_files = "KafkaRefresh/UIKit/FootKit/**/*"
 			sss.public_header_files = "KafkaRefresh/UIKit/FootKit/*.{h}"
-			sss.resource     = "KafkaRefresh/Resource/**/*"
 			sss.dependency 'KafkaRefresh/UIKit/LayerKit'
+			sss.dependency 'KafkaRefresh/Category'
+			sss.dependency 'KafkaRefresh/Core'
+			sss.dependency 'KafkaRefresh/Configuration/KafkaRefreshStyle.h'
 		end
 
 		ss.subspec 'LayerKit' do |sss|
-			sss.source_files = "KafkaRefresh/UIKit/LayerKit/*.{h,m}"
+			sss.source_files = "KafkaRefresh/UIKit/LayerKit/**/*"
 			sss.public_header_files = "KafkaRefresh/UIKit/LayerKit/*.{h}"
+			sss.dependency 'KafkaRefresh/Category'
 		end
 	end
 
