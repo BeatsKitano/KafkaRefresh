@@ -8,9 +8,10 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
+#define KafkaColorWithRGBA(r,g,b,a)  \
+[UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
+
 #import "KafkaRefreshControl.h"
-#import "KafkaLayoutCategories.h"
-#import "KafkaDefines.h"
 
 static NSString * const KafkaContentOffset = @"contentOffset";
 static NSString * const KafkaContentSize = @"contentSize";

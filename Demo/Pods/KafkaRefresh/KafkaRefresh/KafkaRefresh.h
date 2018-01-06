@@ -7,21 +7,18 @@
  *															 *
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
-
-
+ 
 #import "UIScrollView+Kafka.h"
+#import "KafkaRefreshProtocol.h"
 
-#import "UIScrollView+KafkaConfiguration.h"
+#import "KafkaHeadRefreshControl.h"
+#import "KafkaFootRefreshControl.h"
 
 #import "KafkaRefreshStyle.h"
-
 #import "KafkaRefreshDefaults.h"
-
-#import "KafkaHeaderRefreshControl.h"
-#import "KafkaFooterRefreshControl.h"
+#import "UIScrollView+KafkaConfiguration.h"
 
 
-
-
+ 
 
 

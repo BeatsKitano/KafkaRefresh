@@ -8,11 +8,16 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
-#import <UIKit/UIKit.h>
+#import <UIKit/UIKit.h> 
 #import "KafkaRefreshProtocol.h"
+#import "UIView+KafkaLayout.h"
+#import "NSObject+KafkaAnimation.h"
+#import "UIScrollView+KafkaLayout.h"
+
+#define KafkaColorWithRGBA(r,g,b,a)  \
+[UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
 
 typedef void(^KakfkaRefreshHandler)(void);
-
 
 /**
  Refresh control base class, developers do not use this class directly

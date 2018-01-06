@@ -5,11 +5,6 @@
 ![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 
-[中文文档](#inchinese)
-
-### Overviews
-Highly scalable, custom, multi-style refresh framework.
-
 ### Screenshots
 <table>
 <tr height="60px" align="center">
@@ -64,6 +59,11 @@ Highly scalable, custom, multi-style refresh framework.
 </tr>
 </table>
 
+[中文文档](#inchinese)
+
+### Overviews
+Highly scalable, custom, multi-style refresh framework.
+
 ### Comparison
 <table>
 <tr height="60px" align="center">
@@ -90,8 +90,8 @@ Highly scalable, custom, multi-style refresh framework.
 </tr>
 <tr align="center" height="45px">
   <td><strong>Allow interaction when refreshing</strong></td>
-  <td><img width="20px" height="20px" src="Assets/support.png"></td>
-  <td><img width="20px" height="20px" src="Assets/support.png"></td>
+  <td><img width="20px" height="20px" src="Assets/bug.png"></td>
+  <td><img width="20px" height="20px" src="Assets/bug.png"></td>
   <td><img width="20px" height="23px" src="Assets/bug.png"></img></td>
   <td><img width="20px" height="20px" src="Assets/support.png"></img></td> 
 </tr>
@@ -120,7 +120,7 @@ Highly scalable, custom, multi-style refresh framework.
 <tr align="center" height="60px">
   <td><strong>Support multi-style selection and custom</strong></td>
   <td align="left">
-   KafkaRefresh has a number of refresh styles built in, and styles can be customized. Expansion interface allows developers to integrate more rich UI effects.
+   KafkaRefresh has a number of refresh styles built in, and styles can be customized,expansion interface allows developers to integrate more rich UI effects.
   </td> 
 </tr>
 <tr align="center" height="60px"> 
@@ -132,12 +132,12 @@ Highly scalable, custom, multi-style refresh framework.
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Anti-dithering at the end of the refresh</strong></td>
-  <td align="left">When the control finishes refreshing, if UIScrollView is in a sliding state, KafkaRefresh will display the contntOffset that controls the UIScrollView at this time according to the refresh control</td> 
+  <td align="left">When the refresh control finishes refreshing, if UIScrollView is in a scrolling state, KafkaRefresh will adjust the contntOffset that controls the UIScrollView at this time according to the refresh control</td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Support setting the offset threshold to trigger refresh</strong></td>
   <td align="left">
-   Offset threshold can be customized, self-control trigger refresh conditions; offset threshold is based on the height of the control multiple, and must be greater than 1.0; otherwise invalid.
+   Offset threshold can be customized, manually trigger refresh conditions; offset threshold is based on the height of the refresh control multiple, and must be greater than 1.0; otherwise invalid.
   </td> 
 </tr>
 <tr align="center" height="60px"> 
@@ -161,19 +161,19 @@ Highly scalable, custom, multi-style refresh framework.
 <tr align="center" height="60px"> 
   <td><strong>Solve the refresh status grouping view hover problem</strong></td>
   <td align="left">
-  When UITableView has more than one group, and the height of the grouping view is not 0, the state of refresh will be half-empty. Since EGO, the refresh framework that tried to solve the problem started with MJRefresh, but unfortunately MJRefresh did not perfectly solve the problem (essentially because contentOffset does not change continuously). KafkaRefresh Avoids this problem even when swiping fast on a refresh.
+  When UITableView or UICollectionView has more than one group, and the height of the sectionView is not 0, the state of refresh will be half-empty. Since EGOTableViewPullRefresh, the refresh framework that tried to solve the problem started with MJRefresh, but unfortunately MJRefresh did not perfectly solve the problem (essentially because contentOffset does not change continuously). KafkaRefresh Avoids this problem even when swiping fast on a refresh.
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Document coverage 100%</strong></td>
   <td align="left">
-  You can see the use of all methods and classes in the header file
+  You can see the use of all methods and classes in the header file.
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Support horizontal and vertical screen switching adaptive</strong></td>
   <td align="left">
-  No need to consider in the horizontal and vertical screen refresh refresh problem
+  No need to consider in the horizontal and vertical screen refresh refresh problem.
   </td> 
 </tr>
 <tr align="center" height="60px"> 
@@ -186,10 +186,14 @@ Highly scalable, custom, multi-style refresh framework.
 
 ### Installation 
 * CocoaPods
-
 ```ruby
 pod 'KafkaRefresh'
 ```
+
+* Carthage 
+
+If anyone wants to install by *carthage* , please supply a pull request. I'm not using this package manager myself.
+
 ### Usage
 
 ##### 1.Introduce header files
@@ -334,8 +338,8 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 </tr>
 <tr align="center" height="45px">
   <td><strong>刷新中允许交互</strong></td>
-  <td><img width="20px" height="20px" src="Assets/support.png"></td>
-  <td><img width="20px" height="20px" src="Assets/support.png"></td>
+  <td><img width="20px" height="20px" src="Assets/bug.png"></td>
+  <td><img width="20px" height="20px" src="Assets/bug.png"></td>
   <td><img width="20px" height="23px" src="Assets/bug.png"></img></td>
   <td><img width="20px" height="20px" src="Assets/support.png"></img></td> 
 </tr>
@@ -414,6 +418,11 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 ```ruby
 pod 'KafkaRefresh'
 ```
+
+* Carthage 
+
+如果您想通过*carthage*安装 , 请您申请一个pull request.
+
 ### Usage
 
 ##### 1.引入头文件

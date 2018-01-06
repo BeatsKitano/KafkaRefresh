@@ -1,1 +1,1 @@
-../../../KafkaRefresh/KafkaRefresh/UIKit/Foot/KafkaRingIndicatorFooter.h
+../../../KafkaRefresh/KafkaRefresh/UIKit/FootKit/KafkaRingIndicatorFooter.h
