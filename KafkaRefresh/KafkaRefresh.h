@@ -11,6 +11,7 @@
 
 
 #import "KafkaRefreshCore.h"
+#import "KafkaRefreshCategory.h"
 #import "KafkaRefreshUserInterface.h"
 
 
