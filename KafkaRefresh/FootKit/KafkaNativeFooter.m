@@ -7,8 +7,7 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaNativeFooter.h"
-#import "UIView+KafkaLayout.h"
+#import "KafkaNativeFooter.h" 
 
 @interface KafkaNativeFooter()
 

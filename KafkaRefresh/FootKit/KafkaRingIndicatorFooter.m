@@ -8,8 +8,7 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaRingIndicatorFooter.h"
-#import "UIView+KafkaLayout.h"
+#import "KafkaRingIndicatorFooter.h" 
 
 @implementation KafkaRingIndicatorFooter
 

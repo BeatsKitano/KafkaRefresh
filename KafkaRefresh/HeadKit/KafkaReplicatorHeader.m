@@ -8,8 +8,7 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaReplicatorHeader.h" 
-#import "UIView+KafkaLayout.h"
+#import "KafkaReplicatorHeader.h"  
 
 @implementation KafkaReplicatorHeader
 

@@ -8,8 +8,7 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaArrowFooter.h"
-#import "UIView+KafkaLayout.h" 
+#import "KafkaArrowFooter.h" 
 #import "KafkaRefreshDefaults.h"
 
 @interface KafkaArrowFooter()

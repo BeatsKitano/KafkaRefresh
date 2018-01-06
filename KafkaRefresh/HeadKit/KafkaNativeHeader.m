@@ -8,8 +8,7 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
-#import "KafkaNativeHeader.h"
-#import "UIView+KafkaLayout.h"
+#import "KafkaNativeHeader.h" 
 
 @interface KafkaNativeHeader()
 

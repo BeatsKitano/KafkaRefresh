@@ -9,8 +9,7 @@
  */
 
 #import "KafkaRingIndicatorHeader.h"
-
-
+ 
 @implementation KafkaRingIndicatorHeader
 
 - (void)setupProperties{
