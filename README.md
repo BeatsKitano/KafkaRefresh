@@ -90,8 +90,8 @@ Highly scalable, custom, multi-style refresh framework.
 </tr>
 <tr align="center" height="45px">
   <td><strong>Allow interaction when refreshing</strong></td>
-  <td><img width="20px" height="20px" src="Assets/support.png"></td>
-  <td><img width="20px" height="20px" src="Assets/support.png"></td>
+  <td><img width="20px" height="20px" src="Assets/bug.png"></td>
+  <td><img width="20px" height="20px" src="Assets/bug.png"></td>
   <td><img width="20px" height="23px" src="Assets/bug.png"></img></td>
   <td><img width="20px" height="20px" src="Assets/support.png"></img></td> 
 </tr>
@@ -338,8 +338,8 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 </tr>
 <tr align="center" height="45px">
   <td><strong>刷新中允许交互</strong></td>
-  <td><img width="20px" height="20px" src="Assets/support.png"></td>
-  <td><img width="20px" height="20px" src="Assets/support.png"></td>
+  <td><img width="20px" height="20px" src="Assets/bug.png"></td>
+  <td><img width="20px" height="20px" src="Assets/bug.png"></td>
   <td><img width="20px" height="23px" src="Assets/bug.png"></img></td>
   <td><img width="20px" height="20px" src="Assets/support.png"></img></td> 
 </tr>
