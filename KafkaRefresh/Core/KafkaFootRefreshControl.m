@@ -8,7 +8,9 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaFootRefreshControl.h" 
+#import "KafkaFootRefreshControl.h"
+#import "NSObject+KafkaAnimation.h"
+#import "UIScrollView+KafkaLayout.h"
 
 @implementation KafkaFootRefreshControl
 

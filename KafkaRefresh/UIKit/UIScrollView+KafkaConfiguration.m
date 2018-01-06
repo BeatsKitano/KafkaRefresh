@@ -10,9 +10,19 @@
 
 
 #import "UIScrollView+KafkaConfiguration.h"
-#import "KafkaRefreshUserInterface.h"
-
 #import "KafkaRefreshDefaults.h"
+#import "UIScrollView+Kafka.h"
+
+#import "KafkaNativeHeader.h"
+#import "KafkaReplicatorHeader.h"
+#import "KafkaRingIndicatorHeader.h"
+#import "KafkaArrowHeader.h"
+
+#import "KafkaNativeFooter.h"
+#import "KafkaReplicatorFooter.h"
+#import "KafkaRingIndicatorFooter.h"
+#import "KafkaArrowFooter.h"
+
 
 @implementation UIScrollView (KafkaConfiguration)
 

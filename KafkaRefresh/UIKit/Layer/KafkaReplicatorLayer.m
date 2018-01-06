@@ -11,7 +11,7 @@
 [UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
 
 #import "KafkaReplicatorLayer.h" 
-#import "KafkaRefreshCategory.h"
+#import "CALayer+KafkaLayout.h"
 #import <objc/runtime.h>
 
 static void * KafkaLeftDot = &KafkaLeftDot;

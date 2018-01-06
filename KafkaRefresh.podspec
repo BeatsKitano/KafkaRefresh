@@ -17,32 +17,30 @@ Pod::Spec.new do |s|
 	s.public_header_files = "KafkaRefresh/KafkaRefresh.h"
 	s.resource     = "KafkaRefresh/Resource/**/*"
 
-#================
+
 
 	s.subspec 'Category' do |ss|
 		ss.source_files = "KafkaRefresh/Category/*.{h,m}"
-		ss.public_header_files = "KafkaRefresh/Category/KafkaRefreshCategory.h"
 	end
 
-#===============
+
 
 	s.subspec 'Core' do |ss|
 		ss.source_files = "KafkaRefresh/Core/**/*.{h,m}"
-		ss.public_header_files = "KafkaRefresh/Core/KafkaRefreshCore.h"
 		ss.dependency 'KafkaRefresh/Category'
 	end
 
-#===============
+
 
 	s.subspec 'Resource' do |ss|
 		ss.source_files = "KafkaRefresh/Resource/**/*"
 	end
-#================
+
+
 
 	s.subspec 'UIKit' do |ss|
 
 		ss.source_files = "KafkaRefresh/UIKit/*.{h,m}"
-		ss.public_header_files = "KafkaRefresh/UIKit/KafkaRefreshUserInterface.h"
 		ss.dependency  'KafkaRefresh/Core'
 		ss.dependency  'KafkaRefresh/Category'
 		ss.dependency  'KafkaRefresh/Resource'

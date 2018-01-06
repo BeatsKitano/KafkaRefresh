@@ -12,6 +12,8 @@
 [UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
 
 #import "KafkaRefreshControl.h"
+#import "NSObject+KafkaAnimation.h"
+#import "UIScrollView+KafkaLayout.h"
 
 static NSString * const KafkaContentOffset = @"contentOffset";
 static NSString * const KafkaContentSize = @"contentSize";

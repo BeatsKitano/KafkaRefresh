@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KafkaRefreshStyle.h"
-#import "KafkaRefreshCore.h"
+#import "KafkaRefreshControl.h"
 
 /**
  Refresh the control's location
