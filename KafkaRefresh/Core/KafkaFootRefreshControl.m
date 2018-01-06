@@ -9,8 +9,6 @@
  */
 
 #import "KafkaFootRefreshControl.h"
-#import "NSObject+KafkaAnimation.h"
-#import "UIScrollView+KafkaLayout.h"
 
 @implementation KafkaFootRefreshControl
 

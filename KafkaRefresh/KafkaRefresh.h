@@ -16,10 +16,12 @@
 #import "KafkaHeadRefreshControl.h"
 #import "KafkaFootRefreshControl.h"
 
+#import "KafkaRefreshStyle.h"
 #import "KafkaRefreshDefaults.h"
+
 #import "UIScrollView+KafkaConfiguration.h"
 
-#import "KafkaRefreshStyle.h"
+
  
 
 

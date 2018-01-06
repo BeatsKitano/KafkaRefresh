@@ -9,6 +9,7 @@
  */
 
 #import "KafkaRefreshControl.h"
+#import "UIView+KafkaLayout.h"
 
 @interface KafkaHeadRefreshControl : KafkaRefreshControl
 

@@ -9,7 +9,7 @@
  */
 
 #import "KafkaRingIndicatorHeader.h"
-#import "UIView+KafkaLayout.h"
+
 
 @implementation KafkaRingIndicatorHeader
 

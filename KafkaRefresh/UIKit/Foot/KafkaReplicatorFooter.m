@@ -9,7 +9,6 @@
  */
 
 #import "KafkaReplicatorFooter.h"
-#import "KafkaReplicatorLayer.h"
 #import "CALayer+KafkaLayout.h" 
 
 @implementation KafkaReplicatorFooter
