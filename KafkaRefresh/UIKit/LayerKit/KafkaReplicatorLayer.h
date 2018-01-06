@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger,KafkaReplicatorLayerAnimationStyle) {
 	KafkaReplicatorLayerAnimationStyleTriangle
 };
 
-@interface KafkaReplicatorLayer : CALayer
+@interface KafkaReplicatorLayer : CALayer<KafkaAnimatableProtocol>
 
 @property (strong, nonatomic) CAReplicatorLayer *replicatorLayer;
 @property (strong, nonatomic) CAShapeLayer *indicatorShapeLayer;
