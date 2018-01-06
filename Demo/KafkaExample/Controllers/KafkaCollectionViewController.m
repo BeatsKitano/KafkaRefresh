@@ -9,7 +9,6 @@
  */
 
 #import "KafkaCollectionViewController.h"
-#import "KafkaLayoutCategories.h"
 
 #define MainColor  [UIColor colorWithRed:28./255. green:164./255. blue:252/255. alpha:1.]
 
