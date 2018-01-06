@@ -8,21 +8,20 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaHeaderRefreshControl.h"
-#import "KafkaLayoutCategories.h"
+#import "KafkaHeadRefreshControl.h" 
 
-@implementation KafkaHeaderRefreshControl
+@implementation KafkaHeadRefreshControl
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
 	self.top = -self.height;
 }
  
-static inline CGPoint content_offset_refresh(KafkaHeaderRefreshControl *cSelf){
+static inline CGPoint content_offset_refresh(KafkaHeadRefreshControl *cSelf){
 	return CGPointMake(cSelf.scrollView.left,-cSelf.height);
 }
 
-static inline CGPoint content_offset_none(KafkaHeaderRefreshControl *cSelf){
+static inline CGPoint content_offset_none(KafkaHeadRefreshControl *cSelf){
 	return CGPointMake(cSelf.scrollView.left, 0);
 }
 

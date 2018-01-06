@@ -9,7 +9,8 @@
  */
 
 #import "KafkaRefreshControl.h"
+#import "KafkaRefreshProtocol.h"
 
-@interface KafkaHeaderRefreshControl : KafkaRefreshControl
+@interface KafkaFootRefreshControl : KafkaRefreshControl
 
 @end

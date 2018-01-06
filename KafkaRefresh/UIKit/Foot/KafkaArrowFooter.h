@@ -8,9 +8,9 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaFooterRefreshControl.h"
+#import "KafkaFootRefreshControl.h"
 
-@interface KafkaArrowFooter : KafkaFooterRefreshControl
+@interface KafkaArrowFooter : KafkaFootRefreshControl
 
 /**
  Foot drag to display the text

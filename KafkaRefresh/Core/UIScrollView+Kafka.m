@@ -10,8 +10,8 @@
 
 #import "UIScrollView+Kafka.h"
 #import <objc/runtime.h>
-#import "KafkaHeaderRefreshControl.h"
-#import "KafkaFooterRefreshControl.h"
+#import "KafkaHeadRefreshControl.h"
+#import "KafkaFootRefreshControl.h"
 
 #define KafkaSelfSetValueRetainNonatomicAndKVOChange(keyPath,key,value) 			\
 [self willChangeValueForKey:(keyPath)];												\
@@ -29,25 +29,25 @@ NSString * KafkaFootKeyPath = @"KafkaHeadKeyPath";
 
 #pragma mark - setter and getter
 
-- (void)setHeadRefreshControl:(__kindof KafkaHeaderRefreshControl *)headRefreshControl{
+- (void)setHeadRefreshControl:(__kindof KafkaHeadRefreshControl *)headRefreshControl{
 	if (headRefreshControl != self.headRefreshControl) {
 		if (self.headRefreshControl) [self.headRefreshControl removeFromSuperview];
 		KafkaSelfSetValueRetainNonatomicAndKVOChange(KafkaHeadKeyPath, KafkaHeadRefreshKey, headRefreshControl)
 	}
 }
 
-- (KafkaHeaderRefreshControl *)headRefreshControl{
+- (KafkaHeadRefreshControl *)headRefreshControl{
 	return objc_getAssociatedObject(self, KafkaHeadRefreshKey);
 }
 
-- (void)setFootRefreshControl:(__kindof KafkaFooterRefreshControl *)footRefreshControl{
+- (void)setFootRefreshControl:(__kindof KafkaFootRefreshControl *)footRefreshControl{
 	if (footRefreshControl != self.footRefreshControl) {
 		if (self.footRefreshControl) [self.footRefreshControl removeFromSuperview];
 		KafkaSelfSetValueRetainNonatomicAndKVOChange(KafkaFootKeyPath, KafkaFootRefreshKey, footRefreshControl);
 	}
 }
 
-- (KafkaFooterRefreshControl *)footRefreshControl{
+- (KafkaFootRefreshControl *)footRefreshControl{
 	return objc_getAssociatedObject(self, KafkaFootRefreshKey);
 }
 

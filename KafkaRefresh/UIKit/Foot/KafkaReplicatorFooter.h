@@ -8,10 +8,10 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaFooterRefreshControl.h"
+#import "KafkaFootRefreshControl.h"
 #import "KafkaReplicatorLayer.h"
 
-@interface KafkaReplicatorFooter : KafkaFooterRefreshControl
+@interface KafkaReplicatorFooter : KafkaFootRefreshControl
 
 @property (strong, nonatomic) KafkaReplicatorLayer * replicatorLayer;
 @property (assign, nonatomic) KafkaReplicatorLayerAnimationStyle animationStyle;

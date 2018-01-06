@@ -9,7 +9,7 @@
  *************************************************************/
 
 #import "KafkaNativeHeader.h"
-#import "KafkaLayoutCategories.h"
+#import "KafkaRefreshCategory.h"
 
 @interface KafkaNativeHeader()
 

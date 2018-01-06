@@ -10,7 +10,7 @@
 
 #import "KafkaReplicatorFooter.h"
 #import "KafkaReplicatorLayer.h"
-#import "KafkaLayoutCategories.h" 
+#import "KafkaRefreshCategory.h" 
 
 @implementation KafkaReplicatorFooter
 

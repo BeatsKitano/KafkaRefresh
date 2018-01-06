@@ -9,7 +9,7 @@
  */
 
 #import "KafkaRingIndicatorHeader.h"
-#import "KafkaLayoutCategories.h"
+#import "KafkaRefreshCategory.h"
 
 @implementation KafkaRingIndicatorHeader
 

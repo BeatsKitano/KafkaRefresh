@@ -8,7 +8,7 @@
  */
 
 #import "KafkaNativeFooter.h"
-#import "KafkaLayoutCategories.h"
+#import "KafkaRefreshCategory.h"
 
 @interface KafkaNativeFooter()
 

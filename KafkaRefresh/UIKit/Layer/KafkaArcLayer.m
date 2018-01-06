@@ -8,9 +8,12 @@
  */
 
 #import "KafkaArcLayer.h"
-#import "KafkaLayoutCategories.h"
-#import "KafkaDefines.h"
+#import "KafkaRefreshCategory.h" 
 #import "KafkaRefreshDefaults.h"
+
+#define KafkaColorWithRGBA(r,g,b,a)  \
+[UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
+
 
 @interface KafkaArcLayer()
 

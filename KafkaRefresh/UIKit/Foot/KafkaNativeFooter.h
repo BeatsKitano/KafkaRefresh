@@ -7,8 +7,8 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaFooterRefreshControl.h"
+#import "KafkaFootRefreshControl.h"
 
-@interface KafkaNativeFooter : KafkaFooterRefreshControl
+@interface KafkaNativeFooter : KafkaFootRefreshControl
 
 @end

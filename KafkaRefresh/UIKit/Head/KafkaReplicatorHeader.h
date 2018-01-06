@@ -8,10 +8,10 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaHeaderRefreshControl.h"
+#import "KafkaHeadRefreshControl.h"
 #import "KafkaReplicatorLayer.h"
 
-@interface KafkaReplicatorHeader : KafkaHeaderRefreshControl
+@interface KafkaReplicatorHeader : KafkaHeadRefreshControl
 
 @property (strong, nonatomic) KafkaReplicatorLayer * replicatorLayer;
 

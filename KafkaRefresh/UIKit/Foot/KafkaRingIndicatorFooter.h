@@ -8,10 +8,10 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaFooterRefreshControl.h"
+#import "KafkaFootRefreshControl.h"
 #import "KafkaArcLayer.h"
 
-@interface KafkaRingIndicatorFooter : KafkaFooterRefreshControl
+@interface KafkaRingIndicatorFooter : KafkaFootRefreshControl
 
 @property (strong, nonatomic) KafkaArcLayer * arcLayer;
 @property (strong, nonatomic) UIActivityIndicatorView * indicator;

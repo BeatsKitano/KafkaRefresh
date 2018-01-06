@@ -8,9 +8,9 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaHeaderRefreshControl.h"
+#import "KafkaHeadRefreshControl.h"
 
-@interface KafkaArrowHeader : KafkaHeaderRefreshControl
+@interface KafkaArrowHeader : KafkaHeadRefreshControl
 
 /**
  Foot drag to display the text

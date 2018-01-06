@@ -8,22 +8,21 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaFooterRefreshControl.h"
-#import "KafkaLayoutCategories.h"
+#import "KafkaFootRefreshControl.h" 
 
-@implementation KafkaFooterRefreshControl
+@implementation KafkaFootRefreshControl
 
 - (void)layoutSubviews{
 	[super layoutSubviews]; 
 	self.top = self.scrollView.contentSize.height;
 }
 
-static inline CGPoint content_offset_refresh(KafkaFooterRefreshControl *cSelf){
+static inline CGPoint content_offset_refresh(KafkaFootRefreshControl *cSelf){
 	return CGPointMake(cSelf.scrollView.left,
 					   cSelf.scrollView.contentSize.height - cSelf.scrollView.height - cSelf.height);
 }
 
-static inline CGPoint content_offset_none(KafkaFooterRefreshControl *cSelf){
+static inline CGPoint content_offset_none(KafkaFootRefreshControl *cSelf){
 	return CGPointMake(cSelf.scrollView.left,
 					   cSelf.scrollView.contentSize.height - cSelf.scrollView.height);
 }

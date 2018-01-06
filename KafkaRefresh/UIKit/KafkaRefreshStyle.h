@@ -9,10 +9,6 @@
  *************************************************************/
 
 
-
-#ifndef KafkaRefreshStyle_h
-#define KafkaRefreshStyle_h
-
 typedef NS_ENUM(NSInteger,KafkaRefreshStyle) {
 	//Native
 	KafkaRefreshStyleNative  			= 0,
@@ -30,18 +26,5 @@ typedef NS_ENUM(NSInteger,KafkaRefreshStyle) {
 	KafkaRefreshStyleAnimatableArrow
 };
 
-#pragma mark - header styles
 
-#import "KafkaNativeHeader.h"
-#import "KafkaReplicatorHeader.h"
-#import "KafkaRingIndicatorHeader.h"
-#import "KafkaArrowHeader.h"
 
-#pragma mark - footer styles
-
-#import "KafkaNativeFooter.h"
-#import "KafkaReplicatorFooter.h"
-#import "KafkaRingIndicatorFooter.h"
-#import "KafkaArrowFooter.h"
-
-#endif /* KafkaRefreshStyle_h */

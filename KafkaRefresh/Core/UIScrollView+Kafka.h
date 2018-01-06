@@ -8,9 +8,18 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
+#import <UIKit/UIKit.h>
 
-#import "KafkaHeadRefreshControl.h"
+@class KafkaHeadRefreshControl,KafkaFootRefreshControl;
 
-@interface KafkaNativeHeader : KafkaHeadRefreshControl
+@interface UIScrollView (KafkaRefreshControl)
+
+/**
+ * Bind the UIScrollView to the refresh control, dynamic binding at runtime
+ */
+@property (strong, nonatomic) __kindof KafkaHeadRefreshControl *headRefreshControl;
+@property (strong, nonatomic) __kindof KafkaFootRefreshControl *footRefreshControl;
 
 @end
+
+

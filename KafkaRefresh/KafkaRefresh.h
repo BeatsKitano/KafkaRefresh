@@ -9,19 +9,8 @@
  *************************************************************/
 
 
-#import "UIScrollView+Kafka.h"
 
-#import "UIScrollView+KafkaConfiguration.h"
-
-#import "KafkaRefreshStyle.h"
-
-#import "KafkaRefreshDefaults.h"
-
-#import "KafkaHeaderRefreshControl.h"
-#import "KafkaFooterRefreshControl.h"
-
-
-
-
+#import "KafkaRefreshCore.h"
+#import "KafkaRefreshUserInterface.h"
 
 

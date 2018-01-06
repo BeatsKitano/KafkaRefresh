@@ -8,18 +8,20 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
+
+#import "NSObject+KafkaAnimation.h"
 #import <UIKit/UIKit.h>
 
-@class KafkaHeaderRefreshControl,KafkaFooterRefreshControl;
+@implementation NSObject (KafkaAnimation)
 
-@interface UIScrollView (KafkaRefreshControl)
-
-/**
- * Bind the UIScrollView to the refresh control, dynamic binding at runtime
- */
-@property (strong, nonatomic) __kindof KafkaHeaderRefreshControl *headRefreshControl;
-@property (strong, nonatomic) __kindof KafkaFooterRefreshControl *footRefreshControl;
+- (void)setAnimateBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion{
+	[UIView animateWithDuration:0.25
+						  delay:0
+						options:UIViewAnimationOptionCurveLinear
+					 animations:block
+					 completion:^(BOOL finished) {
+						 if (completion) completion();
+					 }];
+}
 
 @end
-
-

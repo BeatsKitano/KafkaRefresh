@@ -9,8 +9,7 @@
  */
 
 #import "KafkaArrowFooter.h"
-#import "KafkaLayoutCategories.h"
-#import "KafkaDefines.h"
+#import "KafkaRefreshCategory.h" 
 #import "KafkaRefreshDefaults.h"
 
 @interface KafkaArrowFooter()

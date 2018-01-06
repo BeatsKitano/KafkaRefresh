@@ -7,9 +7,11 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaReplicatorLayer.h"
-#import "KafkaDefines.h"
-#import "KafkaLayoutCategories.h"
+#define KafkaColorWithRGBA(r,g,b,a)  \
+[UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
+
+#import "KafkaReplicatorLayer.h" 
+#import "KafkaRefreshCategory.h"
 #import <objc/runtime.h>
 
 static void * KafkaLeftDot = &KafkaLeftDot;

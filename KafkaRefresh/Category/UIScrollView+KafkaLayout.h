@@ -8,9 +8,19 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
+#import <UIKit/UIKit.h>
 
-#import "KafkaHeadRefreshControl.h"
+@interface UIScrollView (KafkaLayout)
 
-@interface KafkaNativeHeader : KafkaHeadRefreshControl
+@property (nonatomic) CGFloat offsetX;
+@property (nonatomic) CGFloat offsetY;
+
+@property (nonatomic) CGFloat insetTop;
+@property (nonatomic) CGFloat insetBottom;
+
+/**
+ scrollView's contentInset not refreshed
+ */
+@property (assign, readonly) UIEdgeInsets realContentInset;
 
 @end
