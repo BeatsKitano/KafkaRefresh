@@ -187,7 +187,7 @@ Highly scalable, custom, multi-style refresh framework.
 ### Installation 
 * CocoaPods
 ```ruby
-pod 'KafkaRefresh', '~>0.7.0'
+pod 'KafkaRefresh'
 ```
 
 * Carthage 
@@ -416,7 +416,7 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 ### Installation
 * CocoaPods
 ```ruby
-pod 'KafkaRefresh', '~>0.7.0'
+pod 'KafkaRefresh'
 ```
 
 * Carthage 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name         = "KafkaRefresh"
-	s.version      = "0.7.5"
+	s.version      = "0.7.6"
 	s.summary      = "Highly scalable, custom, multi-style refresh framework."
 
 	s.homepage     = "https://github.com/xorshine/KafkaRefresh"
@@ -60,6 +60,7 @@ Pod::Spec.new do |s|
 		ss.dependency  'KafkaRefresh/Category'
 		ss.dependency  'KafkaRefresh/Resource'
 		ss.dependency  'KafkaRefresh/Default'
+		ss.dependency  'KafkaRefresh/CAKit'
 	end
 
 	s.subspec 'FootKit' do |ss|
@@ -69,6 +70,7 @@ Pod::Spec.new do |s|
 		ss.dependency  'KafkaRefresh/Category'
 		ss.dependency  'KafkaRefresh/Resource'
 		ss.dependency  'KafkaRefresh/Default'
+		ss.dependency  'KafkaRefresh/CAKit'
 	end
 
 end

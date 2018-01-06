@@ -16,7 +16,6 @@
 
 #import "KafkaRefreshStyle.h"
 #import "KafkaRefreshDefaults.h"
-
 #import "UIScrollView+KafkaConfiguration.h"
 
 

@@ -34,9 +34,9 @@ typedef NS_ENUM(NSInteger,KafkaRefreshPosition) {
  @handler called when refreshing
  */
 - (void)bindRefreshStyle:(KafkaRefreshStyle)style
-			  fillColor:(UIColor *)fillColor
-				atPosition:(KafkaRefreshPosition)position
-			 refreshHanler:(KakfkaRefreshHandler)handler;
+			   fillColor:(UIColor *)fillColor
+			  atPosition:(KafkaRefreshPosition)position
+		   refreshHanler:(KakfkaRefreshHandler)handler;
 
 /**
  If you set the global environment through KafkaRefreshDefaults,

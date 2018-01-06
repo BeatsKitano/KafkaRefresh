@@ -27,9 +27,9 @@
 @implementation UIScrollView (KafkaConfiguration)
 
 - (void)bindRefreshStyle:(KafkaRefreshStyle)style
-			  fillColor:(UIColor *)fillColor
-				atPosition:(KafkaRefreshPosition)position
-			 refreshHanler:(KakfkaRefreshHandler)handler{
+			   fillColor:(UIColor *)fillColor
+			  atPosition:(KafkaRefreshPosition)position
+		   refreshHanler:(KakfkaRefreshHandler)handler{
 	__kindof KafkaRefreshControl *control = [self _classWithRefreshStyle:style color:fillColor position:position];
 	if (!control) return;
 	control.refreshHandler = handler;
@@ -67,7 +67,7 @@
 				cls = [[KafkaNativeHeader alloc] init];
 			}else{
 				cls = [[KafkaNativeFooter alloc] init];
-			} 
+			}
 			break;
 		}
 			
