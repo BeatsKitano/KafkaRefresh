@@ -196,7 +196,7 @@ If anyone wants to install by *carthage* , please supply a pull request. I'm not
 
 ### Usage
 
-##### 1.Introduce header files
+##### 1.Import header files
 ```objective-c
  #import "KafkaRefresh.h" 
 ```
@@ -315,7 +315,7 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 ### <a id="inchinese"></a>概述
 高度可扩展、自定义、多样式的刷新框架。
 
-### Comparison
+### 比较
 <table>
 <tr height="45px" align="center">
   <td width="20%"><strong></strong></td>
@@ -359,7 +359,7 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 </tr>
 </table>
 
-### Features
+### 特点
 <table>
 <tr align="center" height="60px"> 
   <td width="30%"><strong>特点</strong></td>
@@ -413,7 +413,7 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 </tr>
 </table>
  
-### Installation
+### 安装
 * CocoaPods
 ```ruby
 pod 'KafkaRefresh'
@@ -423,7 +423,7 @@ pod 'KafkaRefresh'
 
 如果您想通过*carthage*安装 , 请您申请一个pull request.
 
-### Usage
+### 使用
 
 ##### 1.引入头文件
 ```objective-c
@@ -481,7 +481,7 @@ pod 'KafkaRefresh'
  [self.tableView.footRefreshControl endRefreshing];
 ```
 
-### Customize
+### 自定义
 以KafkaheadRefreshControl为例：
 ```objective-c
  #import "KafkaheadRefreshControl.h"
@@ -527,7 +527,7 @@ pod 'KafkaRefresh'
  @end
 ```
 
-### Communication
+### 交流
 > 1. 如需要帮助，请邮件 <xorshine@icloud.com>或者wechat：Xiangxh1015；
 > 2. 如遇到bug，请在Github open an issue，烦请您提供重现步骤；
 > 3. 个人精力有限，Kafka提供的回调接口足够去增加更丰富的UI效果，很欢迎您一起参与，并提交pull request；
