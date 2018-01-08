@@ -153,10 +153,14 @@ Highly scalable, custom, multi-style refresh framework.
   </td> 
 </tr>
 <tr align="center" height="60px"> 
-  <td><strong>Adaptive system adjustment and manual adjustment</strong></td>
+  <td><strong>Adaptive contentInset system adjustment and manual adjustment</strong></td>
   <td align="left">
-  
+  Adaptive iOS7 later UINavigationController automatically adjust scrollview contentOffset, KafkaRefresh also iOS 11 adaptation; when you manually set the value of contentInset, also need not worry about KafkaRefresh will affect the visual effects.
   </td> 
+</tr>
+<tr align="center" height="60px"> 
+  <td><strong>Support anti-content offset rolling refresh</strong></td>
+  <td align="left">KafkaRefresh does not arbitrarily adjust the list of cntentOffset when the user scroll the list, KafkaRefresh will not over adjust the list contentOffset no matter what refresh status. Therefore, after your list is integrated with KafkaRefresh, the swipe is still the expected result</td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Solve the refresh status grouping view hover problem</strong></td>
@@ -196,7 +200,7 @@ If anyone wants to install by *carthage* , please supply a pull request. I'm not
 
 ### Usage
 
-##### 1.Introduce header files
+##### 1.Import header files
 ```objective-c
  #import "KafkaRefresh.h" 
 ```
@@ -315,7 +319,7 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 ### <a id="inchinese"></a>概述
 高度可扩展、自定义、多样式的刷新框架。
 
-### Comparison
+### 比较
 <table>
 <tr height="45px" align="center">
   <td width="20%"><strong></strong></td>
@@ -359,7 +363,7 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 </tr>
 </table>
 
-### Features
+### 特点
 <table>
 <tr align="center" height="60px"> 
   <td width="30%"><strong>特点</strong></td>
@@ -378,6 +382,10 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
   <td align="left">当控件结束刷新，UIScrollView如果处于滑动状态，KafkaRefresh将根据刷新控件此时是否显示控制UIScrollView的contntOffset</td> 
 </tr>
 <tr align="center" height="60px"> 
+  <td><strong>支持抗内容偏移的滚动刷新</strong></td>
+  <td align="left">当用户滑动列表时，KafkaRefresh不会擅自调整列表的cntentOffset，KafkaRefresh不管处于何种刷新状态，都不会过多的调整列表位置。因此，您的列表集成KafkaRefresh后，滑动依旧是预期效果</td> 
+</tr>
+<tr align="center" height="60px"> 
   <td><strong>支持设置触发刷新的偏移阀值</strong></td>
   <td align="left">偏移阀值可自定义，自我把控触发刷新的条件；偏移阀值是基于控件高度的倍数，且必须大于1.0；否则无效。</td> 
 </tr>
@@ -390,8 +398,10 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
   <td align="left">实时回调拖拽的偏移比例，对于扩展接口，可根据进度调整动画</td> 
 </tr>
 <tr align="center" height="60px"> 
-  <td><strong>自适应系统调整与手动调整</strong></td>
-  <td align="left">  --  </td> 
+  <td><strong>自适应contentInset系统调整与手动调整</strong></td>
+  <td align="left">
+  自适应iOS7以后UINavigationController自动调整scrollview contentOffset，KafkaRefresh也对iOS 11进行了适配；当您手动设置了contentInset的值，也无需担心KafkaRefresh会影响到视觉效果。
+  </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>解决刷新状态分组视图悬停问题</strong></td>
@@ -413,7 +423,7 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 </tr>
 </table>
  
-### Installation
+### 安装
 * CocoaPods
 ```ruby
 pod 'KafkaRefresh'
@@ -423,7 +433,7 @@ pod 'KafkaRefresh'
 
 如果您想通过*carthage*安装 , 请您申请一个pull request.
 
-### Usage
+### 使用
 
 ##### 1.引入头文件
 ```objective-c
@@ -481,7 +491,7 @@ pod 'KafkaRefresh'
  [self.tableView.footRefreshControl endRefreshing];
 ```
 
-### Customize
+### 自定义
 以KafkaheadRefreshControl为例：
 ```objective-c
  #import "KafkaheadRefreshControl.h"
@@ -527,7 +537,7 @@ pod 'KafkaRefresh'
  @end
 ```
 
-### Communication
+### 交流
 > 1. 如需要帮助，请邮件 <xorshine@icloud.com>或者wechat：Xiangxh1015；
 > 2. 如遇到bug，请在Github open an issue，烦请您提供重现步骤；
 > 3. 个人精力有限，Kafka提供的回调接口足够去增加更丰富的UI效果，很欢迎您一起参与，并提交pull request；

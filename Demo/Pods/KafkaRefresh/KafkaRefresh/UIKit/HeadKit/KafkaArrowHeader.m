@@ -68,6 +68,7 @@
 			break;
 		}
 		case KafkaRefreshStateReady:{
+			[_indicator stopAnimating];
 			self.promptlabel.text = _readyText;
 			[UIView animateWithDuration:0.3 animations:^{
 				weakSelf.arrowImgV.transform = CGAffineTransformMakeRotation(M_PI);

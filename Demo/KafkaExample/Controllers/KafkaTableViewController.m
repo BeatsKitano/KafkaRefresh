@@ -15,6 +15,7 @@
 
 @interface KafkaTableViewController ()
 @property (assign, nonatomic) KafkaRefreshStyle style;
+@property (strong, nonatomic) NSMutableArray * source;
 @end
 
 @implementation KafkaTableViewController
@@ -36,7 +37,7 @@
     [super viewDidLoad];
 	
 	self.navigationItem.title = @"UITableView";
-	self.tableView.rowHeight = 60.;
+	
 	self.tableView.sectionHeaderHeight = 35.;
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	self.tableView.tableFooterView = [UIView new];
@@ -46,7 +47,11 @@
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
 						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ 
+			for (NSInteger i = 0; i < 2; i++) {
+				[weakSelf.source insertObject:@"" atIndex:0];
+			}
+			[weakSelf.tableView reloadData];
 			[weakSelf.tableView.headRefreshControl endRefreshing];
 		});
 	}];
@@ -55,6 +60,9 @@
 
 	[self.tableView bindRefreshStyle:_style fillColor:MinorColor  atPosition:1 refreshHanler:^{
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			[weakSelf.source addObjectsFromArray:@[@"",
+												   @""]];
+			[weakSelf.tableView reloadData];
 			[weakSelf.tableView.footRefreshControl endRefreshing];
 		});
 	}];
@@ -65,7 +73,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+	return self.source.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	if (indexPath.row % 2 == 0) {
+		return 60;
+	}
+	return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,6 +108,13 @@
 	cell.textLabel.backgroundColor = [UIColor clearColor];
 	cell.textLabel.textColor = MainColor;
 	cell.textLabel.text = [NSString stringWithFormat:@"section: %ld  row: %ld",(long)indexPath.section,(long)indexPath.row];
+}
+
+- (NSMutableArray *)source{
+	if (!_source) {
+		_source = @[].mutableCopy;
+	}
+	return _source;
 }
 
 @end
