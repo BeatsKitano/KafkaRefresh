@@ -155,7 +155,7 @@ Highly scalable, custom, multi-style refresh framework.
 <tr align="center" height="60px"> 
   <td><strong>Adaptive contentInset system adjustment and manual adjustment</strong></td>
   <td align="left">
-  
+  Adaptive iOS7 later UINavigationController automatically adjust scrollview contentOffset, KafkaRefresh also iOS 11 adaptation; when you manually set the value of contentInset, also need not worry about KafkaRefresh will affect the visual effects.
   </td> 
 </tr>
 <tr align="center" height="60px"> 
