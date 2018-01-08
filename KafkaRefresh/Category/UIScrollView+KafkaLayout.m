@@ -38,7 +38,7 @@
 
 - (void)setInsetTop:(CGFloat)insetTop{
 	UIEdgeInsets inset = self.contentInset;
-	inset.top = insetTop;
+	inset.top = insetTop; 
 	self.contentInset = inset;
 }
 

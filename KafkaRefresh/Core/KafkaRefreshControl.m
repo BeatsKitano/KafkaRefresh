@@ -64,19 +64,15 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 			self.alpha = 0.;
 			break;
 		}
-		case KafkaRefreshStateScrolling:{
+		case KafkaRefreshStateScrolling:
+		case KafkaRefreshStateReady:
+		case KafkaRefreshStateRefreshing:
+		case KafkaRefreshStateWillEndRefresh:{
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
 			} completion:NULL];
-			break;
-		}
-		case KafkaRefreshStateReady:
-		case KafkaRefreshStateRefreshing:{
-			break;
-		}
-		case KafkaRefreshStateWillEndRefresh:{
-			break;
+			break; 
 		}
 	}
 }
@@ -172,12 +168,11 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 - (void)endRefreshing{
 	if (!self.isRefresh) return;
 	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
+	self.refreshState = KafkaRefreshStateScrolling;
 	[self setScrollViewToOriginalLocation];
 }
 
-- (void)setScrollViewToOriginalLocation{
-	if (self.isTriggeredRefreshByUser) self.refreshState = KafkaRefreshStateScrolling;
-}
+- (void)setScrollViewToOriginalLocation{}
 
 #pragma mark -
 
