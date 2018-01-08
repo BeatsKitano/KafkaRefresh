@@ -153,10 +153,14 @@ Highly scalable, custom, multi-style refresh framework.
   </td> 
 </tr>
 <tr align="center" height="60px"> 
-  <td><strong>Adaptive system adjustment and manual adjustment</strong></td>
+  <td><strong>Adaptive contentInset system adjustment and manual adjustment</strong></td>
   <td align="left">
   
   </td> 
+</tr>
+<tr align="center" height="60px"> 
+  <td><strong>Support anti-content offset rolling refresh</strong></td>
+  <td align="left">KafkaRefresh does not arbitrarily adjust the list of cntentOffset when the user scroll the list, KafkaRefresh will not over adjust the list contentOffset no matter what refresh status. Therefore, after your list is integrated with KafkaRefresh, the swipe is still the expected result</td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Solve the refresh status grouping view hover problem</strong></td>
@@ -378,6 +382,10 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
   <td align="left">当控件结束刷新，UIScrollView如果处于滑动状态，KafkaRefresh将根据刷新控件此时是否显示控制UIScrollView的contntOffset</td> 
 </tr>
 <tr align="center" height="60px"> 
+  <td><strong>支持抗内容偏移的滚动刷新</strong></td>
+  <td align="left">当用户滑动列表时，KafkaRefresh不会擅自调整列表的cntentOffset，KafkaRefresh不管处于何种刷新状态，都不会过多的调整列表位置。因此，您的列表集成KafkaRefresh后，滑动依旧是预期效果</td> 
+</tr>
+<tr align="center" height="60px"> 
   <td><strong>支持设置触发刷新的偏移阀值</strong></td>
   <td align="left">偏移阀值可自定义，自我把控触发刷新的条件；偏移阀值是基于控件高度的倍数，且必须大于1.0；否则无效。</td> 
 </tr>
@@ -390,8 +398,10 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
   <td align="left">实时回调拖拽的偏移比例，对于扩展接口，可根据进度调整动画</td> 
 </tr>
 <tr align="center" height="60px"> 
-  <td><strong>自适应系统调整与手动调整</strong></td>
-  <td align="left">  --  </td> 
+  <td><strong>自适应contentInset系统调整与手动调整</strong></td>
+  <td align="left">
+  自适应iOS7以后UINavigationController自动调整scrollview contentOffset，KafkaRefresh也对iOS 11进行了适配；当您手动设置了contentInset的值，也无需担心KafkaRefresh会影响到视觉效果。
+  </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>解决刷新状态分组视图悬停问题</strong></td>
