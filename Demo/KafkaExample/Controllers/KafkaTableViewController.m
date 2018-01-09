@@ -42,9 +42,7 @@
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	self.tableView.tableFooterView = [UIView new];
 	self.tableView.backgroundColor = [UIColor whiteColor];
-	
-	self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 50, 0);
-	
+	  
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
