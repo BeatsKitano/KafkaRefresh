@@ -42,10 +42,11 @@
 	self.arrowImgV.right = self.promptlabel.left-20.;
 	self.arrowImgV.top = self.promptlabel.centerY;
 	
-	self.indicator.center = self.arrowImgV.center;
+	self.indicator.center = self.arrowImgV.center; 
 }
 
 - (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{
+	NSLog(@"progress:%f",progress);
 	__weak typeof(self) weakSelf = self;
 	[UIView animateWithDuration:0.3 animations:^{
 		weakSelf.arrowImgV.transform = CGAffineTransformMakeRotation(M_PI);
@@ -96,6 +97,7 @@
 		NSString *urlString = [path stringByAppendingPathComponent:@"arrow48.png"];
 		UIImage *image = [UIImage imageWithContentsOfFile:urlString];
 		_arrowImgV = [[UIImageView alloc] initWithImage:image];
+		_arrowImgV.layer.anchorPoint = CGPointMake(0.5, 0);
 	}
 	return _arrowImgV;
 }

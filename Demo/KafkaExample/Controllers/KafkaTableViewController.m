@@ -47,7 +47,7 @@
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
 						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ 
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			for (NSInteger i = 0; i < 2; i++) {
 				[weakSelf.source insertObject:@"" atIndex:0];
 			}
@@ -55,32 +55,34 @@
 			[weakSelf.tableView.headRefreshControl endRefreshing];
 		});
 	}];
-	
-	[self.tableView.headRefreshControl beginRefreshing];
-
+  
 	[self.tableView bindRefreshStyle:_style fillColor:MinorColor  atPosition:1 refreshHanler:^{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			[weakSelf.source addObjectsFromArray:@[@"",
 												   @""]];
 			[weakSelf.tableView reloadData];
 			[weakSelf.tableView.footRefreshControl endRefreshing];
 		});
 	}];
+//	[self.tableView.footRefreshControl beginRefreshing];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { 
-    return 2;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+	return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return self.source.count;
+	if (section == 0) {
+		return self.source.count;
+	}
+	return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 	if (indexPath.row % 2 == 0) {
-		return 60;
+		return 40;
 	}
-	return 100;
+	return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,23 +98,22 @@
 	UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 35)];
 	label.backgroundColor = MainColor;
 	label.textAlignment = NSTextAlignmentCenter;
-	label.textColor = [UIColor whiteColor];
-	label.text = @"——————————————————";
+	label.textColor = [UIColor whiteColor]; 
 	return label;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
 	cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0); 
-	cell.contentView.backgroundColor = [MainColor colorWithAlphaComponent:0.7];
+	cell.contentView.backgroundColor = [MainColor colorWithAlphaComponent:0.9];
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	cell.textLabel.backgroundColor = [UIColor clearColor];
-	cell.textLabel.textColor = MainColor;
+	cell.textLabel.textColor = [UIColor whiteColor];
 	cell.textLabel.text = [NSString stringWithFormat:@"section: %ld  row: %ld",(long)indexPath.section,(long)indexPath.row];
 }
 
 - (NSMutableArray *)source{
 	if (!_source) {
-		_source = @[].mutableCopy;
+		_source = @[@"",@"",@""].mutableCopy;
 	}
 	return _source;
 }

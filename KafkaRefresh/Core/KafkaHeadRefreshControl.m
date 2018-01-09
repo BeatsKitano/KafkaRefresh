@@ -21,10 +21,6 @@ static inline CGPoint content_offset_refresh(KafkaHeadRefreshControl *cSelf){
 	return CGPointMake(cSelf.scrollView.left,-cSelf.height);
 }
 
-static inline CGPoint content_offset_none(KafkaHeadRefreshControl *cSelf){
-	return CGPointMake(cSelf.scrollView.left, 0);
-}
-
 - (void)setScrollViewToRefreshLocation{
 	[super setScrollViewToRefreshLocation];
 	
@@ -53,11 +49,6 @@ static inline CGPoint content_offset_none(KafkaHeadRefreshControl *cSelf){
 	__weak typeof(self) weakSelf = self; 
 	[self setAnimateBlock:^{ 
 		weakSelf.scrollView.insetTop = weakSelf.adjustInsetsBySystemAndManually.top;
-		if (weakSelf.isTriggeredRefreshByUser) {
-			if (weakSelf.scrollView.offsetY < self.height) {
-				[weakSelf.scrollView setContentOffset:content_offset_none(weakSelf)];
-			}
-		}
 	} completion:^{
 		weakSelf.triggeredRefreshByUser = NO;
 		weakSelf.refreshState = KafkaRefreshStateNone;

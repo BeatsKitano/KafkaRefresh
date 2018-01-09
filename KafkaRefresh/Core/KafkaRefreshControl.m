@@ -65,7 +65,16 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 			break;
 		}
 		case KafkaRefreshStateScrolling:
-		case KafkaRefreshStateReady:
+		case KafkaRefreshStateReady:{
+			if (!self.isTriggeredRefreshByUser && !self.scrollView.isTracking) {
+				return;
+			}
+			__weak typeof(self) weakSelf = self;
+			[self setAnimateBlock:^{
+				weakSelf.alpha = 1.;
+			} completion:NULL];
+			break;
+		}
 		case KafkaRefreshStateRefreshing:
 		case KafkaRefreshStateWillEndRefresh:{
 			__weak typeof(self) weakSelf = self;
