@@ -66,6 +66,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 		}
 		case KafkaRefreshStateScrolling:
 		case KafkaRefreshStateReady:{
+			///when system adjust contentOffset atuomatically, will trigger refresh control's state changed.
 			if (!self.isTriggeredRefreshByUser && !self.scrollView.isTracking) {
 				return;
 			}
