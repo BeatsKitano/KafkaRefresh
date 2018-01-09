@@ -43,6 +43,8 @@
 	self.tableView.tableFooterView = [UIView new];
 	self.tableView.backgroundColor = [UIColor whiteColor];
 	
+	self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 50, 0);
+	
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
@@ -57,14 +59,19 @@
 	}];
   
 	[self.tableView bindRefreshStyle:_style fillColor:MinorColor  atPosition:1 refreshHanler:^{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			[weakSelf.source addObjectsFromArray:@[@"",
+												   @"",
+												   @"",
+												   @"",
+												   @"",
+												   @"",
 												   @""]];
 			[weakSelf.tableView reloadData];
 			[weakSelf.tableView.footRefreshControl endRefreshing];
 		});
 	}];
-//	[self.tableView.footRefreshControl beginRefreshing];
+	[self.tableView.footRefreshControl beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

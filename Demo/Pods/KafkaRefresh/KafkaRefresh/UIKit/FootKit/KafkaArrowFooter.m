@@ -46,11 +46,8 @@
 }
 
 - (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{
-	NSLog(@"progress:%f",progress);
-	__weak typeof(self) weakSelf = self;
-	[UIView animateWithDuration:0.3 animations:^{
-		weakSelf.arrowImgV.transform = CGAffineTransformMakeRotation(M_PI);
-	}];
+	
+	
 }
 
 - (void)kafkaRefreshStateDidChange:(KafkaRefreshState)state{
@@ -66,6 +63,10 @@
 		}
 		case KafkaRefreshStateScrolling:{
 			self.promptlabel.text = _pullingText;
+			__weak typeof(self) weakSelf = self;
+			[UIView animateWithDuration:0.3 animations:^{
+				weakSelf.arrowImgV.transform = CGAffineTransformMakeRotation(M_PI);
+			}];
 			break;
 		}
 		case KafkaRefreshStateReady:{

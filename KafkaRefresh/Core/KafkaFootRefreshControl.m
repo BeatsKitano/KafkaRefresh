@@ -58,43 +58,51 @@ static inline CGPoint content_offset_refresh(KafkaFootRefreshControl *cSelf){
 #pragma mark - contentOffset
 
 static inline CGFloat max_content_offset_y_threshold(KafkaRefreshControl * cSelf){
-	return MAX(cSelf.scrollView.contentSize.height - cSelf.scrollView.height, 0.0f) + cSelf.stretchOffsetYAxisThreshold*cSelf.height + cSelf.adjustInsetsBySystemAndManually.bottom;
+	return cSelf.scrollView.contentSize.height - cSelf.scrollView.height + cSelf.stretchOffsetYAxisThreshold*cSelf.height + cSelf.adjustInsetsBySystemAndManually.bottom;
 }
 
 static inline CGFloat min_content_offset_y_threshold(KafkaRefreshControl * cSelf){
-	return MAX(cSelf.scrollView.contentSize.height - cSelf.scrollView.height, 0.0f)+cSelf.adjustInsetsBySystemAndManually.bottom;
+	return cSelf.scrollView.contentSize.height - cSelf.scrollView.height + cSelf.adjustInsetsBySystemAndManually.bottom;
 }
 
 - (void)kafkaScrollViewContentOffsetDidChange:(CGPoint)contentOffset{
-	CGFloat maxContentOffsetYThreshold = max_content_offset_y_threshold(self);
-	CGFloat minContentOffsetYThreshold = min_content_offset_y_threshold(self);
-	CGFloat originY = contentOffset.y;
-	CGFloat contentOffsetBottom = MAX(self.scrollView.contentSize.height - self.scrollView.height, 0.0f);
-	
-	if (self.refreshState == KafkaRefreshStateRefreshing) {
-		
-	}else{
-		if (originY < contentOffsetBottom) return; 
+	if (self.refreshState != KafkaRefreshStateRefreshing) {
 		if (self.isTriggeredRefreshByUser) return;
 		
-		if (self.refreshState == KafkaRefreshStateScrolling){
-			CGFloat progress = (originY - contentOffsetBottom)/self.height;
-			progress = (progress <= self.stretchOffsetYAxisThreshold ? progress :self.stretchOffsetYAxisThreshold);
-			self.progress = progress;
+		CGFloat originY = 0.0, maxContentOffsetYThreshold = 0.0, minContentOffsetYThreshold = 0.0;
+		if (self.scrollView.contentSize.height + self.adjustInsetsBySystemAndManually.top <= self.scrollView.height){
+			maxContentOffsetYThreshold = self.stretchOffsetYAxisThreshold*self.height;
+			minContentOffsetYThreshold = 0;
+			originY = contentOffset.y + self.adjustInsetsBySystemAndManually.top; 
+			if (self.refreshState == KafkaRefreshStateScrolling){
+				CGFloat progress = fabs(originY)/self.height;
+				progress = (progress <= self.stretchOffsetYAxisThreshold ? progress :self.stretchOffsetYAxisThreshold);
+				self.progress = progress;
+			}
+		}else{
+			maxContentOffsetYThreshold = max_content_offset_y_threshold(self);
+			minContentOffsetYThreshold = min_content_offset_y_threshold(self);
+			originY = contentOffset.y;
+			///uncontinuous callback
+			if (originY < minContentOffsetYThreshold - 50.0) return; 
+			CGFloat contentOffsetBottom = self.scrollView.contentSize.height - self.scrollView.height;
+			if (self.refreshState == KafkaRefreshStateScrolling){
+				CGFloat progress = fabs((originY - contentOffsetBottom))/self.height;
+				progress = (progress <= self.stretchOffsetYAxisThreshold ? progress :self.stretchOffsetYAxisThreshold);
+				self.progress = progress;
+			}
 		}
-		
 		if (!self.scrollView.isDragging &&
 			self.refreshState == KafkaRefreshStateReady){
 			self.triggeredRefreshByUser = NO;
 			self.refreshState = KafkaRefreshStateRefreshing;
 			[self setScrollViewToRefreshLocation];
 		}
-		else if (originY <= minContentOffsetYThreshold &&
-				 self.refreshState != KafkaRefreshStateNone){
+		else if (originY <= minContentOffsetYThreshold){
 			self.refreshState = KafkaRefreshStateNone;
 		}
 		else if (originY >= minContentOffsetYThreshold &&
-				 originY <= maxContentOffsetYThreshold && 
+				 originY <= maxContentOffsetYThreshold &&
 				 self.refreshState != KafkaRefreshStateScrolling){
 			self.refreshState = KafkaRefreshStateScrolling;
 		}

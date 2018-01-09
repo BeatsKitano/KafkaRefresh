@@ -61,12 +61,17 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 	[self kafkaRefreshStateDidChange:refreshState];
 	switch (refreshState) {
 		case KafkaRefreshStateNone:{
-			self.alpha = 0.;
+			NSLog(@"回归");
+			__weak typeof(self) weakSelf = self;
+			[self setAnimateBlock:^{
+				weakSelf.alpha = 0.0;
+			} completion:NULL];
 			break;
 		}
-		case KafkaRefreshStateScrolling:
-		case KafkaRefreshStateReady:{
-			///when system adjust contentOffset atuomatically, will trigger refresh control's state changed.
+		case KafkaRefreshStateScrolling:{
+			NSLog(@"滑动");
+			///when system adjust contentOffset atuomatically,
+			///will trigger refresh control's state changed.
 			if (!self.isTriggeredRefreshByUser && !self.scrollView.isTracking) {
 				return;
 			}
@@ -76,8 +81,20 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 			} completion:NULL];
 			break;
 		}
-		case KafkaRefreshStateRefreshing:
+		case KafkaRefreshStateReady:{
+			NSLog(@"准备");
+			__weak typeof(self) weakSelf = self;
+			[self setAnimateBlock:^{
+				weakSelf.alpha = 1.;
+			} completion:NULL];
+			break;
+		}
+		case KafkaRefreshStateRefreshing:{
+			NSLog(@"刷新");
+			break;
+		}
 		case KafkaRefreshStateWillEndRefresh:{
+			NSLog(@"结束");
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
@@ -149,6 +166,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 					  ofObject:(id)object
 						change:(NSDictionary<NSKeyValueChangeKey,id> *)change
 					   context:(void *)context{
+	if (!self.window) return;
 	if ([keyPath isEqualToString:KafkaContentOffset]) {
 		CGPoint point = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
 		//If you quickly scroll scrollview in an instant, contentoffset changes are not continuous
