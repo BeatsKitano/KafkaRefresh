@@ -57,6 +57,26 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "98D2C0A62005F65000F1532F"
+               BuildableName = "KafkaExampleUITests.xctest"
+               BlueprintName = "KafkaExampleUITests"
+               ReferencedContainer = "container:KafkaExample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "98D2C0B42005F67400F1532F"
+               BuildableName = "KafkaExampleTests.xctest"
+               BlueprintName = "KafkaExampleTests"
+               ReferencedContainer = "container:KafkaExample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
