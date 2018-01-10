@@ -15,48 +15,48 @@
 </tr>
 <tr align="center" height="120px">
   <td width="300px">Native</td>
-  <td><img src="Gif/native.gif"></img></td>
-  <td><img src="Gif/_native.gif"></img></td>
+  <td><img src="Assets/Gif/native.gif"></img></td>
+  <td><img src="Assets/Gif/_native.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorWoody</td>
-  <td><img src="Gif/woody.gif"></img></td>
-  <td><img src="Gif/_woody.gif"></img></td>
+  <td><img src="Assets/Gif/woody.gif"></img></td>
+  <td><img src="Assets/Gif/_woody.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorAllen</td>
-  <td><img src="Gif/allen.gif"></img></td>
-  <td><img src="Gif/_allen.gif"></img></td>
+  <td><img src="Assets/Gif/allen.gif"></img></td>
+  <td><img src="Assets/Gif/_allen.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorCircle</td>
-  <td><img src="Gif/circle.gif"></img></td>
-  <td><img src="Gif/_circle.gif"></img></td>
+  <td><img src="Assets/Gif/circle.gif"></img></td>
+  <td><img src="Assets/Gif/_circle.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorDot</td>
-  <td><img src="Gif/dot.gif"></img></td>
-  <td><img src="Gif/_dot.gif"></img></td>
+  <td><img src="Assets/Gif/dot.gif"></img></td>
+  <td><img src="Assets/Gif/_dot.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorArc</td>
-  <td><img src="Gif/arc.gif"></img></td>
-  <td><img src="Gif/_arc.gif"></img></td>
+  <td><img src="Assets/Gif/arc.gif"></img></td>
+  <td><img src="Assets/Gif/_arc.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorTriangle</td>
-  <td><img src="Gif/triangle.gif"></img></td>
-  <td><img src="Gif/_triangle.gif"></img></td>
+  <td><img src="Assets/Gif/triangle.gif"></img></td>
+  <td><img src="Assets/Gif/_triangle.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>AnimatableRing</td>
-  <td><img src="Gif/ring.gif"></img></td>
-  <td><img src="Gif/_ring.gif"></img></td>
+  <td><img src="Assets/Gif/ring.gif"></img></td>
+  <td><img src="Assets/Gif/_ring.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>AnimatableArrow</td>
-  <td><img src="Gif/arrow.gif"></img></td>
-  <td><img src="Gif/_arrow.gif"></img></td>
+  <td><img src="Assets/Gif/arrow.gif"></img></td>
+  <td><img src="Assets/Gif/_arrow.gif"></img></td>
 </tr>
 </table>
 
