@@ -1,3 +1,4 @@
+osx_image: xcode9
 language: objective-c       
 xcode_project: Demo/KafkaExample.xcworkspace
 xcode_scheme: KafkaExample
