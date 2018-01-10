@@ -37,7 +37,7 @@
     [super viewDidLoad];
 	
 	self.navigationItem.title = @"UITableView";
-	
+	  
 	self.tableView.sectionHeaderHeight = 35.;
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	self.tableView.tableFooterView = [UIView new];
@@ -69,7 +69,7 @@
 			[weakSelf.tableView.footRefreshControl endRefreshing];
 		});
 	}];
-	[self.tableView.footRefreshControl beginRefreshing];
+//	[self.tableView.footRefreshControl beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
