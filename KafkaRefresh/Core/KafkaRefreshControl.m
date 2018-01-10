@@ -61,7 +61,6 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 	[self kafkaRefreshStateDidChange:refreshState];
 	switch (refreshState) {
 		case KafkaRefreshStateNone:{
-			NSLog(@"回归");
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 0.0;
@@ -69,7 +68,6 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 			break;
 		}
 		case KafkaRefreshStateScrolling:{
-			NSLog(@"滑动");
 			///when system adjust contentOffset atuomatically,
 			///will trigger refresh control's state changed.
 			if (!self.isTriggeredRefreshByUser && !self.scrollView.isTracking) {
@@ -82,7 +80,6 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 			break;
 		}
 		case KafkaRefreshStateReady:{
-			NSLog(@"准备");
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
@@ -90,11 +87,9 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 			break;
 		}
 		case KafkaRefreshStateRefreshing:{
-			NSLog(@"刷新");
 			break;
 		}
 		case KafkaRefreshStateWillEndRefresh:{
-			NSLog(@"结束");
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
