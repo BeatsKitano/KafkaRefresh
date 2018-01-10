@@ -1,44 +1,44 @@
 PODS:
-  - KafkaRefresh (0.7.5):
-    - KafkaRefresh/Category (= 0.7.5)
-    - KafkaRefresh/Configuration (= 0.7.5)
-    - KafkaRefresh/Core (= 0.7.5)
-    - KafkaRefresh/Default (= 0.7.5)
-    - KafkaRefresh/Style (= 0.7.5)
-    - KafkaRefresh/UIKit (= 0.7.5)
-  - KafkaRefresh/Category (0.7.5)
-  - KafkaRefresh/Configuration (0.7.5):
+  - KafkaRefresh (0.8.0):
+    - KafkaRefresh/Category (= 0.8.0)
+    - KafkaRefresh/Configuration (= 0.8.0)
+    - KafkaRefresh/Core (= 0.8.0)
+    - KafkaRefresh/Default (= 0.8.0)
+    - KafkaRefresh/Style (= 0.8.0)
+    - KafkaRefresh/UIKit (= 0.8.0)
+  - KafkaRefresh/Category (0.8.0)
+  - KafkaRefresh/Configuration (0.8.0):
     - KafkaRefresh/UIKit/FootKit
     - KafkaRefresh/UIKit/HeadKit
-  - KafkaRefresh/Core (0.7.5):
+  - KafkaRefresh/Core (0.8.0):
     - KafkaRefresh/Category
-  - KafkaRefresh/Default (0.7.5):
+  - KafkaRefresh/Default (0.8.0):
     - KafkaRefresh/Style
-  - KafkaRefresh/Style (0.7.5)
-  - KafkaRefresh/UIKit (0.7.5):
-    - KafkaRefresh/UIKit/FootKit (= 0.7.5)
-    - KafkaRefresh/UIKit/HeadKit (= 0.7.5)
-    - KafkaRefresh/UIKit/LayerKit (= 0.7.5)
-  - KafkaRefresh/UIKit/FootKit (0.7.5):
-    - KafkaRefresh/Category
-    - KafkaRefresh/Core
-    - KafkaRefresh/Default
-    - KafkaRefresh/Style
-    - KafkaRefresh/UIKit/LayerKit
-  - KafkaRefresh/UIKit/HeadKit (0.7.5):
+  - KafkaRefresh/Style (0.8.0)
+  - KafkaRefresh/UIKit (0.8.0):
+    - KafkaRefresh/UIKit/FootKit (= 0.8.0)
+    - KafkaRefresh/UIKit/HeadKit (= 0.8.0)
+    - KafkaRefresh/UIKit/LayerKit (= 0.8.0)
+  - KafkaRefresh/UIKit/FootKit (0.8.0):
     - KafkaRefresh/Category
     - KafkaRefresh/Core
     - KafkaRefresh/Default
     - KafkaRefresh/Style
     - KafkaRefresh/UIKit/LayerKit
-  - KafkaRefresh/UIKit/LayerKit (0.7.5):
+  - KafkaRefresh/UIKit/HeadKit (0.8.0):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/LayerKit (0.8.0):
     - KafkaRefresh/Category
 
 DEPENDENCIES:
   - KafkaRefresh
 
 SPEC CHECKSUMS:
-  KafkaRefresh: 95befebcb52c6081c339eb058f8343b52abc011f
+  KafkaRefresh: 4d70aa2cdba095510defa0855082d075746a54b8
 
 PODFILE CHECKSUM: 044dd473ca4acc97cd5ce970ab361e9daf46041f
 
