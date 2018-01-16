@@ -8,11 +8,19 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
-#import <UIKit/UIKit.h> 
+#import <UIKit/UIKit.h>
 #import "KafkaRefreshProtocol.h"
 #import "UIView+KafkaLayout.h"
 #import "NSObject+KafkaAnimation.h"
 #import "UIScrollView+KafkaLayout.h"
+
+#ifndef Kafka_REQUIRES_SUPER
+# if __has_attribute(objc_requires_super)
+#  define Kafka_REQUIRES_SUPER __attribute__((objc_requires_super))
+# else
+#  define Kafka_REQUIRES_SUPER
+# endif
+#endif
 
 #define KafkaColorWithRGBA(r,g,b,a)  \
 [UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
@@ -40,7 +48,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl : UIView<KafkaRefresh
 @property (nonatomic) KafkaRefreshState refreshState;
 
 /**
-When the system automatically or manually adjust contentInset,
+ When the system automatically or manually adjust contentInset,
  
  this value will be saved
  */
@@ -87,24 +95,25 @@ When the system automatically or manually adjust contentInset,
 /**
  Called right after initialization is completed
  */
-- (void)setupProperties;
+- (void)setupProperties Kafka_REQUIRES_SUPER;
 
 /**
- Subclasses override this method 
+ Subclasses override this method
  */
 - (void)kafkaScrollViewContentOffsetDidChange:(CGPoint)contentOffset;
-- (void)setScrollViewToRefreshLocation;
-- (void)setScrollViewToOriginalLocation;
+- (void)setScrollViewToRefreshLocation Kafka_REQUIRES_SUPER;
+- (void)setScrollViewToOriginalLocation Kafka_REQUIRES_SUPER;
 
 #pragma mark - public
 /**
  Trigger refresh
  */
-- (void)beginRefreshing;
+- (void)beginRefreshing Kafka_REQUIRES_SUPER;
 
 /**
  end refresh
  */
-- (void)endRefreshing;
+- (void)endRefreshing Kafka_REQUIRES_SUPER;
 
 @end
+
