@@ -103,12 +103,14 @@ static inline CGFloat min_content_offset_y_threshold(KafkaRefreshControl * cSelf
 		else if (originY >= minContentOffsetYThreshold){
 			self.refreshState = KafkaRefreshStateNone;
 		}
-		else if (originY <= minContentOffsetYThreshold &&
+		else if (self.scrollView.isDragging &&
+				 originY <= minContentOffsetYThreshold &&
 				 originY >= maxContentOffsetYThreshold &&
 				 self.refreshState != KafkaRefreshStateScrolling){
 			self.refreshState = KafkaRefreshStateScrolling;
 		}
-		else if (originY < maxContentOffsetYThreshold &&
+		else if (self.scrollView.isDragging &&
+				 originY < maxContentOffsetYThreshold &&
 				 self.refreshState != KafkaRefreshStateReady){ 
 			self.refreshState = KafkaRefreshStateReady;
 		}

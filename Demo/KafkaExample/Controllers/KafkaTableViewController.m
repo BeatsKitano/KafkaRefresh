@@ -37,7 +37,8 @@
     [super viewDidLoad];
 	
 	self.navigationItem.title = @"UITableView";
-	  
+	
+	self.tableView.estimatedRowHeight = 2.;
 	self.tableView.sectionHeaderHeight = 35.;
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	self.tableView.tableFooterView = [UIView new];
@@ -51,25 +52,19 @@
 			for (NSInteger i = 0; i < 2; i++) {
 				[weakSelf.source insertObject:@"" atIndex:0];
 			}
-			[weakSelf.tableView reloadData];
 			[weakSelf.tableView.headRefreshControl endRefreshing];
+			[weakSelf.tableView reloadData];
 		});
 	}];
   
 	[self.tableView bindRefreshStyle:_style fillColor:MinorColor  atPosition:1 refreshHanler:^{
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			[weakSelf.source addObjectsFromArray:@[@"",
-												   @"",
-												   @"",
-												   @"",
-												   @"",
-												   @"",
-												   @""]];
-			[weakSelf.tableView reloadData];
+			[weakSelf.source addObjectsFromArray:@[@"",@"",@"",@"",@"",@""]];
+			NSLog(@"end...");
 			[weakSelf.tableView.footRefreshControl endRefreshing];
+			[weakSelf.tableView reloadData];
 		});
 	}];
-//	[self.tableView.footRefreshControl beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -118,7 +113,7 @@
 
 - (NSMutableArray *)source{
 	if (!_source) {
-		_source = @[@"",@"",@""].mutableCopy;
+		_source = @[@"",@"",@"",@"",@"",@"",@""].mutableCopy;
 	}
 	return _source;
 }
