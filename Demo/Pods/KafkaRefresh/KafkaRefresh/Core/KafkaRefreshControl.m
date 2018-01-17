@@ -58,7 +58,6 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 - (void)setRefreshState:(KafkaRefreshState)refreshState{
 	if (_refreshState == refreshState) return;
 	_refreshState = refreshState;
-	[self kafkaRefreshStateDidChange:refreshState];
 	switch (refreshState) {
 		case KafkaRefreshStateNone:{
 			__weak typeof(self) weakSelf = self;
@@ -97,6 +96,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 			break; 
 		}
 	}
+	[self kafkaRefreshStateDidChange:refreshState];
 }
 
 - (void)setProgress:(CGFloat)progress{

@@ -34,7 +34,7 @@
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
-	[self.promptlabel sizeToFit]; 
+	
 	self.promptlabel.center = CGPointMake(self.width/2.0, self.height/2.);
 	
 	self.arrowImgV.frame = CGRectMake(0, 0, 12, 12);
@@ -53,7 +53,6 @@
 	__weak typeof(self) weakSelf = self;
 	switch (state) {
 		case KafkaRefreshStateNone:{
-			self.arrowImgV.hidden = NO;
 			[_indicator stopAnimating];
 			[UIView animateWithDuration:0.3 animations:^{
 				weakSelf.arrowImgV.transform = CGAffineTransformIdentity;
@@ -62,6 +61,7 @@
 		}
 		case KafkaRefreshStateScrolling:{
 			self.promptlabel.text = _pullingText;
+			[self.promptlabel sizeToFit]; 
 			[UIView animateWithDuration:0.3 animations:^{
 				weakSelf.arrowImgV.transform = CGAffineTransformIdentity;
 			}];
@@ -83,6 +83,7 @@
 		}
 		case KafkaRefreshStateWillEndRefresh:{
 			[_indicator stopAnimating];
+			self.arrowImgV.hidden = NO;
 			break;
 		}
 	}

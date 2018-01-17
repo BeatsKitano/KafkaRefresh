@@ -54,15 +54,17 @@
 	[super kafkaRefreshStateDidChange:state];
 	__weak typeof(self) weakSelf = self;
 	switch (state) {
-		case KafkaRefreshStateNone:{
-			self.arrowImgV.hidden = NO;
+		case KafkaRefreshStateNone:{ 
+			[_indicator stopAnimating];
 			[UIView animateWithDuration:0.3 animations:^{
 				weakSelf.arrowImgV.transform = CGAffineTransformMakeRotation(M_PI);
 			}];
 			break;
 		}
 		case KafkaRefreshStateScrolling:{
+			[_indicator stopAnimating];
 			self.promptlabel.text = _pullingText;
+			[self.promptlabel sizeToFit];
 			__weak typeof(self) weakSelf = self;
 			[UIView animateWithDuration:0.3 animations:^{
 				weakSelf.arrowImgV.transform = CGAffineTransformMakeRotation(M_PI);
@@ -85,6 +87,7 @@
 		}
 		case KafkaRefreshStateWillEndRefresh:{ 
 			[_indicator stopAnimating];
+			self.arrowImgV.hidden = NO;
 			break;
 		}
 	}
@@ -105,7 +108,7 @@
 
 - (UILabel *)promptlabel{
 	if (!_promptlabel) {
-		_promptlabel = [[UILabel alloc] init];
+		_promptlabel = [UILabel new];
 		_promptlabel.textAlignment = NSTextAlignmentCenter;
 		_promptlabel.textColor = KafkaColorWithRGBA(100.,100.,100.,1.0);
 		if (@available(iOS 8.2, *))
