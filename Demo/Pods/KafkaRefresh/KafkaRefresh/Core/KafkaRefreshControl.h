@@ -25,7 +25,7 @@
 #define KafkaColorWithRGBA(r,g,b,a)  \
 [UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
 
-typedef void(^KakfkaRefreshHandler)(void);
+typedef void(^KafkaRefreshHandler)(void);
 
 /**
  Refresh control base class, developers do not use this class directly
@@ -78,7 +78,7 @@ When the system automatically or manually adjust contentInset,
 /**
  Block will be called when refreshing
  */
-@property (copy, nonatomic) KakfkaRefreshHandler refreshHandler;
+@property (copy, nonatomic) KafkaRefreshHandler refreshHandler;
 
 /**
  The threshold for trigger refresh default 1.0 must be set to not less than 1.0,
