@@ -8,7 +8,7 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
-#import <UIKit/UIKit.h>
+#import <UIKit/UIKit.h> 
 #import "KafkaRefreshProtocol.h"
 #import "UIView+KafkaLayout.h"
 #import "NSObject+KafkaAnimation.h"
@@ -48,7 +48,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl : UIView<KafkaRefresh
 @property (nonatomic) KafkaRefreshState refreshState;
 
 /**
- When the system automatically or manually adjust contentInset,
+When the system automatically or manually adjust contentInset,
  
  this value will be saved
  */
@@ -98,7 +98,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl : UIView<KafkaRefresh
 - (void)setupProperties Kafka_REQUIRES_SUPER;
 
 /**
- Subclasses override this method
+ Subclasses override this method 
  */
 - (void)kafkaScrollViewContentOffsetDidChange:(CGPoint)contentOffset;
 - (void)setScrollViewToRefreshLocation Kafka_REQUIRES_SUPER;
@@ -116,4 +116,3 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl : UIView<KafkaRefresh
 - (void)endRefreshing Kafka_REQUIRES_SUPER;
 
 @end
-
