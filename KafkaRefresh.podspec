@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name         = "KafkaRefresh"
-	s.version      = "0.8.4"
+	s.version      = "0.8.5"
 	s.summary      = "Highly scalable, custom, multi-style refresh framework."
 
 	s.homepage     = "https://github.com/xorshine/KafkaRefresh"
@@ -72,6 +72,7 @@ Pod::Spec.new do |s|
 			sss.source_files = "KafkaRefresh/UIKit/LayerKit/**/*"
 			sss.public_header_files = "KafkaRefresh/UIKit/LayerKit/*.{h}"
 			sss.dependency 'KafkaRefresh/Category'
+			sss.dependency 'KafkaRefresh/Default'
 		end
 	end
 
