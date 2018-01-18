@@ -14,7 +14,6 @@
 @interface KafkaReplicatorHeader : KafkaHeadRefreshControl
 
 @property (strong, nonatomic) KafkaReplicatorLayer * replicatorLayer;
-
 @property (assign, nonatomic) KafkaReplicatorLayerAnimationStyle animationStyle;
 
 @end

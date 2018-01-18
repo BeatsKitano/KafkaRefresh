@@ -34,12 +34,12 @@
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
-	[self.promptlabel sizeToFit]; 
-	self.promptlabel.center = CGPointMake(self.width/2.0, self.height/2.);
+	
+	self.promptlabel.center = CGPointMake(self.kaf_width/2.0, self.kaf_height/2.);
 	
 	self.arrowImgV.frame = CGRectMake(0, 0, 12, 12);
-	self.arrowImgV.right = self.promptlabel.left-20.;
-	self.arrowImgV.top = self.promptlabel.centerY;
+	self.arrowImgV.kaf_right = self.promptlabel.kaf_left-20.;
+	self.arrowImgV.kaf_top = self.promptlabel.kaf_centerY;
 	
 	self.indicator.center = self.arrowImgV.center;
 }
@@ -60,8 +60,9 @@
 			}];
 			break;
 		}
-		case KafkaRefreshStateScrolling:{
+		case KafkaRefreshStateScrolling:{ 
 			self.promptlabel.text = _pullingText;
+			[self.promptlabel sizeToFit]; 
 			[UIView animateWithDuration:0.3 animations:^{
 				weakSelf.arrowImgV.transform = CGAffineTransformIdentity;
 			}];

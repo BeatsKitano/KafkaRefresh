@@ -20,7 +20,7 @@
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
-	self.replicatorLayer.frame = CGRectMake(0, 0, self.width, self.height);
+	self.replicatorLayer.frame = CGRectMake(0, 0, self.kaf_width, self.kaf_height);
 }
 
 - (void)setFillColor:(UIColor *)fillColor{
@@ -28,7 +28,7 @@
 		return;
 	}
 	[super setFillColor:fillColor];
-	self.replicatorLayer.tintColor = fillColor;
+	self.replicatorLayer.indicatorShapeLayer.backgroundColor = fillColor.CGColor;
 }
 
 - (void)setAnimationStyle:(KafkaReplicatorLayerAnimationStyle)animationStyle{

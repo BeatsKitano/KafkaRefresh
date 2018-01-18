@@ -17,7 +17,7 @@ static NSString * const KafkaContentOffset = @"contentOffset";
 static NSString * const KafkaContentSize = @"contentSize";
 
 static CGFloat const KafkaRefreshHeight = 45.;
-static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
+static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 
 @interface KafkaRefreshControl()
 
@@ -58,7 +58,6 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 - (void)setRefreshState:(KafkaRefreshState)refreshState{
 	if (_refreshState == refreshState) return;
 	_refreshState = refreshState;
-	[self kafkaRefreshStateDidChange:refreshState];
 	switch (refreshState) {
 		case KafkaRefreshStateNone:{
 			__weak typeof(self) weakSelf = self;
@@ -97,6 +96,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 			break; 
 		}
 	}
+	[self kafkaRefreshStateDidChange:refreshState];
 }
 
 - (void)setProgress:(CGFloat)progress{
@@ -107,7 +107,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 
 - (void)setStretchOffsetYAxisThreshold:(CGFloat)stretchOffsetYAxisThreshold{
 	if (_stretchOffsetYAxisThreshold != stretchOffsetYAxisThreshold &&
-		stretchOffsetYAxisThreshold > 1.0) {
+		stretchOffsetYAxisThreshold >= 1.0) {
 		_stretchOffsetYAxisThreshold = stretchOffsetYAxisThreshold;
 	}
 }
@@ -121,8 +121,8 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.4;
 - (void)layoutSubviews{
 	[super layoutSubviews];
 	
-	self.height = (self.height < 45.) ? KafkaRefreshHeight : self.height;
-	self.frame = CGRectMake(0, 0, self.scrollView.width, self.height); 
+	self.kaf_height = (self.kaf_height < 45.) ? KafkaRefreshHeight : self.kaf_height;
+	self.frame = CGRectMake(0, 0, self.scrollView.kaf_width, self.kaf_height);
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {

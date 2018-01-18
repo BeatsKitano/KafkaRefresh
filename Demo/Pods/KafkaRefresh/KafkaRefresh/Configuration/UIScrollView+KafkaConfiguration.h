@@ -39,6 +39,25 @@ typedef NS_ENUM(NSInteger,KafkaRefreshPosition) {
 		   refreshHanler:(KafkaRefreshHandler)handler;
 
 /**
+  This method can be directly bound to the UIScrolView refresh control
+
+ @param style control‘s style
+ 
+ @param fillColor fill color needed for animation
+ 
+ @param backgroundColor The background color of the layer that executes the animation
+ 
+ @param position  Refresh the control's location
+ 
+ @param handler called when refreshing
+ */
+- (void)bindRefreshStyle:(KafkaRefreshStyle)style
+			   fillColor:(UIColor *)fillColor
+ animatedBackgroundColor:(UIColor *)backgroundColor
+			  atPosition:(KafkaRefreshPosition)position
+		   refreshHanler:(KafkaRefreshHandler)handler;
+
+/**
  If you set the global environment through KafkaRefreshDefaults,
  
  then call this method directly

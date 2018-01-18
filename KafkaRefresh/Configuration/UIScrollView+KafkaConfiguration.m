@@ -40,6 +40,22 @@
 	}
 }
 
+- (void)bindRefreshStyle:(KafkaRefreshStyle)style
+			   fillColor:(UIColor *)fillColor
+ animatedBackgroundColor:(UIColor *)backgroundColor
+			  atPosition:(KafkaRefreshPosition)position
+		   refreshHanler:(KafkaRefreshHandler)handler{
+	__kindof KafkaRefreshControl *control = [self _classWithRefreshStyle:style color:fillColor position:position];
+	if (!control) return;
+	control.refreshHandler = handler;
+	control.animatedBackgroundColor = backgroundColor;
+	if (position == KafkaRefreshPositionHeader) {
+		self.headRefreshControl = control;
+	}else{
+		self.footRefreshControl = control;
+	}
+}
+
 - (void)bindDefaultRefreshStyleAtPosition:(KafkaRefreshPosition)position
 							refreshHanler:(KafkaRefreshHandler)handler{
 	if (position == KafkaRefreshPositionHeader) {

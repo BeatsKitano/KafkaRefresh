@@ -36,11 +36,11 @@
 	[super layoutSubviews];
 	
 	[self.promptlabel sizeToFit];
-	self.promptlabel.center = CGPointMake(self.width/2.0, self.height/2.);
+	self.promptlabel.center = CGPointMake(self.kaf_width/2.0, self.kaf_height/2.);
 	
 	self.arrowImgV.frame = CGRectMake(0, 0, 12, 12);
-	self.arrowImgV.right = self.promptlabel.left-20.;
-	self.arrowImgV.top = self.promptlabel.centerY;
+	self.arrowImgV.kaf_right = self.promptlabel.kaf_left-20.;
+	self.arrowImgV.kaf_top = self.promptlabel.kaf_centerY;
 	
 	self.indicator.center = self.arrowImgV.center; 
 }
@@ -56,13 +56,16 @@
 	switch (state) {
 		case KafkaRefreshStateNone:{
 			self.arrowImgV.hidden = NO;
+			[_indicator stopAnimating];
 			[UIView animateWithDuration:0.3 animations:^{
 				weakSelf.arrowImgV.transform = CGAffineTransformMakeRotation(M_PI);
 			}];
 			break;
 		}
 		case KafkaRefreshStateScrolling:{
+			[_indicator stopAnimating];
 			self.promptlabel.text = _pullingText;
+			[self.promptlabel sizeToFit];
 			__weak typeof(self) weakSelf = self;
 			[UIView animateWithDuration:0.3 animations:^{
 				weakSelf.arrowImgV.transform = CGAffineTransformMakeRotation(M_PI);
@@ -105,7 +108,7 @@
 
 - (UILabel *)promptlabel{
 	if (!_promptlabel) {
-		_promptlabel = [[UILabel alloc] init];
+		_promptlabel = [UILabel new];
 		_promptlabel.textAlignment = NSTextAlignmentCenter;
 		_promptlabel.textColor = KafkaColorWithRGBA(100.,100.,100.,1.0);
 		if (@available(iOS 8.2, *))

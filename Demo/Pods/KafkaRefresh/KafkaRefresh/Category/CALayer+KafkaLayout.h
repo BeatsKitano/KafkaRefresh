@@ -13,13 +13,13 @@
 
 @interface CALayer (KafkaLayout)
 
-@property (nonatomic) CGFloat left;
-@property (nonatomic) CGFloat top;
-@property (nonatomic) CGFloat right;
-@property (nonatomic) CGFloat bottom;
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
-@property (nonatomic) CGPoint origin;
-@property (nonatomic) CGSize  size;
+@property (nonatomic) CGFloat kaf_left;
+@property (nonatomic) CGFloat kaf_top;
+@property (nonatomic) CGFloat kaf_right;
+@property (nonatomic) CGFloat kaf_bottom;
+@property (nonatomic) CGFloat kaf_width;
+@property (nonatomic) CGFloat kaf_height;
+@property (nonatomic) CGPoint kaf_origin;
+@property (nonatomic) CGSize  kaf_size;
 
 @end

@@ -12,6 +12,7 @@
 
 #import "KafkaReplicatorLayer.h" 
 #import "CALayer+KafkaLayout.h"
+#import "KafkaRefreshDefaults.h"
 #import <objc/runtime.h>
 
 static void * KafkaLeftDot = &KafkaLeftDot;
@@ -30,9 +31,9 @@ static void * KafkaRightDot = &KafkaRightDot;
 - (void)setupProperties{
 	[self addSublayer:self.replicatorLayer];
 	[self.replicatorLayer addSublayer:self.indicatorShapeLayer];
-	_tintColor = KafkaColorWithRGBA(28, 164., 252, 1.);
 	
-	self.indicatorShapeLayer.backgroundColor = self.tintColor.CGColor;
+	self.indicatorShapeLayer.strokeColor = [KafkaRefreshDefaults standardRefreshDefaults].fillColor.CGColor;
+	self.indicatorShapeLayer.backgroundColor = [KafkaRefreshDefaults standardRefreshDefaults].backgroundColor.CGColor;
 }
 
 - (void)setAnimationStyle:(KafkaReplicatorLayerAnimationStyle)animationStyle{
@@ -42,21 +43,15 @@ static void * KafkaRightDot = &KafkaRightDot;
 	}
 }
 
-- (void)setTintColor:(UIColor *)tintColor{
-	if (_tintColor == tintColor) return;
-	_tintColor = tintColor;
-	self.indicatorShapeLayer.backgroundColor = tintColor.CGColor; 
-}
-
 - (void)layoutSublayers{
 	[super layoutSublayers];
-	self.replicatorLayer.frame = CGRectMake(0, 0, self.height, self.height);
-	self.replicatorLayer.position = CGPointMake(self.width/2., self.height/2.);
+	self.replicatorLayer.frame = CGRectMake(0, 0, self.kaf_height, self.kaf_height);
+	self.replicatorLayer.position = CGPointMake(self.kaf_width/2., self.kaf_height/2.);
 	
 	CGFloat padding = 5.;
 	switch (self.animationStyle) {
 		case KafkaReplicatorLayerAnimationStyleWoody:{
-			self.indicatorShapeLayer.frame = CGRectMake(padding, self.height/4,3., self.height/3.);
+			self.indicatorShapeLayer.frame = CGRectMake(padding, self.kaf_height/4, 3., self.kaf_height/3.);
 			self.indicatorShapeLayer.cornerRadius = 1.;
 			self.indicatorShapeLayer.transform = CATransform3DMakeScale(0.8, 0.8, 0.8);
 			
@@ -68,7 +63,7 @@ static void * KafkaRightDot = &KafkaRightDot;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleAllen:{
-			self.indicatorShapeLayer.frame = CGRectMake(padding, self.height/4+15,3., self.height/3.);
+			self.indicatorShapeLayer.frame = CGRectMake(padding, self.kaf_height/4+15,3., self.kaf_height/3.);
 			self.indicatorShapeLayer.cornerRadius = 1.;
 			
 			self.replicatorLayer.instanceCount = 5;
@@ -79,7 +74,7 @@ static void * KafkaRightDot = &KafkaRightDot;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleCircle:{
-			self.indicatorShapeLayer.frame = CGRectMake(self.replicatorLayer.width/2., 10, 4., 4.);
+			self.indicatorShapeLayer.frame = CGRectMake(self.replicatorLayer.kaf_width/2., 10, 4., 4.);
 			self.indicatorShapeLayer.cornerRadius = 2.;
 			self.indicatorShapeLayer.transform = CATransform3DMakeScale(0.2, 0.2, 0.2);
 			
@@ -92,7 +87,7 @@ static void * KafkaRightDot = &KafkaRightDot;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleDot:{
-			self.indicatorShapeLayer.frame = CGRectMake(0, self.height/2.,4, 4);
+			self.indicatorShapeLayer.frame = CGRectMake(0, self.kaf_height/2.,4, 4);
 			self.indicatorShapeLayer.cornerRadius = 2.;
 			
 			self.replicatorLayer.instanceCount = 3;
@@ -101,8 +96,7 @@ static void * KafkaRightDot = &KafkaRightDot;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleArc:{
-			self.indicatorShapeLayer.frame = CGRectMake(0, 0, self.replicatorLayer.height, self.replicatorLayer.height);
-			self.indicatorShapeLayer.strokeColor = self.tintColor.CGColor;
+			self.indicatorShapeLayer.frame = CGRectMake(0, 0, self.replicatorLayer.kaf_height, self.replicatorLayer.kaf_height);
 			self.indicatorShapeLayer.fillColor = [UIColor clearColor].CGColor;
 			self.indicatorShapeLayer.lineWidth = 3.;
 			self.indicatorShapeLayer.backgroundColor = [UIColor clearColor].CGColor;
@@ -119,8 +113,8 @@ static void * KafkaRightDot = &KafkaRightDot;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleTriangle:{
-			self.indicatorShapeLayer.frame = CGRectMake(self.replicatorLayer.width/2., 5., 8., 8.);
-			self.indicatorShapeLayer.cornerRadius = self.indicatorShapeLayer.width/2.;
+			self.indicatorShapeLayer.frame = CGRectMake(self.replicatorLayer.kaf_width/2., 5., 8., 8.);
+			self.indicatorShapeLayer.cornerRadius = self.indicatorShapeLayer.kaf_width/2.;
 			CGPoint topPoint = self.indicatorShapeLayer.position;
 			CGPoint leftPoint = CGPointMake(topPoint.x-15, topPoint.y+23);
 			CGPoint rightPoint = CGPointMake(topPoint.x+15, topPoint.y+23);
@@ -132,12 +126,12 @@ static void * KafkaRightDot = &KafkaRightDot;
 			if (rightCircle)
 				[rightCircle removeFromSuperlayer];
 			
-			leftCircle.size = self.indicatorShapeLayer.size;
+			leftCircle.kaf_size = self.indicatorShapeLayer.kaf_size;
 			leftCircle.position = leftPoint;
 			leftCircle.cornerRadius = self.indicatorShapeLayer.cornerRadius;
 			[self.replicatorLayer addSublayer:leftCircle];
 			 
-			rightCircle.size = self.indicatorShapeLayer.size;
+			rightCircle.kaf_size = self.indicatorShapeLayer.kaf_size;
 			rightCircle.position = rightPoint;
 			rightCircle.cornerRadius = self.indicatorShapeLayer.cornerRadius;
 			[self.replicatorLayer addSublayer:rightCircle];

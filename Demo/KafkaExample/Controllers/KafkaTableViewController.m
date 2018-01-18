@@ -47,6 +47,7 @@
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
+			 animatedBackgroundColor:[UIColor redColor]
 						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			for (NSInteger i = 0; i < 2; i++) {
@@ -56,9 +57,11 @@
 			[weakSelf.tableView reloadData];
 		});
 	}];
-  
-	[self.tableView bindRefreshStyle:_style fillColor:MinorColor  atPosition:1 refreshHanler:^{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+	
+	[self.tableView bindRefreshStyle:_style
+						   fillColor:MinorColor 
+						  atPosition:1 refreshHanler:^{
+							  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			[weakSelf.source addObjectsFromArray:@[@"",@"",@"",@"",@"",@""]];
 			NSLog(@"end...");
 			[weakSelf.tableView.footRefreshControl endRefreshing];

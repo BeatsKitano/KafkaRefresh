@@ -83,7 +83,7 @@ When the system automatically or manually adjust contentInset,
 /**
  The threshold for trigger refresh default 1.0 must be set to not less than 1.0,
  
- developers can set the value
+ default value is 1.3, developers can set the value
  */
 @property (assign, nonatomic) CGFloat stretchOffsetYAxisThreshold;
 
@@ -91,6 +91,16 @@ When the system automatically or manually adjust contentInset,
  fill color needed for animation
  */
 @property (strong, nonatomic) UIColor * fillColor;
+
+/**
+ The background color of the layer that executes the animation
+ */
+@property (strong, nonatomic) UIColor * animatedBackgroundColor;
+
+/**
+ Judge whether the animation is executed when the refresh is over
+ */
+@property (assign, nonatomic, getter=isAnimating) BOOL animating;
 
 /**
  Called right after initialization is completed
