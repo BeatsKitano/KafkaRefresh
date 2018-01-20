@@ -1,45 +1,46 @@
 PODS:
-  - KafkaRefresh (0.8.0):
-    - KafkaRefresh/Category (= 0.8.0)
-    - KafkaRefresh/Configuration (= 0.8.0)
-    - KafkaRefresh/Core (= 0.8.0)
-    - KafkaRefresh/Default (= 0.8.0)
-    - KafkaRefresh/Style (= 0.8.0)
-    - KafkaRefresh/UIKit (= 0.8.0)
-  - KafkaRefresh/Category (0.8.0)
-  - KafkaRefresh/Configuration (0.8.0):
+  - KafkaRefresh (0.8.6):
+    - KafkaRefresh/Category (= 0.8.6)
+    - KafkaRefresh/Configuration (= 0.8.6)
+    - KafkaRefresh/Core (= 0.8.6)
+    - KafkaRefresh/Default (= 0.8.6)
+    - KafkaRefresh/Style (= 0.8.6)
+    - KafkaRefresh/UIKit (= 0.8.6)
+  - KafkaRefresh/Category (0.8.6)
+  - KafkaRefresh/Configuration (0.8.6):
     - KafkaRefresh/UIKit/FootKit
     - KafkaRefresh/UIKit/HeadKit
-  - KafkaRefresh/Core (0.8.0):
+  - KafkaRefresh/Core (0.8.6):
     - KafkaRefresh/Category
-  - KafkaRefresh/Default (0.8.0):
+  - KafkaRefresh/Default (0.8.6):
     - KafkaRefresh/Style
-  - KafkaRefresh/Style (0.8.0)
-  - KafkaRefresh/UIKit (0.8.0):
-    - KafkaRefresh/UIKit/FootKit (= 0.8.0)
-    - KafkaRefresh/UIKit/HeadKit (= 0.8.0)
-    - KafkaRefresh/UIKit/LayerKit (= 0.8.0)
-  - KafkaRefresh/UIKit/FootKit (0.8.0):
+  - KafkaRefresh/Style (0.8.6)
+  - KafkaRefresh/UIKit (0.8.6):
+    - KafkaRefresh/UIKit/FootKit (= 0.8.6)
+    - KafkaRefresh/UIKit/HeadKit (= 0.8.6)
+    - KafkaRefresh/UIKit/LayerKit (= 0.8.6)
+  - KafkaRefresh/UIKit/FootKit (0.8.6):
     - KafkaRefresh/Category
     - KafkaRefresh/Core
     - KafkaRefresh/Default
     - KafkaRefresh/Style
     - KafkaRefresh/UIKit/LayerKit
-  - KafkaRefresh/UIKit/HeadKit (0.8.0):
+  - KafkaRefresh/UIKit/HeadKit (0.8.6):
     - KafkaRefresh/Category
     - KafkaRefresh/Core
     - KafkaRefresh/Default
     - KafkaRefresh/Style
     - KafkaRefresh/UIKit/LayerKit
-  - KafkaRefresh/UIKit/LayerKit (0.8.0):
+  - KafkaRefresh/UIKit/LayerKit (0.8.6):
     - KafkaRefresh/Category
+    - KafkaRefresh/Default
 
 DEPENDENCIES:
   - KafkaRefresh
 
 SPEC CHECKSUMS:
-  KafkaRefresh: 4d70aa2cdba095510defa0855082d075746a54b8
+  KafkaRefresh: 5132e62b271828ad61ff10a1116b9575682f77cd
 
-PODFILE CHECKSUM: 9e6f07ce9b5a431eae3ef80c99295c67113e5c3c
+PODFILE CHECKSUM: 061a5c7ead2867d0a4cd7be21d2b4b7795fb41db
 
 COCOAPODS: 1.2.0

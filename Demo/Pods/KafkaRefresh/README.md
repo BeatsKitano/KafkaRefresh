@@ -1,9 +1,11 @@
 ![KafkaRefresh](Assets/titleView.png)
 
-![](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![](https://img.shields.io/cocoapods/v/{KafkaRefresh}.svg?style=flat)
-![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
-![](https://img.shields.io/badge/language-objc-orange.svg)
+[![GitHub license](https://img.shields.io/github/license/xorshine/KafkaRefresh.svg)](https://github.com/xorshine/KafkaRefresh/blob/master/LICENSE)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/KafkaRefresh.svg)](https://img.shields.io/cocoapods/v/KafkaRefresh.svg)
+![cocoapods](https://img.shields.io/cocoapods/v/{KafkaRefresh}.svg?style=flat) 
+![platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
+![language](https://img.shields.io/badge/language-objc-orange.svg) 
+[![Email](https://img.shields.io/badge/e--mail-xorshine%40icloud.com-blue.svg)](mailto:xorshine@icloud.com)
 
 ### Screenshots
 <table>
@@ -14,48 +16,48 @@
 </tr>
 <tr align="center" height="120px">
   <td width="300px">Native</td>
-  <td><img src="Gif/native.gif"></img></td>
-  <td><img src="Gif/_native.gif"></img></td>
+  <td><img src="Assets/Gif/native.gif"></img></td>
+  <td><img src="Assets/Gif/_native.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorWoody</td>
-  <td><img src="Gif/woody.gif"></img></td>
-  <td><img src="Gif/_woody.gif"></img></td>
+  <td><img src="Assets/Gif/woody.gif"></img></td>
+  <td><img src="Assets/Gif/_woody.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorAllen</td>
-  <td><img src="Gif/allen.gif"></img></td>
-  <td><img src="Gif/_allen.gif"></img></td>
+  <td><img src="Assets/Gif/allen.gif"></img></td>
+  <td><img src="Assets/Gif/_allen.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorCircle</td>
-  <td><img src="Gif/circle.gif"></img></td>
-  <td><img src="Gif/_circle.gif"></img></td>
+  <td><img src="Assets/Gif/circle.gif"></img></td>
+  <td><img src="Assets/Gif/_circle.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorDot</td>
-  <td><img src="Gif/dot.gif"></img></td>
-  <td><img src="Gif/_dot.gif"></img></td>
+  <td><img src="Assets/Gif/dot.gif"></img></td>
+  <td><img src="Assets/Gif/_dot.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorArc</td>
-  <td><img src="Gif/arc.gif"></img></td>
-  <td><img src="Gif/_arc.gif"></img></td>
+  <td><img src="Assets/Gif/arc.gif"></img></td>
+  <td><img src="Assets/Gif/_arc.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>ReplicatorTriangle</td>
-  <td><img src="Gif/triangle.gif"></img></td>
-  <td><img src="Gif/_triangle.gif"></img></td>
+  <td><img src="Assets/Gif/triangle.gif"></img></td>
+  <td><img src="Assets/Gif/_triangle.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>AnimatableRing</td>
-  <td><img src="Gif/ring.gif"></img></td>
-  <td><img src="Gif/_ring.gif"></img></td>
+  <td><img src="Assets/Gif/ring.gif"></img></td>
+  <td><img src="Assets/Gif/_ring.gif"></img></td>
 </tr>
 <tr align="center" height="120px">
   <td>AnimatableArrow</td>
-  <td><img src="Gif/arrow.gif"></img></td>
-  <td><img src="Gif/_arrow.gif"></img></td>
+  <td><img src="Assets/Gif/arrow.gif"></img></td>
+  <td><img src="Assets/Gif/_arrow.gif"></img></td>
 </tr>
 </table>
 
@@ -306,6 +308,11 @@ Take KafkaheadRefreshControl as an example
  @end
 ```
 
+### Precautions
+* Please update the latest version；
+* After iOS 11, if you use estimatedRowHeight and the estimatedRowHeight height is too far from the true height, UITableView repeated refreshes may occur before version 0.8.3, which has been resolved since version 0.8.3 (iOS bug)
+
+
 ### Communication
 > 1. If you need help，please email <xorshine@icloud.com>.
 > 2. If you found a bug，and can provide steps to reliably reproduce it, open an issue.
@@ -537,11 +544,14 @@ pod 'KafkaRefresh'
  @end
 ```
 
+### 注意事项
+* 请更新至最新版本
+* iOS11之后，如果你使用了estimatedRowHeight，estimatedRowHeight的高度与真实高度相差过大，0.8.3版本之前可能会出现UITableView重复刷新问题，0.8.3版本后该问题已经解决(iOS bug)
+
 ### 交流
 > 1. 如需要帮助，请邮件 <xorshine@icloud.com>或者wechat：Xiangxh1015；
-> 2. 如遇到bug，请在Github open an issue，烦请您提供重现步骤；
-> 3. 个人精力有限，Kafka提供的回调接口足够去增加更丰富的UI效果，很欢迎您一起参与，并提交pull request；
-> 4. 如果您对该库有更好的设计思路，请务必e-mail或wechat。
+> 2. 个人精力有限，Kafka提供的回调接口足够去增加更丰富的UI效果，很欢迎您一起参与，并提交pull request；
+> 3. 如果您对该库有更好的设计思路，请务必e-mail或wechat。
 	
 ### License
 KafkaRefresh采用MIT开源协议。

@@ -149,8 +149,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 	}
 }
 
-- (void)drawRect:(CGRect)rect{
-	[super drawRect:rect];
+- (void)didMoveToWindow{
 	if (self.shouldRefreshWhenDisplayed) {
 		[self setScrollViewToRefreshLocation];
 		self.shouldRefreshWhenDisplayed = NO;
