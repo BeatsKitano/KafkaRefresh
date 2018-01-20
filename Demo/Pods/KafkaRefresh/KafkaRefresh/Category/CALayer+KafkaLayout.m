@@ -84,7 +84,7 @@
 	return self.position.y;
 }
 
-- (void)setKaf_centerY:(CGFloat)positionY {
+- (void)setKaf_positionY:(CGFloat)positionY {
 	self.position = CGPointMake(self.position.x, positionY);
 }
 

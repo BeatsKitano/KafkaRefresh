@@ -23,8 +23,7 @@ typedef NS_ENUM(NSInteger,KafkaReplicatorLayerAnimationStyle) {
 @interface KafkaReplicatorLayer : CALayer<KafkaAnimatableProtocol>
 
 @property (strong, nonatomic) CAReplicatorLayer *replicatorLayer;
-@property (strong, nonatomic) CAShapeLayer *indicatorShapeLayer;
-//@property (strong, nonatomic) UIColor * tintColor;
+@property (strong, nonatomic) CAShapeLayer *indicatorShapeLayer; 
 
 @property (assign, nonatomic) KafkaReplicatorLayerAnimationStyle animationStyle;
 

@@ -47,11 +47,11 @@ static void * KafkaRightDot = &KafkaRightDot;
 	[super layoutSublayers];
 	self.replicatorLayer.frame = CGRectMake(0, 0, self.kaf_height, self.kaf_height);
 	self.replicatorLayer.position = CGPointMake(self.kaf_width/2., self.kaf_height/2.);
-	
 	CGFloat padding = 5.;
 	switch (self.animationStyle) {
 		case KafkaReplicatorLayerAnimationStyleWoody:{
 			self.indicatorShapeLayer.frame = CGRectMake(padding, self.kaf_height/4, 3., self.kaf_height/3.);
+			self.indicatorShapeLayer.kaf_positionY = self.replicatorLayer.kaf_positionY;
 			self.indicatorShapeLayer.cornerRadius = 1.;
 			self.indicatorShapeLayer.transform = CATransform3DMakeScale(0.8, 0.8, 0.8);
 			
@@ -89,6 +89,7 @@ static void * KafkaRightDot = &KafkaRightDot;
 		case KafkaReplicatorLayerAnimationStyleDot:{
 			self.indicatorShapeLayer.frame = CGRectMake(0, self.kaf_height/2.,4, 4);
 			self.indicatorShapeLayer.cornerRadius = 2.;
+			self.indicatorShapeLayer.kaf_positionY = self.replicatorLayer.kaf_positionY;
 			
 			self.replicatorLayer.instanceCount = 3;
 			self.replicatorLayer.instanceDelay = 0.5/3;
@@ -103,11 +104,11 @@ static void * KafkaRightDot = &KafkaRightDot;
 			UIBezierPath *arcPath = [UIBezierPath bezierPath];
 			[arcPath addArcWithCenter:self.indicatorShapeLayer.position
 							   radius:18.
-						   startAngle:M_PI/6
-							 endAngle:-M_PI/6
+						   startAngle:M_PI/3
+							 endAngle:-M_PI/3
 							clockwise:NO];
 			self.indicatorShapeLayer.path = arcPath.CGPath;
-			
+			self.indicatorShapeLayer.strokeEnd = 0.1;
 			self.replicatorLayer.instanceCount = 2;
 			self.replicatorLayer.instanceTransform = CATransform3DMakeRotation(M_PI, 0, 0, 0.1);
 			break;
@@ -230,12 +231,37 @@ static void * KafkaRightDot = &KafkaRightDot;
 
 - (void)stopAnimating{
 	[self.indicatorShapeLayer removeAllAnimations];
-	if (self.animationStyle == KafkaReplicatorLayerAnimationStyleTriangle) {
-		CAShapeLayer *leftCircle = objc_getAssociatedObject(self, KafkaLeftDot);
-		[leftCircle removeAllAnimations];
-		CAShapeLayer *rightCircle = objc_getAssociatedObject(self, KafkaRightDot);
-		[rightCircle removeAllAnimations];
+	
+	switch (self.animationStyle) {
+		case KafkaReplicatorLayerAnimationStyleWoody:{
+			
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleAllen:{
+			
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleCircle:{
+			
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleDot:{
+			
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleArc:{
+			self.indicatorShapeLayer.strokeEnd = 0.1;
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleTriangle:{
+			CAShapeLayer *leftCircle = objc_getAssociatedObject(self, KafkaLeftDot);
+			[leftCircle removeAllAnimations];
+			CAShapeLayer *rightCircle = objc_getAssociatedObject(self, KafkaRightDot);
+			[rightCircle removeAllAnimations];
+			break;
+		}
 	}
+	
 }
 
 - (CABasicAnimation *)animationKeyPath:(NSString *)keyPath

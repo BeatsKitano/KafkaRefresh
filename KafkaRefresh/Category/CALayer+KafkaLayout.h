@@ -21,5 +21,7 @@
 @property (nonatomic) CGFloat kaf_height;
 @property (nonatomic) CGPoint kaf_origin;
 @property (nonatomic) CGSize  kaf_size;
+@property (nonatomic) CGFloat kaf_positionX;
+@property (nonatomic) CGFloat kaf_positionY;
 
 @end

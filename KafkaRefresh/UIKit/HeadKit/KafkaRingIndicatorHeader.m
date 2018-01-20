@@ -41,8 +41,9 @@
 }
 
 - (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{
-	if (progress >= 1.0) {
-		progress = (progress-1.0)/(max - 1.0);
+#define kOffset 0.7
+	if (progress >= kOffset) {
+		progress = (progress-kOffset)/(max - kOffset);
 		[self.arcLayer setProgress:progress];
 	}
 }
