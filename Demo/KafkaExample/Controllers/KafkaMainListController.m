@@ -30,9 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	 
-	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-	[self.navigationController.navigationBar setTranslucent:NO];
-	[self.navigationController.navigationBar setBarTintColor:MainColor];
+	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}]; 
 	
 	self.navigationItem.title = @"Kafka";
 	self.tableView.rowHeight = 55.;

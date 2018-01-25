@@ -33,10 +33,18 @@
 	return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+	[super viewDidAppear:animated];
+	NSLog(@"%@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
 	self.navigationItem.title = @"UITableView";
+	  
+	self.navigationController.navigationBar.translucent = YES;
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 	
 	self.tableView.estimatedRowHeight = 2.;
 	self.tableView.sectionHeaderHeight = 35.;

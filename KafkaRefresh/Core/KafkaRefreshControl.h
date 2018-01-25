@@ -73,7 +73,7 @@ When the system automatically or manually adjust contentInset,
  
  whether it needs to be refreshed
  */
-@property (assign, nonatomic) BOOL shouldRefreshWhenDisplayed;
+//@property (assign, nonatomic) BOOL shouldRefreshWhenDisplayed;
 
 /**
  Block will be called when refreshing

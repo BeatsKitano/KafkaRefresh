@@ -51,7 +51,6 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 	_refreshState = KafkaRefreshStateNone;
 	_stretchOffsetYAxisThreshold = kStretchOffsetYAxisThreshold; 
 	_refresh = NO;
-	_shouldRefreshWhenDisplayed = NO; 
 	if (CGRectEqualToRect(self.frame, CGRectZero)) self.frame = CGRectMake(0, 0, 1, 1);
 }
 
@@ -88,7 +87,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 		case KafkaRefreshStateRefreshing:{
 			break;
 		}
-		case KafkaRefreshStateWillEndRefresh:{
+		case KafkaRefreshStateWillEndRefresh:{ 
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
@@ -148,14 +147,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 		}
 	}
 }
-
-- (void)didMoveToWindow{
-	if (self.shouldRefreshWhenDisplayed) {
-		[self setScrollViewToRefreshLocation];
-		self.shouldRefreshWhenDisplayed = NO;
-	}
-}
-
+  
 - (void)observeValueForKeyPath:(NSString *)keyPath
 					  ofObject:(id)object
 						change:(NSDictionary<NSKeyValueChangeKey,id> *)change
@@ -176,16 +168,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 - (void)beginRefreshing{
 	if (self.isRefresh) return;
 	self.triggeredRefreshByUser = YES;
-	if (!self.window) {
-		self.shouldRefreshWhenDisplayed = YES;
-	}else{
-		[self setScrollViewToRefreshLocation];
-	}
+	[self setScrollViewToRefreshLocation];
 }
 
-- (void)setScrollViewToRefreshLocation{
-	if (self.isTriggeredRefreshByUser) self.refreshState = KafkaRefreshStateScrolling;
-}
+- (void)setScrollViewToRefreshLocation{}
 
 - (void)endRefreshing{
 	if (!self.isRefresh) return;
