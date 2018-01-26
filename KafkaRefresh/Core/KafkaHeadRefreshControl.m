@@ -23,7 +23,6 @@ static inline CGPoint content_offset_refresh(KafkaHeadRefreshControl *cSelf){
 
 - (void)setScrollViewToRefreshLocation{
 	[super setScrollViewToRefreshLocation];
-	
 	__weak typeof(self) weakSelf = self;
 	dispatch_async(dispatch_get_main_queue(), ^{
 		weakSelf.adjustInsetsBySystemAndManually = weakSelf.scrollView.realContentInset;

@@ -38,7 +38,10 @@
 
 - (void)setInsetTop:(CGFloat)insetTop{
 	UIEdgeInsets inset = self.contentInset;
-	inset.top = insetTop; 
+	inset.top = insetTop;
+	if (@available(iOS 11.0, *)) {
+		inset.top -= (self.adjustedContentInset.top - self.contentInset.top);
+	}
 	self.contentInset = inset;
 }
 
