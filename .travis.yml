@@ -2,5 +2,17 @@ osx_image: xcode9
 language: objective-c       
 xcode_project: Demo/KafkaExample.xcodeproj
 xcode_scheme: KafkaExample
+
+
+before_install:
+- env
+- xcodebuild -version
+- xcodebuild -showsdks
+- xcpretty --version
+
+script:
+- set -o pipefail
+- xcodebuild clean build -project "$TRAVIS_XCODE_PROJECT"  -scheme "$TRAVIS_XCODE_SCHEME" | xcpretty
+
  
 
