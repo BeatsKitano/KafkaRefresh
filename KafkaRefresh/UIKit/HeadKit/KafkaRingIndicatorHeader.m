@@ -40,8 +40,7 @@
 	self.arcLayer.ringBackgroundColor = animatedBackgroundColor;
 }
 
-- (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{
-	NSLog(@"....");
+- (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{ 
 #define kOffset 0.7
 	if (progress >= kOffset) {
 		progress = (progress-kOffset)/(max - kOffset);

@@ -20,11 +20,9 @@ static CGFloat const KafkaRefreshHeight = 45.;
 static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 
 @interface KafkaRefreshControl()
-
 @property (nonatomic, weak) __kindof UIScrollView *scrollView;
 @property (nonatomic, getter=isRefresh) BOOL refresh;
-@property (assign, nonatomic,getter=isObservering) BOOL observering; 
-
+@property (assign, nonatomic,getter=isObservering) BOOL observering;
 @end
 
 @implementation KafkaRefreshControl
@@ -136,10 +134,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 	else if (self.superview == nil && newSuperview){
 		if (!_observering) {
 			_scrollView = (UIScrollView *)newSuperview;
-			//////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////////
 			//sometimes, this method called before `layoutSubviews`,such as UICollectionViewController
 			[self layoutIfNeeded];
-			//////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////////
 			_adjustInsetsBySystemAndManually = ((UIScrollView *)newSuperview).realContentInset;
 			[newSuperview addObserver:self forKeyPath:KafkaContentOffset options:options context:nil];
 			[newSuperview addObserver:self forKeyPath:KafkaContentSize options:options context:nil];
@@ -152,10 +150,16 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 					  ofObject:(id)object
 						change:(NSDictionary<NSKeyValueChangeKey,id> *)change
 					   context:(void *)context{
-	if (!self.window) return;
 	if ([keyPath isEqualToString:KafkaContentOffset]) {
+		///////////////////////////////////////////////////////////////////////////////////////////
+		//If you disable the control's refresh feature, set the control to hidden
+		if (self.isHidden) return;
+		///////////////////////////////////////////////////////////////////////////////////////////
+		
 		CGPoint point = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
+		///////////////////////////////////////////////////////////////////////////////////////////
 		//If you quickly scroll scrollview in an instant, contentoffset changes are not continuous
+		///////////////////////////////////////////////////////////////////////////////////////////
 		[self kafkaScrollViewContentOffsetDidChange:point];
 	}
 	else if([keyPath isEqualToString:KafkaContentSize]){

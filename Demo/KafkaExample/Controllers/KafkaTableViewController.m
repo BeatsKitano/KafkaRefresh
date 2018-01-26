@@ -33,11 +33,6 @@
 	return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-	[super viewDidAppear:animated];
-	NSLog(@"%@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -51,7 +46,7 @@
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	self.tableView.tableFooterView = [UIView new];
 	self.tableView.backgroundColor = [UIColor whiteColor];
-	  
+	 
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
