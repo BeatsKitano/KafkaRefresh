@@ -76,6 +76,9 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 			break;
 		}
 		case KafkaRefreshStateReady:{
+			if (self.progress < self.stretchOffsetYAxisThreshold) {
+				[self kafkaDidScrollWithProgress:self.stretchOffsetYAxisThreshold max:self.stretchOffsetYAxisThreshold];
+			}
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
@@ -85,7 +88,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 		case KafkaRefreshStateRefreshing:{
 			break;
 		}
-		case KafkaRefreshStateWillEndRefresh:{ 
+		case KafkaRefreshStateWillEndRefresh:{
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
@@ -109,8 +112,8 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 	}
 }
 
-- (BOOL)isRefresh{
-	return _refreshState == KafkaRefreshStateRefreshing;
+- (BOOL)isRefresh{ 
+	return (_refreshState == KafkaRefreshStateRefreshing);
 }
 
 #pragma mark - layout
@@ -170,15 +173,17 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 - (void)kafkaScrollViewContentOffsetDidChange:(CGPoint)contentOffset{}
  
 - (void)beginRefreshing{
-	if (self.isRefresh) return;
+	if (self.refreshState != KafkaRefreshStateNone) return;
 	self.triggeredRefreshByUser = YES;
 	[self setScrollViewToRefreshLocation];
 }
 
-- (void)setScrollViewToRefreshLocation{}
+- (void)setScrollViewToRefreshLocation{
+	self.animating = YES;
+}
 
 - (void)endRefreshing{
-	if (!self.isRefresh) return;
+	if (!self.isRefresh && !self.isAnimating) return;
 	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
 	self.refreshState = KafkaRefreshStateScrolling;
 	[self setScrollViewToOriginalLocation];

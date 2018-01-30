@@ -34,7 +34,8 @@ static inline CGPoint content_offset_refresh(KafkaHeadRefreshControl *cSelf){
 			///////////////////////////////////////////////////////////////////////////////////////////
 			//This condition can be pre-execute refreshHandler, and will not feel scrollview scroll
 			///////////////////////////////////////////////////////////////////////////////////////////
-			if (weakSelf.scrollView.offsetY == -weakSelf.adjustInsetsBySystemAndManually.top) {
+			if (weakSelf.scrollView.offsetY >= -weakSelf.adjustInsetsBySystemAndManually.top &&
+				weakSelf.scrollView.offsetY <= -(weakSelf.adjustInsetsBySystemAndManually.top-weakSelf.kaf_height)) {
 				[weakSelf.scrollView setContentOffset:content_offset_refresh(weakSelf)];
 				[weakSelf kafkaDidScrollWithProgress:0.5 max:weakSelf.stretchOffsetYAxisThreshold];
 			}

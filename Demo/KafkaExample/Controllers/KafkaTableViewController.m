@@ -38,14 +38,17 @@
 	
 	self.navigationItem.title = @"UITableView";
 	  
-	self.navigationController.navigationBar.translucent = YES;
-	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//	self.navigationController.navigationBar.translucent = YES;
+//	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 	
 	self.tableView.estimatedRowHeight = 2.;
 	self.tableView.sectionHeaderHeight = 35.;
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	self.tableView.tableFooterView = [UIView new];
 	self.tableView.backgroundColor = [UIColor whiteColor];
+	
+	UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
+	self.navigationItem.rightBarButtonItem = refresh;
 	 
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
@@ -71,6 +74,10 @@
 			[weakSelf.tableView reloadData];
 		});
 	}];
+}
+
+- (void)refresh{
+	[self.tableView.headRefreshControl beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
