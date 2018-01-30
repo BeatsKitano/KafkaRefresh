@@ -121,73 +121,77 @@ Highly scalable, custom, multi-style refresh framework.
 </tr>
 <tr align="center" height="60px">
   <td><strong>Support multi-style selection and custom</strong></td>
-  <td align="left">
-   KafkaRefresh has a number of refresh styles built in, and styles can be customized,expansion interface allows developers to integrate more rich UI effects.
+  <td align="left"><font size="2">
+   KafkaRefresh has a number of refresh styles built in, and styles can be customized,expansion interface allows developers to integrate more rich UI effects.</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Non-refresh state automatically hidden</strong></td>
-  <td align="left">
+  <td align="left"><font size="2">
   To avoid developers manually adjust contentInset refresh the appearance of the control after the impact of the visual experience; 
-  the most common situation, the absence of data, the bottom of the refresh control is not hidden, the use of KafkaRefresh to avoid the problem.
+  the most common situation, the absence of data, the bottom of the refresh control is not hidden, the use of KafkaRefresh to avoid the problem.</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Anti-dithering at the end of the refresh</strong></td>
-  <td align="left">When the refresh control finishes refreshing, if UIScrollView is in a scrolling state, KafkaRefresh will adjust the contntOffset that controls the UIScrollView at this time according to the refresh control</td> 
+  <td align="left"><font size="2">
+  When the refresh control finishes refreshing, if UIScrollView is in a scrolling state, KafkaRefresh will adjust the contntOffset that controls the UIScrollView at this time according to the refresh control</font>
+  </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Support setting the offset threshold to trigger refresh</strong></td>
-  <td align="left">
-   Offset threshold can be customized, manually trigger refresh conditions; offset threshold is based on the height of the refresh control multiple, and must be greater than 1.0; otherwise invalid.
+  <td align="left"><font size="2">
+   Offset threshold can be customized, manually trigger refresh conditions; offset threshold is based on the height of the refresh control multiple, and must be greater than 1.0; otherwise invalid.</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Support global configuration</strong></td>
-  <td align="left">
-   KafkaRefreshDefaults supports global setting style
+  <td align="left"><font size="2">
+   KafkaRefreshDefaults supports global setting style</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Support progress callback</strong></td>
-  <td align="left">
-   Real-time callback Drag the offset ratio, for the expansion of the interface, according to the progress of adjustment animation
+  <td align="left"><font size="2">
+   Real-time callback Drag the offset ratio, for the expansion of the interface, according to the progress of adjustment animation.</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Adaptive contentInset system adjustment and manual adjustment</strong></td>
-  <td align="left">
-  Adaptive iOS7 later UINavigationController automatically adjust scrollview contentOffset, KafkaRefresh also iOS 11 adaptation; when you manually set the value of contentInset, also need not worry about KafkaRefresh will affect the visual effects.
+  <td align="left"><font size="2">
+  Adaptive iOS7 later UINavigationController automatically adjust scrollview contentOffset, KafkaRefresh also iOS 11 adaptation; when you manually set the value of contentInset, also need not worry about KafkaRefresh will affect the visual effects.</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Support anti-content offset rolling refresh</strong></td>
-  <td align="left">In general, we use the UITableView, especially UITableView need to use the drop-in refresh function, we rarely set SectionHeader. Unfortunately, if you use SectionHeader and integrate with UIRefreshControl or other third-party libraries, the refresh effect will be very ugly. The reason is that SectionHeader will follow the change of contentInset. The famous refresh library MJRefresh in dealing with this situation, the ScrollView manually scroll to the top, so you can solve the problem of SectionHeader dangling.<br/>
-   However, if your UITableView uses preprocessing or preloading techniques, then this is obviously not enough. When KafkaRefresh processes the situation, it determines according to the current position of the refresh control. If the user pull-down distance exceeds the height of the refresh control and the refresh control still can not be displayed on the screen, then only the refresh logic needs to be processed at this time, Without any refresh effect (without changing contentInset and contentOffset), even if the user suddenly slipping the top of the page, it will dynamically change the contentInset value, the user can still see the refresh effect, so deal with the data preloading Technical performance is very friendly.
+  <td align="left"><font size="2">
+  In general, we use the UITableView, especially UITableView need to use the drop-in refresh function, we rarely set SectionHeader. Unfortunately, if you use SectionHeader and integrate with UIRefreshControl or other third-party libraries, the refresh effect will be very ugly. The reason is that SectionHeader will follow the change of contentInset. The famous refresh library MJRefresh in dealing with this situation, the ScrollView manually scroll to the top, so you can solve the problem of SectionHeader dangling.<br/>
+   However, if your UITableView uses preprocessing or preloading techniques, then this is obviously not enough. When KafkaRefresh processes the situation, it determines according to the current position of the refresh control. If the user pull-down distance exceeds the height of the refresh control and the refresh control still can not be displayed on the screen, then only the refresh logic needs to be processed at this time, Without any refresh effect (without changing contentInset and contentOffset), even if the user suddenly slipping the top of the page, it will dynamically change the contentInset value, the user can still see the refresh effect, so deal with the data preloading Technical performance is very friendly.</font>
 </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Solve the refresh status grouping view hover problem</strong></td>
-  <td align="left">
-  When UITableView or UICollectionView has more than one group, and the height of the sectionView is not 0, the state of refresh will be half-empty. Since EGOTableViewPullRefresh, the refresh framework that tried to solve the problem started with MJRefresh, but unfortunately MJRefresh did not perfectly solve the problem (essentially because contentOffset does not change continuously). KafkaRefresh Avoids this problem even when swiping fast on a refresh.
+  <td align="left"><font size="2">
+  When UITableView or UICollectionView has more than one group, and the height of the sectionView is not 0, the state of refresh will be half-empty. Since EGOTableViewPullRefresh, the refresh framework that tried to solve the problem started with MJRefresh, but unfortunately MJRefresh did not perfectly solve the problem (essentially because contentOffset does not change continuously). KafkaRefresh Avoids this problem even when swiping fast on a refresh.</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Document coverage 100%</strong></td>
-  <td align="left">
-  You can see the use of all methods and classes in the header file.
+  <td align="left"><font size="2">
+  You can see the use of all methods and classes in the header file.</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Support horizontal and vertical screen switching adaptive</strong></td>
-  <td align="left">
+  <td align="left"><font size="2">
   No need to consider in the horizontal and vertical screen refresh refresh problem.
+  </font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>iOS 7+</strong></td>
-  <td align="left">
-  Support iOS 7 above system. Including iPhone X
+  <td align="left"><font size="2">
+  Support iOS 7 above system. Including iPhone X</font>
   </td> 
 </tr>
 </table>
@@ -380,56 +384,67 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>支持多样式选择与自定义</strong></td>
-  <td align="left">KafkaRefresh内置多种刷新样式，且可对样式进行自定义。扩展接口可让开发者集成更多丰富的UI效果。</td> 
+  <td align="left"><font size="2">
+  KafkaRefresh内置多种刷新样式，且可对样式进行自定义。扩展接口可让开发者集成更多丰富的UI效果。
+  </font></td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>非刷新状态自动隐藏</strong></td>
-  <td align="left">能避免开发者手动调整contentInset后刷新控件的出现而影响视觉体验；最常见的情况时，不存在数据时，底部的刷新的控件未隐藏，使用KafkaRefresh能避免该问题。</td> 
+  <td align="left">
+  <font size="2">
+  能避免开发者手动调整contentInset后刷新控件的出现而影响视觉体验；最常见的情况时，不存在数据时，底部的刷新的控件未隐藏，使用KafkaRefresh能避免该问题。</font>
+  </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>刷新结束时滑动抗抖动</strong></td>
-  <td align="left">当控件结束刷新，UIScrollView如果处于滑动状态，KafkaRefresh将根据刷新控件此时是否显示控制UIScrollView的contntOffset</td> 
+  <td align="left">
+  <font size="2">
+  当控件结束刷新，UIScrollView如果处于滑动状态，KafkaRefresh将根据刷新控件此时是否显示控制UIScrollView的contntOffset.</font>
+  </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>支持抗内容偏移的滚动刷新</strong></td>
-  <td align="left">
-一般的，我们在使用UITableView，特别是UITableView需要用到下拉刷新功能时，我们很少设置SectionHeader。不幸的是，如果使用了SectionHeader，且集成了UIRefreshControl或者其他第三方库，那么刷新的效果将会很难看。原因是SectionHeader将会跟随contentInset的变化而变化。著名的刷新库MJRefresh在处理这个情况时，将ScrollView手动滚动到最顶部，这样可以解决SectionHeader悬空的问题。但如果你的UITableView使用了预处理或者预加载技术，那么这样的处理显然不够。KafkaRefresh处理该情况时，根据刷新控件当前的位置进行判断，如果用户下拉的距离超过刷新控件的高度，且此时刷新控件依旧不能出现在屏幕上时，则认为此时只需要处理刷新逻辑，而无需出现任何的刷新效果（不改变contentInset和contentOffset），即使在刷新中，如果用户突然滑倒最顶端，将会动态改变contentInset的数值，用户依然能看到刷新效果，这样处理在数据的预加载技术中表现很友好。</td> 
+  <td align="left"><font size="2">
+一般的，我们在使用UITableView，特别是UITableView需要用到下拉刷新功能时，我们很少设置SectionHeader。不幸的是，如果使用了SectionHeader，且集成了UIRefreshControl或者其他第三方库，那么刷新的效果将会很难看。原因是SectionHeader将会跟随contentInset的变化而变化。著名的刷新库MJRefresh在处理这个情况时，将ScrollView手动滚动到最顶部，这样可以解决SectionHeader悬空的问题。但如果你的UITableView使用了预处理或者预加载技术，那么这样的处理显然不够。KafkaRefresh处理该情况时，根据刷新控件当前的位置进行判断，如果用户下拉的距离超过刷新控件的高度，且此时刷新控件依旧不能出现在屏幕上时，则认为此时只需要处理刷新逻辑，而无需出现任何的刷新效果（不改变contentInset和contentOffset），即使在刷新中，如果用户突然滑倒最顶端，将会动态改变contentInset的数值，用户依然能看到刷新效果，这样处理在数据的预加载技术中表现很友好。</font></td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>支持设置触发刷新的偏移阀值</strong></td>
-  <td align="left">偏移阀值可自定义，自我把控触发刷新的条件；偏移阀值是基于控件高度的倍数，且必须大于1.0；否则无效。</td> 
+  <td align="left">
+  <font size="2">
+  偏移阀值可自定义，自我把控触发刷新的条件；偏移阀值是基于控件高度的倍数，且必须大于1.0；否则无效。
+  </font></td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>支持全局配置</strong></td>
-  <td align="left">KafkaRefreshDefaults支持全局设置样式</td> 
+  <td align="left"><font size="2">KafkaRefreshDefaults支持全局设置样式</font></td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>支持进度回调</strong></td>
-  <td align="left">实时回调拖拽的偏移比例，对于扩展接口，可根据进度调整动画</td> 
+  <td align="left"><font size="2">实时回调拖拽的偏移比例，对于扩展接口，可根据进度调整动画</font></td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>自适应contentInset系统调整与手动调整</strong></td>
-  <td align="left">
-  自适应iOS7以后UINavigationController自动调整scrollview contentOffset，KafkaRefresh也对iOS 11进行了适配；当您手动设置了contentInset的值，也无需担心KafkaRefresh会影响到视觉效果。
+  <td align="left"><font size="2">
+  自适应iOS7以后UINavigationController自动调整scrollview contentOffset，KafkaRefresh也对iOS 11进行了适配；当您手动设置了contentInset的值，也无需担心KafkaRefresh会影响到视觉效果。</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>解决刷新状态分组视图悬停问题</strong></td>
-  <td align="left">
-  当UITableView优多个分组，且分组视图的高度非0时，刷新状态将出现半空悬停的效果。从EGO以来，尝试解决该问题的刷新框架始于MJRefresh，但可惜的是，MJRefresh并未完美解决该问题(本质是因为contentOffset并非连续变化)。KafkaRefresh即使在刷新状态快速滑动，也能避开该问题的出现。
+  <td align="left"><font size="2">
+  当UITableView优多个分组，且分组视图的高度非0时，刷新状态将出现半空悬停的效果。从EGO以来，尝试解决该问题的刷新框架始于MJRefresh，但可惜的是，MJRefresh并未完美解决该问题(本质是因为contentOffset并非连续变化)。KafkaRefresh即使在刷新状态快速滑动，也能避开该问题的出现。</font>
   </td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>文档覆盖率100%</strong></td>
-  <td align="left">可在头文件中查看所有方法和类的使用</td> 
+  <td align="left"><font size="2">可在头文件中查看所有方法和类的使用</font></td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>支持横竖屏切换自适应</strong></td>
-  <td align="left">无需在横竖屏切换时考虑刷新问题</td> 
+  <td align="left"><font size="2">无需在横竖屏切换时考虑刷新问题</font></td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>iOS 7+</strong></td>
-  <td align="left">支持iOS 7以上系统。包括iPhone X</td> 
+  <td align="left"><font size="2">支持iOS 7以上系统。包括iPhone X</font></td> 
 </tr>
 </table>
  
