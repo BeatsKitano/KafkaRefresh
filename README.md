@@ -162,7 +162,9 @@ Highly scalable, custom, multi-style refresh framework.
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Support anti-content offset rolling refresh</strong></td>
-  <td align="left">In general, when we use UITableView, especially UITableView need to use the pull-down refresh, we rarely set SectionHeader. Unfortunately, if you use SectionHeader and integrate with UIRefreshControl or other third-party libraries, the refresh effect will be very ugly. The reason is that SectionHeader will follow contentInset changes. The famous refresh library MJRefresh in dealing with this situation, the ScrollView manually scroll to the top, so you can solve the problem of SectionHeader dangling. However, in iOS development, UITableView's data loading is not adequate if you use preprocessing or preloading techniques. KafkaRefresh handle the situation, if the user pull down more than the height of the refresh control, then the refresh control still can not appear on the screen, we think only need to handle the refresh logic, without any refresh effect, even in the refresh , If the user suddenly slipping the top, has long been able to see the refresh effect, so that the processing of data preloading technology in the performance of very friendly.</td> 
+  <td align="left">In general, we use the UITableView, especially UITableView need to use the drop-in refresh function, we rarely set SectionHeader. Unfortunately, if you use SectionHeader and integrate with UIRefreshControl or other third-party libraries, the refresh effect will be very ugly. The reason is that SectionHeader will follow the change of contentInset. The famous refresh library MJRefresh in dealing with this situation, the ScrollView manually scroll to the top, so you can solve the problem of SectionHeader dangling.<br/>
+   However, if your UITableView uses preprocessing or preloading techniques, then this is obviously not enough. When KafkaRefresh processes the situation, it determines according to the current position of the refresh control. If the user pull-down distance exceeds the height of the refresh control and the refresh control still can not be displayed on the screen, then only the refresh logic needs to be processed at this time, Without any refresh effect (without changing contentInset and contentOffset), even if the user suddenly slipping the top of the page, it will dynamically change the contentInset value, the user can still see the refresh effect, so deal with the data preloading Technical performance is very friendly.
+</td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>Solve the refresh status grouping view hover problem</strong></td>
@@ -391,7 +393,7 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 <tr align="center" height="60px"> 
   <td><strong>支持抗内容偏移的滚动刷新</strong></td>
   <td align="left">
-一般的，在我们使用UITableView时，特别是UITableView需要用到下拉刷新，我们很少设置SectionHeader。不幸的是，如果使用了SectionHeader，且集成了UIRefreshControl或者其他第三方库，那么刷新的效果将会很难看。原因是SectionHeader将会跟随contentInset的变化而变化。著名的刷新库MJRefresh在处理这个情况时，将ScrollView手动滚动到最顶部，这样可以解决SectionHeader悬空的问题。但是iOS开发中，UITableView的数据加载如果使用到了预处理或者说时预加载技术，这样的处理时不够的。KafkaRefresh处理该情况时，如果用户下拉的距离超过刷新控件的高度，此时刷新控件依旧不能出现在屏幕上时，我们认为此时只需要处理刷新逻辑，而无需出现任何的刷新效果，即使在刷新中，如果用户突然滑倒最顶端，已久能看到刷新效果，这样处理在数据的预加载技术中表现很友好。</td> 
+一般的，我们在使用UITableView，特别是UITableView需要用到下拉刷新功能时，我们很少设置SectionHeader。不幸的是，如果使用了SectionHeader，且集成了UIRefreshControl或者其他第三方库，那么刷新的效果将会很难看。原因是SectionHeader将会跟随contentInset的变化而变化。著名的刷新库MJRefresh在处理这个情况时，将ScrollView手动滚动到最顶部，这样可以解决SectionHeader悬空的问题。但如果你的UITableView使用了预处理或者预加载技术，那么这样的处理显然不够。KafkaRefresh处理该情况时，根据刷新控件当前的位置进行判断，如果用户下拉的距离超过刷新控件的高度，且此时刷新控件依旧不能出现在屏幕上时，则认为此时只需要处理刷新逻辑，而无需出现任何的刷新效果（不改变contentInset和contentOffset），即使在刷新中，如果用户突然滑倒最顶端，将会动态改变contentInset的数值，用户依然能看到刷新效果，这样处理在数据的预加载技术中表现很友好。</td> 
 </tr>
 <tr align="center" height="60px"> 
   <td><strong>支持设置触发刷新的偏移阀值</strong></td>
