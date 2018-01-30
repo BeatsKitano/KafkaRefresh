@@ -178,7 +178,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 - (void)kafkaScrollViewContentOffsetDidChange:(CGPoint)contentOffset{}
  
 - (void)beginRefreshing{
-	if (self.refreshState != KafkaRefreshStateNone) return;
+	if (self.refreshState != KafkaRefreshStateNone || self.isHidden) return;
 	self.triggeredRefreshByUser = YES;
 	[self setScrollViewToRefreshLocation];
 }
@@ -188,7 +188,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 }
 
 - (void)endRefreshing{
-	if (!self.isRefresh && !self.isAnimating) return;
+	if ((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
 	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
 	self.refreshState = KafkaRefreshStateScrolling;
 	[self setScrollViewToOriginalLocation];

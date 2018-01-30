@@ -73,7 +73,7 @@
 			[weakSelf.tableView.footRefreshControl endRefreshing];
 			[weakSelf.tableView reloadData];
 		});
-	}];
+	}]; 
 }
 
 - (void)refresh{
