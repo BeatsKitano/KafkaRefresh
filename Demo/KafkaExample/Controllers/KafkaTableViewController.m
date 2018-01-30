@@ -47,16 +47,16 @@
 	self.tableView.tableFooterView = [UIView new];
 	self.tableView.backgroundColor = [UIColor whiteColor];
 	
-//	UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
-//	self.navigationItem.rightBarButtonItem = refresh;
+	UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
+	self.navigationItem.rightBarButtonItem = refresh;
 	
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
 			 animatedBackgroundColor:[UIColor redColor]
 						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			for (NSInteger i = 0; i < 2; i++) {
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			for (NSInteger i = 0; i < 3; i++) {
 				[weakSelf.source insertObject:@"" atIndex:0];
 			}
 			[weakSelf.tableView.headRefreshControl endRefreshing];

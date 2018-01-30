@@ -76,9 +76,13 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 			break;
 		}
 		case KafkaRefreshStateReady:{
+			////////////////////////////////////////////////////////////////////////////////////
+			///because of scrollView contentOffset is not continuous change.
+			///need to manually adjust progress
 			if (self.progress < self.stretchOffsetYAxisThreshold) {
 				[self kafkaDidScrollWithProgress:self.stretchOffsetYAxisThreshold max:self.stretchOffsetYAxisThreshold];
 			}
+			////////////////////////////////////////////////////////////////////////////////////
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
@@ -86,6 +90,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 			break;
 		}
 		case KafkaRefreshStateRefreshing:{
+			NSLog(@"refreshing.......");
 			break;
 		}
 		case KafkaRefreshStateWillEndRefresh:{

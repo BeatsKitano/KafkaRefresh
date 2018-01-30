@@ -50,8 +50,7 @@
 			[weakSelf.tableView.footRefreshControl endRefreshing];
 		});
 	}];
-	 
-	[self.tableView.headRefreshControl beginRefreshing];
+	  
 }
 
 #pragma mark - Table view data source

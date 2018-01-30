@@ -32,15 +32,31 @@ static inline CGPoint content_offset_refresh(KafkaHeadRefreshControl *cSelf){
 		if (weakSelf.isTriggeredRefreshByUser) {
 			weakSelf.refreshState = KafkaRefreshStateScrolling;
 			///////////////////////////////////////////////////////////////////////////////////////////
-			//This condition can be pre-execute refreshHandler, and will not feel scrollview scroll
-			///////////////////////////////////////////////////////////////////////////////////////////
+			/*
+			 In general, we use UITableView, especially UITableView need to use the drop-down refresh,
+			 we rarely set SectionHeader. Unfortunately, if you use SectionHeader and integrate with
+			 UIRefreshControl or other third-party libraries, the refresh effect will be very ugly.
+			 
+			 This code has two effects:
+			 1.  when using SectionHeader refresh effect is still very natural.
+			 2.  when your scrollView using preloading technology, only in the right place,
+				 such as pull down a pixel you can see the refresh control case, will show the
+				 refresh effect. If the pull-down distance exceeds the height of the refresh control,
+				 then the refresh control has long been unable to appear on the screen,
+				 indicating that the top of the contentOffset office there is a long distance,
+				 this time, even if you call the beginRefreshing method, ScrollView position and effect
+				 are Will not be affected, so the deal is very friendly in the data preloading technology.
+			 */
 			if (weakSelf.scrollView.offsetY >= -weakSelf.adjustInsetsBySystemAndManually.top &&
 				weakSelf.scrollView.offsetY <= -(weakSelf.adjustInsetsBySystemAndManually.top-weakSelf.kaf_height)) {
 				[weakSelf.scrollView setContentOffset:content_offset_refresh(weakSelf)];
 				[weakSelf kafkaDidScrollWithProgress:0.5 max:weakSelf.stretchOffsetYAxisThreshold];
+				weakSelf.scrollView.insetTop = weakSelf.kaf_height + weakSelf.adjustInsetsBySystemAndManually.top;
 			}
+			/////////////////////////////////////////////////////////////////////////////////////////// 
+		}else{
+			weakSelf.scrollView.insetTop = weakSelf.kaf_height + weakSelf.adjustInsetsBySystemAndManually.top;
 		}
-		weakSelf.scrollView.insetTop = weakSelf.kaf_height + weakSelf.adjustInsetsBySystemAndManually.top;
 	};
 	
 	dispatch_block_t completionBlock = ^(void){
