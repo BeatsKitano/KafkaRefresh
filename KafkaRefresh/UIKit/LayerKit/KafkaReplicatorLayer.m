@@ -45,36 +45,44 @@ static void * KafkaRightDot = &KafkaRightDot;
 
 - (void)layoutSublayers{
 	[super layoutSublayers];
-	self.replicatorLayer.frame = CGRectMake(0, 0, self.kaf_height, self.kaf_height);
-	self.replicatorLayer.position = CGPointMake(self.kaf_width/2., self.kaf_height/2.);
-	CGFloat padding = 5.;
+	
+	self.replicatorLayer.frame = self.bounds;
+	
+	CGFloat padding = 10.;
 	switch (self.animationStyle) {
 		case KafkaReplicatorLayerAnimationStyleWoody:{
-			self.indicatorShapeLayer.frame = CGRectMake(padding, self.kaf_height/4, 3., self.kaf_height/3.);
-			self.indicatorShapeLayer.kaf_positionY = self.replicatorLayer.kaf_positionY;
+			CGFloat h = self.kaf_height / 3.0;
+			CGFloat w = 3.0;
+			CGFloat x = self.kaf_width / 2. - (2.5 * w + padding * 2);
+			CGFloat y = self.kaf_height/2.-h/2.0;
+			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
 			self.indicatorShapeLayer.cornerRadius = 1.;
 			self.indicatorShapeLayer.transform = CATransform3DMakeScale(0.8, 0.8, 0.8);
 			
 			self.replicatorLayer.instanceCount = 5;
 			self.replicatorLayer.instanceDelay = 0.3/5;
-			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(10., 0.0, 0.0);
+			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(padding, 0.0, 0.0);
 			self.replicatorLayer.instanceBlueOffset = -0.01;
 			self.replicatorLayer.instanceGreenOffset = -0.01;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleAllen:{
-			self.indicatorShapeLayer.frame = CGRectMake(padding, self.kaf_height/4+15,3., self.kaf_height/3.);
+			CGFloat h = self.kaf_height / 3.0;
+			CGFloat w = 3.0;
+			CGFloat x = self.kaf_width / 2. - (2.5 * w + padding * 2);
+			CGFloat y = self.kaf_height/2.-h/2.0;
+			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
 			self.indicatorShapeLayer.cornerRadius = 1.;
 			
 			self.replicatorLayer.instanceCount = 5;
 			self.replicatorLayer.instanceDelay = 0.3/5;
-			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(10., 0.0, 0.0);
+			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(padding, 0.0, 0.0);
 			self.replicatorLayer.instanceBlueOffset = -0.01;
 			self.replicatorLayer.instanceGreenOffset = -0.01;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleCircle:{
-			self.indicatorShapeLayer.frame = CGRectMake(self.replicatorLayer.kaf_width/2., 10, 4., 4.);
+			self.indicatorShapeLayer.frame = CGRectMake(self.kaf_width/2. - 2., 10, 4., 4.);
 			self.indicatorShapeLayer.cornerRadius = 2.;
 			self.indicatorShapeLayer.transform = CATransform3DMakeScale(0.2, 0.2, 0.2);
 			
@@ -87,25 +95,33 @@ static void * KafkaRightDot = &KafkaRightDot;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleDot:{
-			self.indicatorShapeLayer.frame = CGRectMake(0, self.kaf_height/2.,4, 4);
+			CGFloat innerPadding = 30.;
+			CGFloat h = 4.0;;
+			CGFloat w = 4.0;
+			CGFloat x = self.kaf_width / 2. - (1.5 * w + innerPadding * 1);
+			CGFloat y = self.kaf_height/2.- h/2.0;
+			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
 			self.indicatorShapeLayer.cornerRadius = 2.;
-			self.indicatorShapeLayer.kaf_positionY = self.replicatorLayer.kaf_positionY;
 			
 			self.replicatorLayer.instanceCount = 3;
 			self.replicatorLayer.instanceDelay = 0.5/3;
-			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(30., 0.0, 0.0);
+			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(innerPadding, 0.0, 0.0);
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleArc:{
-			self.indicatorShapeLayer.frame = CGRectMake(0, 0, self.replicatorLayer.kaf_height, self.replicatorLayer.kaf_height);
+			CGFloat h = self.kaf_height - 10.;;
+			CGFloat w = h;
+			CGFloat x = self.kaf_width/2. - 0.5 * w;
+			CGFloat y = self.kaf_height/2.- h/2.0;
+			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
 			self.indicatorShapeLayer.fillColor = [UIColor clearColor].CGColor;
 			self.indicatorShapeLayer.lineWidth = 3.;
 			self.indicatorShapeLayer.backgroundColor = [UIColor clearColor].CGColor;
 			UIBezierPath *arcPath = [UIBezierPath bezierPath];
-			[arcPath addArcWithCenter:self.indicatorShapeLayer.position
-							   radius:18.
-						   startAngle:M_PI/3
-							 endAngle:-M_PI/3
+			[arcPath addArcWithCenter:CGPointMake(w/2.0, h/2.)
+							   radius:h/2.
+						   startAngle:M_PI/2.3
+							 endAngle:-M_PI/2.3
 							clockwise:NO];
 			self.indicatorShapeLayer.path = arcPath.CGPath;
 			self.indicatorShapeLayer.strokeEnd = 0.1;
@@ -156,8 +172,8 @@ static void * KafkaRightDot = &KafkaRightDot;
 		}
 		case KafkaReplicatorLayerAnimationStyleAllen:{
 			CABasicAnimation *basicAnimation = [self animationKeyPath:@"position.y"
-																 from:@(self.indicatorShapeLayer.position.y)
-																   to:@(self.indicatorShapeLayer.position.y-15)
+																 from:@(self.indicatorShapeLayer.position.y+10)
+																   to:@(self.indicatorShapeLayer.position.y-10)
 															 duration:0.3
 														   repeatTime:INFINITY];
 			basicAnimation.autoreverses = YES;
