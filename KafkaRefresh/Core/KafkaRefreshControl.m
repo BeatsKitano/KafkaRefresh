@@ -14,18 +14,14 @@
 #import "KafkaRefreshControl.h"
 
 @interface KafkaLabel : UILabel
-
 - (void)startAnimating;
-
 @end
 
-@implementation KafkaLabel
-{
+@implementation KafkaLabel{
 	CAGradientLayer * new;
 }
 
-- (instancetype)init
-{
+- (instancetype)init{
 	self = [super init];
 	if (self) {
 		new = [CAGradientLayer new];
@@ -75,6 +71,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 @property (nonatomic, getter=isRefresh) BOOL refresh;
 @property (assign, nonatomic,getter=isObservering) BOOL observering;
 @property (strong, nonatomic) KafkaLabel *alertLabel;
+@property (assign, nonatomic, getter=isShouldNoLongerRefresh) BOOL shouldNoLongerRefresh;
 @end
 
 @implementation KafkaRefreshControl
@@ -100,7 +97,8 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	self.alpha = 0.;
 	[self addSubview:self.alertLabel];
 	_refreshState = KafkaRefreshStateNone;
-	_stretchOffsetYAxisThreshold = kStretchOffsetYAxisThreshold; 
+	_stretchOffsetYAxisThreshold = kStretchOffsetYAxisThreshold;
+	_shouldNoLongerRefresh = NO;
 	_refresh = NO;
 	if (CGRectEqualToRect(self.frame, CGRectZero)) self.frame = CGRectMake(0, 0, 1, 1);
 }
@@ -241,6 +239,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
  
 - (void)beginRefreshing{
 	if (self.refreshState != KafkaRefreshStateNone || self.isHidden) return;
+	self.shouldNoLongerRefresh = NO;
 	self.triggeredRefreshByUser = YES;
 	[self setScrollViewToRefreshLocation];
 }
@@ -254,6 +253,8 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 }
 
 - (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion {
+	if((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
+	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
 	if (text) {
 		self.alertLabel.hidden = NO;
 		[self bringSubviewToFront:self.alertLabel];
@@ -272,9 +273,19 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	}
 }
 
+- (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text{
+	if (self.isShouldNoLongerRefresh) return;
+	self.shouldNoLongerRefresh = YES;
+	if (self.alertLabel.isHidden) self.alertLabel.hidden = NO;
+	[self bringSubviewToFront:self.alertLabel];
+	self.alertLabel.text = text;
+	__weak typeof(self) weakSelf = self;
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[weakSelf _endRefresh];
+	});
+}
+
 - (void)_endRefresh{
-	if((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
-	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
 	self.refreshState = KafkaRefreshStateScrolling;
 	[self setScrollViewToOriginalLocation];
 }

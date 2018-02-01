@@ -49,18 +49,23 @@
 	
 	UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
 	self.navigationItem.rightBarButtonItem = refresh;
-	
+	static NSInteger count = 2;
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
 			 animatedBackgroundColor:[UIColor redColor]
 						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			for (NSInteger i = 0; i < 3; i++) {
-				[weakSelf.source insertObject:@"" atIndex:0];
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			if (count > 0) {
+				for (NSInteger i = 0; i < 3; i++) {
+					[weakSelf.source insertObject:@"" atIndex:0];
+				}
+				[weakSelf.tableView.headRefreshControl endRefreshing];
+				[weakSelf.tableView reloadData];
+				count--;
+			}else{
+				[weakSelf.tableView.headRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"no more data"];
 			}
-			[weakSelf.tableView.headRefreshControl endRefreshing];
-			[weakSelf.tableView reloadData];
 		});
 	}];
 	

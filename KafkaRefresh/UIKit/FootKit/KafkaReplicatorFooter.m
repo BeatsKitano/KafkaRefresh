@@ -40,7 +40,35 @@
 }
 
 - (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{
-	self.replicatorLayer.opacity = progress;
+#define kOffset 0.7
+	if (progress >= 0.8) {
+		progress = (progress-kOffset)/(max - kOffset);
+	}
+	switch (self.animationStyle) {
+		case KafkaReplicatorLayerAnimationStyleWoody:{
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleAllen:{
+			
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleCircle:{
+			
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleDot:{
+			
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleArc:{
+			self.replicatorLayer.indicatorShapeLayer.strokeEnd = progress;
+			break;
+		}
+		case KafkaReplicatorLayerAnimationStyleTriangle:{
+			
+			break;
+		}
+	}
 }
 
 - (void)kafkaRefreshStateDidChange:(KafkaRefreshState)state{
@@ -63,7 +91,7 @@
 		case KafkaRefreshStateWillEndRefresh:{
 			[self.replicatorLayer stopAnimating];
 			break;
-		}
+		} 
 	}
 }
  

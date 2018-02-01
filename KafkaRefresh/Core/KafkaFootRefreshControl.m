@@ -58,7 +58,7 @@ static inline CGPoint content_offset_refresh(KafkaFootRefreshControl *cSelf){
 }
 
 - (void)setScrollViewToOriginalLocation{
-	[super setScrollViewToOriginalLocation]; 
+	[super setScrollViewToOriginalLocation];
 	__weak typeof(self) weakSelf = self;
 	[self setAnimateBlock:^{
 		weakSelf.animating = YES;
@@ -85,6 +85,7 @@ static inline CGFloat min_content_offset_y_threshold(KafkaRefreshControl * cSelf
 }
 
 - (void)kafkaScrollViewContentOffsetDidChange:(CGPoint)contentOffset{
+	[super kafkaScrollViewContentOffsetDidChange:contentOffset];
 	if (self.refreshState != KafkaRefreshStateRefreshing) {
 		if (self.isTriggeredRefreshByUser) return;
 		
@@ -135,7 +136,8 @@ static inline CGFloat min_content_offset_y_threshold(KafkaRefreshControl * cSelf
 		}
 		else if (self.scrollView.isDragging &&
 				 originY > maxContentOffsetYThreshold &&
-				 self.refreshState != KafkaRefreshStateReady){
+				 self.refreshState != KafkaRefreshStateReady &&
+				 !self.isShouldNoLongerRefresh){
 			self.refreshState = KafkaRefreshStateReady;
 		}
 	}

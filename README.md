@@ -265,6 +265,8 @@ If anyone wants to install by *carthage* , please supply a pull request. I'm not
  [self.tableView.headRefreshControl endRefreshing];
  
  [self.tableView.footRefreshControl endRefreshing];
+ 
+ - (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion
 ```
 
 ### Customize
@@ -514,6 +516,8 @@ pod 'KafkaRefresh'
  [self.tableView.headRefreshControl endRefreshing];
 
  [self.tableView.footRefreshControl endRefreshing];
+ 
+ - (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion;
 ```
 
 ### 自定义
