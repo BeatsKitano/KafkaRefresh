@@ -1,8 +1,8 @@
 ![KafkaRefresh](Assets/titleView.png)
 
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/xorshine/KafkaRefresh)
 [![GitHub license](https://img.shields.io/github/license/xorshine/KafkaRefresh.svg)](https://github.com/xorshine/KafkaRefresh/blob/master/LICENSE)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/KafkaRefresh.svg)](https://img.shields.io/cocoapods/v/KafkaRefresh.svg)
-![cocoapods](https://img.shields.io/cocoapods/v/{KafkaRefresh}.svg?style=flat) 
 ![platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![language](https://img.shields.io/badge/language-objc-orange.svg) 
 [![Email](https://img.shields.io/badge/e--mail-xorshine%40icloud.com-blue.svg)](mailto:xorshine@icloud.com)
