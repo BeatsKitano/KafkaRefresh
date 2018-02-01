@@ -13,16 +13,68 @@
 
 #import "KafkaRefreshControl.h"
 
+@interface KafkaLabel : UILabel
+
+- (void)startAnimating;
+
+@end
+
+@implementation KafkaLabel
+{
+	CAGradientLayer * new;
+}
+
+- (instancetype)init
+{
+	self = [super init];
+	if (self) {
+		new = [CAGradientLayer new];
+		new.locations = @[@0.2,@0.5,@0.8];
+		new.startPoint = CGPointMake(0, 0.5);
+		new.endPoint = CGPointMake(1, 0.5);
+		[self.layer addSublayer:new];
+	}
+	return self;
+}
+
+- (void)layoutSubviews{
+	new.frame = CGRectMake(0, 0, 0, self.kaf_height);
+	new.position = CGPointMake(self.kaf_width/2.0, self.kaf_height/2.);
+}
+
+- (void)startAnimating{
+	[self setNeedsLayout];
+	new.colors = @[(id)[self.textColor colorWithAlphaComponent:0.2].CGColor,
+				   (id)[self.textColor colorWithAlphaComponent:0.1].CGColor,
+				   (id)[self.textColor colorWithAlphaComponent:0.2].CGColor];
+	
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds.size.width"];
+	animation.fromValue = @(0);
+	animation.toValue = @(self.kaf_width);
+	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+	animation.fillMode = kCAFillModeForwards;
+	animation.duration = 0.3;
+	animation.removedOnCompletion = NO;
+	[new addAnimation:animation forKey:nil];
+}
+
+- (void)stopAnimating{
+	[new removeAllAnimations];
+}
+
+@end
+
 static NSString * const KafkaContentOffset = @"contentOffset";
 static NSString * const KafkaContentSize = @"contentSize";
 
 static CGFloat const KafkaRefreshHeight = 45.;
-static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
+static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 
 @interface KafkaRefreshControl()
 @property (nonatomic, weak) __kindof UIScrollView *scrollView;
 @property (nonatomic, getter=isRefresh) BOOL refresh;
 @property (assign, nonatomic,getter=isObservering) BOOL observering;
+@property (strong, nonatomic) KafkaLabel *alertLabel;
 @end
 
 @implementation KafkaRefreshControl
@@ -45,11 +97,19 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 
 - (void)setupProperties{
 	self.backgroundColor = [UIColor whiteColor];
-	self.alpha = 0.;    
+	self.alpha = 0.;
+	[self addSubview:self.alertLabel];
 	_refreshState = KafkaRefreshStateNone;
 	_stretchOffsetYAxisThreshold = kStretchOffsetYAxisThreshold; 
 	_refresh = NO;
 	if (CGRectEqualToRect(self.frame, CGRectZero)) self.frame = CGRectMake(0, 0, 1, 1);
+}
+
+- (void)setFillColor:(UIColor *)fillColor{
+	if (_fillColor != fillColor) {
+		_fillColor =  fillColor;
+		_alertLabel.textColor = fillColor;
+	}
 }
 
 - (void)setRefreshState:(KafkaRefreshState)refreshState{
@@ -64,11 +124,13 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 			break;
 		}
 		case KafkaRefreshStateScrolling:{
+			////////////////////////////////////////////////////////////////////////////////////
 			///when system adjust contentOffset atuomatically,
 			///will trigger refresh control's state changed.
 			if (!self.isTriggeredRefreshByUser && !self.scrollView.isTracking) {
 				return;
 			}
+			////////////////////////////////////////////////////////////////////////////////////
 			__weak typeof(self) weakSelf = self;
 			[self setAnimateBlock:^{
 				weakSelf.alpha = 1.;
@@ -90,7 +152,6 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 			break;
 		}
 		case KafkaRefreshStateRefreshing:{
-			NSLog(@"refreshing.......");
 			break;
 		}
 		case KafkaRefreshStateWillEndRefresh:{
@@ -128,6 +189,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 	
 	self.kaf_height = (self.kaf_height < 45.) ? KafkaRefreshHeight : self.kaf_height;
 	self.frame = CGRectMake(0, 0, self.scrollView.kaf_width, self.kaf_height);
+	self.alertLabel.frame = self.bounds;
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
@@ -188,7 +250,30 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 }
 
 - (void)endRefreshing{
-	if ((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
+	[self endRefreshingWithAlertText:nil completion:nil];
+}
+
+- (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion {
+	if (text) {
+		self.alertLabel.hidden = NO;
+		[self bringSubviewToFront:self.alertLabel];
+		self.alertLabel.text = text;
+		[self.alertLabel setNeedsLayout];
+		[self.alertLabel startAnimating];
+		__weak typeof(self) weakSelf = self;
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			weakSelf.alertLabel.hidden = TRUE;
+			[weakSelf.alertLabel stopAnimating];
+			[weakSelf _endRefresh];
+			if (completion) completion(); 
+		});
+	}else{
+		[self _endRefresh];
+	}
+}
+
+- (void)_endRefresh{
+	if((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
 	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
 	self.refreshState = KafkaRefreshStateScrolling;
 	[self setScrollViewToOriginalLocation];
@@ -203,5 +288,19 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.3;
 - (void)kafkaRefreshStateDidChange:(KafkaRefreshState)state{}
 
 - (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{}
+
+#pragma mark - getter
+
+- (KafkaLabel *)alertLabel{
+	if (!_alertLabel) {
+		_alertLabel = [KafkaLabel new];
+		_alertLabel.textAlignment = NSTextAlignmentCenter;
+		_alertLabel.font =  [UIFont fontWithName:@"Helvetica" size:15.f];
+		_alertLabel.textColor = _fillColor;
+		_alertLabel.hidden = TRUE;
+		_alertLabel.backgroundColor = [UIColor whiteColor];
+	}
+	return _alertLabel;
+}
 
 @end

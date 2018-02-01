@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h> 
 #import "KafkaRefreshProtocol.h"
 #import "UIView+KafkaLayout.h"
+#import "CALayer+KafkaLayout.h"
 #import "NSObject+KafkaAnimation.h"
 #import "UIScrollView+KafkaLayout.h"
 
@@ -88,14 +89,14 @@ When the system automatically or manually adjust contentInset,
 @property (assign, nonatomic) CGFloat stretchOffsetYAxisThreshold;
 
 /**
- fill color needed for animation
+ fill colors for points, lines, and faces that appear in this control.
  */
-@property (strong, nonatomic) UIColor * fillColor;
+@property (strong, nonatomic) UIColor *fillColor;
 
 /**
  The background color of the layer that executes the animation
  */
-@property (strong, nonatomic) UIColor * animatedBackgroundColor;
+@property (strong, nonatomic) UIColor *animatedBackgroundColor;
 
 /**
  Judge whether the animation is executed when the refresh is over
@@ -124,5 +125,14 @@ When the system automatically or manually adjust contentInset,
  end refresh
  */
 - (void)endRefreshing Kafka_REQUIRES_SUPER;
+
+/**
+ When this method is called to end the refresh, there will be a 1.5 second
+ animated display of "text". Please note that the length of text, please
+ try to be brief, otherwise it will be cut off.
+
+ @param text default is nil, and no animation.
+ */
+- (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion Kafka_REQUIRES_SUPER;
 
 @end

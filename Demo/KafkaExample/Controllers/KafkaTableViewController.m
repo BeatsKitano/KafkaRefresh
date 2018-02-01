@@ -65,13 +65,13 @@
 	}];
 	
 	[self.tableView bindRefreshStyle:_style
-						   fillColor:MinorColor 
+						   fillColor:MainColor
 						  atPosition:1 refreshHanler:^{
 							  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			[weakSelf.source addObjectsFromArray:@[@"",@"",@"",@"",@"",@""]];
-			NSLog(@"end...");
-			[weakSelf.tableView.footRefreshControl endRefreshing];
-			[weakSelf.tableView reloadData];
+			[weakSelf.source addObjectsFromArray:@[@"",@"",@"",@"",@"",@""]]; 
+			  [weakSelf.tableView.footRefreshControl endRefreshingWithAlertText:@"did load successfully" completion:^{
+				  [weakSelf.tableView reloadData];
+			  }]; 
 		});
 	}]; 
 }
