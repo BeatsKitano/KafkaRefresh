@@ -110,6 +110,13 @@ When the system automatically or manually adjust contentInset,
 @property (assign, nonatomic, readonly, getter=isShouldNoLongerRefresh) BOOL shouldNoLongerRefresh;
 
 /**
+ Set the color of the prompt text after the refresh is completed.
+
+ @param alertTextColor color
+ */
+- (void)setAlertTextColor:(UIColor *)alertTextColor;
+
+/**
  Called right after initialization is completed
  */
 - (void)setupProperties Kafka_REQUIRES_SUPER;

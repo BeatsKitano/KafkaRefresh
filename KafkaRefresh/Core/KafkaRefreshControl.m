@@ -105,20 +105,27 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 
 - (void)setFillColor:(UIColor *)fillColor{
 	if (_fillColor != fillColor) {
-		_fillColor =  fillColor;
+		_fillColor = fillColor;
 		_alertLabel.textColor = fillColor;
 	}
+}
+
+- (void)setAlertTextColor:(UIColor *)alertTextColor{
+	_alertLabel.textColor = alertTextColor;
 }
 
 - (void)setRefreshState:(KafkaRefreshState)refreshState{
 	if (_refreshState == refreshState) return;
 	_refreshState = refreshState;
+
+#define KAFKA_SET_ALPHA(a) __weak typeof(self) weakSelf = self;\
+	[self setAnimateBlock:^{\
+		weakSelf.alpha = (a);\
+	} completion:NULL];
+	
 	switch (refreshState) {
 		case KafkaRefreshStateNone:{
-			__weak typeof(self) weakSelf = self;
-			[self setAnimateBlock:^{
-				weakSelf.alpha = 0.0;
-			} completion:NULL];
+			KAFKA_SET_ALPHA(0.0);
 			break;
 		}
 		case KafkaRefreshStateScrolling:{
@@ -129,10 +136,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 				return;
 			}
 			////////////////////////////////////////////////////////////////////////////////////
-			__weak typeof(self) weakSelf = self;
-			[self setAnimateBlock:^{
-				weakSelf.alpha = 1.;
-			} completion:NULL];
+			KAFKA_SET_ALPHA(1.0);
 			break;
 		}
 		case KafkaRefreshStateReady:{
@@ -143,20 +147,14 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 				[self kafkaDidScrollWithProgress:self.stretchOffsetYAxisThreshold max:self.stretchOffsetYAxisThreshold];
 			}
 			////////////////////////////////////////////////////////////////////////////////////
-			__weak typeof(self) weakSelf = self;
-			[self setAnimateBlock:^{
-				weakSelf.alpha = 1.;
-			} completion:NULL];
+			KAFKA_SET_ALPHA(1.0);
 			break;
 		}
 		case KafkaRefreshStateRefreshing:{
 			break;
 		}
 		case KafkaRefreshStateWillEndRefresh:{
-			__weak typeof(self) weakSelf = self;
-			[self setAnimateBlock:^{
-				weakSelf.alpha = 1.;
-			} completion:NULL];
+			KAFKA_SET_ALPHA(1.0);
 			break; 
 		}
 	}
@@ -239,6 +237,9 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
  
 - (void)beginRefreshing{
 	if (self.refreshState != KafkaRefreshStateNone || self.isHidden) return;
+	if (self.isShouldNoLongerRefresh) {
+		self.alertLabel.hidden = YES;
+	}
 	self.shouldNoLongerRefresh = NO;
 	self.triggeredRefreshByUser = YES;
 	[self setScrollViewToRefreshLocation];
@@ -254,7 +255,6 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 
 - (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion {
 	if((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
-	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
 	if (text) {
 		self.alertLabel.hidden = NO;
 		[self bringSubviewToFront:self.alertLabel];
@@ -274,18 +274,24 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 }
 
 - (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text{
-	if (self.isShouldNoLongerRefresh) return;
+	if((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
+	if (self.isShouldNoLongerRefresh) return; 
 	self.shouldNoLongerRefresh = YES;
 	if (self.alertLabel.isHidden) self.alertLabel.hidden = NO;
 	[self bringSubviewToFront:self.alertLabel];
 	self.alertLabel.text = text;
-	__weak typeof(self) weakSelf = self;
-	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-		[weakSelf _endRefresh];
-	});
+	if (text) {
+		__weak typeof(self) weakSelf = self;
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			[weakSelf _endRefresh];
+		});
+	}else{
+		[self _endRefresh];
+	}
 }
 
 - (void)_endRefresh{
+	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
 	self.refreshState = KafkaRefreshStateScrolling;
 	[self setScrollViewToOriginalLocation];
 }

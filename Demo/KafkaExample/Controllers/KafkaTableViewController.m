@@ -49,7 +49,7 @@
 	
 	UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
 	self.navigationItem.rightBarButtonItem = refresh;
-	static NSInteger count = 2;
+	static NSInteger count = 1;
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
@@ -64,7 +64,7 @@
 				[weakSelf.tableView reloadData];
 				count--;
 			}else{
-				[weakSelf.tableView.headRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"no more data"];
+				[weakSelf.tableView.headRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"All data is loaded"];
 			}
 		});
 	}];
@@ -78,7 +78,8 @@
 				  [weakSelf.tableView reloadData];
 			  }]; 
 		});
-	}]; 
+	}];
+	[self.tableView.footRefreshControl setAlertTextColor:[UIColor redColor]];
 }
 
 - (void)refresh{
