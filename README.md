@@ -67,6 +67,8 @@
 Highly scalable, custom, multi-style refresh framework.
 
 ### Comparison
+The following comparison does not mean that the evaluation of these open source libraries to highlight the outstanding KafkaRefresh. EGO is the earliest refresh open source library, laid the foundation for later open source library provides a good idea. MJRefresh is the first to complete a complete system adaptation. Prior to MJRefresh, refresh the library is need to make some changes to meet the daily development needs. Here to pay tribute to these excellent open source library authors.
+
 <table>
 <tr height="60px" align="center">
   <td width="20%"><strong></strong></td>
@@ -266,7 +268,10 @@ If anyone wants to install by *carthage* , please supply a pull request. I'm not
  
  [self.tableView.footRefreshControl endRefreshing];
  
- - (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion
+- (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion;
+
+ 
+- (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text;
 ```
 
 ### Customize
@@ -335,6 +340,8 @@ KafkaRefresh is released under the MIT license. See LICENSE for details.
 高度可扩展、自定义、多样式的刷新框架。
 
 ### 比较
+以下的比较结果，不代表对这些开源库的评价而去突出KafkaRefresh的优秀。EGO是最早的刷新开源库，奠定了基础，给后来的开源库提供了很好的思路。MJRefresh则是第一个进行完整的系统适配。而在MJRefresh之前，刷新库是需要对其进行一定的修改才能满足日常开发需要。在此对这些优秀的开源库作者表示敬意。
+
 <table>
 <tr height="45px" align="center">
   <td width="20%"><strong></strong></td>
@@ -517,7 +524,11 @@ pod 'KafkaRefresh'
 
  [self.tableView.footRefreshControl endRefreshing];
  
- - (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion;
+ 
+- (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion;
+
+ 
+- (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text;
 ```
 
 ### 自定义
