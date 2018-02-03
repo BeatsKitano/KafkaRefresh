@@ -10,7 +10,7 @@
 
 #if __has_include(<KafkaRefresh/KafkaRefresh.h>)
 
-#import <KafkaRefresh/UIScrollView+Kafka.h>
+#import <KafkaRefresh/UIScrollView+KafkaRefreshControl.h>
 #import <KafkaRefresh/KafkaRefreshProtocol.h>
 #import <KafkaRefresh/KafkaHeadRefreshControl.h>
 #import <KafkaRefresh/KafkaFootRefreshControl.h>
@@ -20,7 +20,7 @@
 
 #else
 
-#import "UIScrollView+Kafka.h"
+#import "UIScrollView+KafkaRefreshControl.h"
 #import "KafkaRefreshProtocol.h"
 #import "KafkaHeadRefreshControl.h"
 #import "KafkaFootRefreshControl.h"

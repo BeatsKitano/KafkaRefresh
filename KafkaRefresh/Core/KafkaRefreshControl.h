@@ -53,7 +53,7 @@ When the system automatically or manually adjust contentInset,
  
  this value will be saved
  */
-@property (assign, nonatomic) UIEdgeInsets adjustInsetsBySystemAndManually;
+@property (assign, nonatomic) UIEdgeInsets preSetContentInsets;
 
 /**
  This value is set to TRUE if the beginRefresh method is called automatically
@@ -124,7 +124,7 @@ When the system automatically or manually adjust contentInset,
 /**
  Subclasses override this method 
  */
-- (void)kafkaScrollViewContentOffsetDidChange:(CGPoint)contentOffset Kafka_REQUIRES_SUPER;
+- (void)privateContentOffsetOfScrollViewDidChange:(CGPoint)contentOffset Kafka_REQUIRES_SUPER;
 - (void)setScrollViewToRefreshLocation Kafka_REQUIRES_SUPER;
 - (void)setScrollViewToOriginalLocation Kafka_REQUIRES_SUPER;
 

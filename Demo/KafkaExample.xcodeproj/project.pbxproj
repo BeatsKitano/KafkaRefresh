@@ -15,7 +15,7 @@
 		983A0916201AB89900AEF743 /* KafkaFootRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08E8201AB89900AEF743 /* KafkaFootRefreshControl.m */; };
 		983A0917201AB89900AEF743 /* KafkaHeadRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08EA201AB89900AEF743 /* KafkaHeadRefreshControl.m */; };
 		983A0918201AB89900AEF743 /* KafkaRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08EC201AB89900AEF743 /* KafkaRefreshControl.m */; };
-		983A0919201AB89900AEF743 /* UIScrollView+Kafka.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08EF201AB89900AEF743 /* UIScrollView+Kafka.m */; };
+		983A0919201AB89900AEF743 /* UIScrollView+KafkaRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08EF201AB89900AEF743 /* UIScrollView+KafkaRefreshControl.m */; };
 		983A091A201AB89900AEF743 /* KafkaRefreshDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08F2201AB89900AEF743 /* KafkaRefreshDefaults.m */; };
 		983A091B201AB89900AEF743 /* Image.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 983A08F5201AB89900AEF743 /* Image.bundle */; };
 		983A091C201AB89900AEF743 /* KafkaArrowFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08FB201AB89900AEF743 /* KafkaArrowFooter.m */; };
@@ -76,8 +76,8 @@
 		983A08EB201AB89900AEF743 /* KafkaRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KafkaRefreshControl.h; sourceTree = "<group>"; };
 		983A08EC201AB89900AEF743 /* KafkaRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KafkaRefreshControl.m; sourceTree = "<group>"; };
 		983A08ED201AB89900AEF743 /* KafkaRefreshProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KafkaRefreshProtocol.h; sourceTree = "<group>"; };
-		983A08EE201AB89900AEF743 /* UIScrollView+Kafka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Kafka.h"; sourceTree = "<group>"; };
-		983A08EF201AB89900AEF743 /* UIScrollView+Kafka.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Kafka.m"; sourceTree = "<group>"; };
+		983A08EE201AB89900AEF743 /* UIScrollView+KafkaRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+KafkaRefreshControl.h"; sourceTree = "<group>"; };
+		983A08EF201AB89900AEF743 /* UIScrollView+KafkaRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+KafkaRefreshControl.m"; sourceTree = "<group>"; };
 		983A08F1201AB89900AEF743 /* KafkaRefreshDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KafkaRefreshDefaults.h; sourceTree = "<group>"; };
 		983A08F2201AB89900AEF743 /* KafkaRefreshDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KafkaRefreshDefaults.m; sourceTree = "<group>"; };
 		983A08F3201AB89900AEF743 /* KafkaRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KafkaRefresh.h; sourceTree = "<group>"; };
@@ -204,8 +204,8 @@
 				983A08EB201AB89900AEF743 /* KafkaRefreshControl.h */,
 				983A08EC201AB89900AEF743 /* KafkaRefreshControl.m */,
 				983A08ED201AB89900AEF743 /* KafkaRefreshProtocol.h */,
-				983A08EE201AB89900AEF743 /* UIScrollView+Kafka.h */,
-				983A08EF201AB89900AEF743 /* UIScrollView+Kafka.m */,
+				983A08EE201AB89900AEF743 /* UIScrollView+KafkaRefreshControl.h */,
+				983A08EF201AB89900AEF743 /* UIScrollView+KafkaRefreshControl.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -501,7 +501,7 @@
 			files = (
 				98C2F8781FEF6AB50039C749 /* main.m in Sources */,
 				983A0923201AB89900AEF743 /* KafkaRingIndicatorHeader.m in Sources */,
-				983A0919201AB89900AEF743 /* UIScrollView+Kafka.m in Sources */,
+				983A0919201AB89900AEF743 /* UIScrollView+KafkaRefreshControl.m in Sources */,
 				983A0921201AB89900AEF743 /* KafkaNativeHeader.m in Sources */,
 				983A0914201AB89900AEF743 /* UIView+KafkaLayout.m in Sources */,
 				983A0917201AB89900AEF743 /* KafkaHeadRefreshControl.m in Sources */,

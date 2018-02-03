@@ -68,6 +68,7 @@ static NSString * const reuseIdentifier = @"Cell";
 								  }];
 							  });
 						  }];
+	self.collectionView.headRefreshControl.backgroundColor = [UIColor grayColor];
 	 
 }
  

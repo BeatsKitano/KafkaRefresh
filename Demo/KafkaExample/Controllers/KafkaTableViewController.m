@@ -45,7 +45,7 @@
 	self.tableView.sectionHeaderHeight = 35.;
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	self.tableView.tableFooterView = [UIView new];
-	self.tableView.backgroundColor = [UIColor whiteColor];
+	
 	
 	UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
 	self.navigationItem.rightBarButtonItem = refresh;

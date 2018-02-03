@@ -18,6 +18,8 @@
 @property (nonatomic) CGFloat insetTop;
 @property (nonatomic) CGFloat insetBottom;
 
+@property (nonatomic, readonly) CGFloat contentHeight;
+
 /**
  scrollView's contentInset not refreshed
  */

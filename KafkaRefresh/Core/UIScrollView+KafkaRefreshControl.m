@@ -8,7 +8,7 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
-#import "UIScrollView+Kafka.h"
+#import "UIScrollView+KafkaRefreshControl.h"
 #import <objc/runtime.h>
 #import "KafkaHeadRefreshControl.h"
 #import "KafkaFootRefreshControl.h"

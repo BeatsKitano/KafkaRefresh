@@ -11,7 +11,7 @@
 
 #import "UIScrollView+KafkaConfiguration.h"
 #import "KafkaRefreshDefaults.h"
-#import "UIScrollView+Kafka.h"
+#import "UIScrollView+KafkaRefreshControl.h"
 
 #import "KafkaNativeHeader.h"
 #import "KafkaReplicatorHeader.h"

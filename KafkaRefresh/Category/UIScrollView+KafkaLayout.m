@@ -58,6 +58,10 @@
 	self.contentInset = inset;
 }
 
+- (CGFloat)contentHeight{
+	return self.contentSize.height;
+}
+
 - (UIEdgeInsets)realContentInset{
 	if (@available(iOS 11.0, *)) {
 		return self.adjustedContentInset;

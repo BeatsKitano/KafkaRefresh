@@ -40,7 +40,10 @@
 }
 
 - (void)startAnimating{
-	self.hidden = NO;
+	__weak typeof(self) weakSelf = self;
+	[UIView animateWithDuration:0.3 animations:^{
+		weakSelf.alpha = 1.0;
+	}];
 	new.colors = @[(id)[self.textColor colorWithAlphaComponent:0.2].CGColor,
 				   (id)[self.textColor colorWithAlphaComponent:0.1].CGColor,
 				   (id)[self.textColor colorWithAlphaComponent:0.2].CGColor];
@@ -57,7 +60,10 @@
 }
 
 - (void)stopAnimating{
-	self.hidden = YES;
+	__weak typeof(self) weakSelf = self;
+	[UIView animateWithDuration:0.3 animations:^{
+		weakSelf.alpha = 0.0;
+	}];
 	[new removeAllAnimations];
 }
 
@@ -170,7 +176,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 
 - (void)setStretchOffsetYAxisThreshold:(CGFloat)stretchOffsetYAxisThreshold{
 	if (_stretchOffsetYAxisThreshold != stretchOffsetYAxisThreshold &&
-		stretchOffsetYAxisThreshold >= 1.0) {
+		stretchOffsetYAxisThreshold > 1.0) {
 		_stretchOffsetYAxisThreshold = stretchOffsetYAxisThreshold;
 	}
 }
@@ -205,7 +211,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 			//sometimes, this method called before `layoutSubviews`,such as UICollectionViewController
 			[self layoutIfNeeded];
 			/////////////////////////////////////////////////////////////////////////////////////////
-			_adjustInsetsBySystemAndManually = ((UIScrollView *)newSuperview).realContentInset;
+			_preSetContentInsets = ((UIScrollView *)newSuperview).realContentInset;
 			[newSuperview addObserver:self forKeyPath:KafkaContentOffset options:options context:nil];
 			[newSuperview addObserver:self forKeyPath:KafkaContentSize options:options context:nil];
 			_observering = YES;
@@ -213,10 +219,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	}
 }
   
-- (void)observeValueForKeyPath:(NSString *)keyPath
-					  ofObject:(id)object
-						change:(NSDictionary<NSKeyValueChangeKey,id> *)change
-					   context:(void *)context{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
 	if ([keyPath isEqualToString:KafkaContentOffset]) {
 		///////////////////////////////////////////////////////////////////////////////////////////
 		//If you disable the control's refresh feature, set the control to hidden
@@ -227,14 +230,14 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 		///////////////////////////////////////////////////////////////////////////////////////////
 		//If you quickly scroll scrollview in an instant, contentoffset changes are not continuous
 		///////////////////////////////////////////////////////////////////////////////////////////
-		[self kafkaScrollViewContentOffsetDidChange:point];
+		[self privateContentOffsetOfScrollViewDidChange:point];
 	}
 	else if([keyPath isEqualToString:KafkaContentSize]){
 		[self layoutSubviews];
 	}
 }
 
-- (void)kafkaScrollViewContentOffsetDidChange:(CGPoint)contentOffset{}
+- (void)privateContentOffsetOfScrollViewDidChange:(CGPoint)contentOffset{}
  
 - (void)beginRefreshing{
 	if (self.refreshState != KafkaRefreshStateNone || self.isHidden) return;
@@ -275,11 +278,15 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	if((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
 	if (self.isShouldNoLongerRefresh) return; 
 	self.shouldNoLongerRefresh = YES;
-	if (self.alertLabel.isHidden) self.alertLabel.hidden = NO;
+	__weak typeof(self) weakSelf = self;
+	if (self.alertLabel.alpha == 0.0){
+		[UIView animateWithDuration:0.3 animations:^{
+			weakSelf.alertLabel.alpha = 1.0;
+		}];
+	}
 	[self bringSubviewToFront:self.alertLabel];
 	self.alertLabel.text = text; 
 	if (text) {
-		__weak typeof(self) weakSelf = self;
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			[weakSelf _endRefresh];
 		});
@@ -312,7 +319,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 		_alertLabel.textAlignment = NSTextAlignmentCenter;
 		_alertLabel.font =  [UIFont fontWithName:@"Helvetica" size:15.f];
 		_alertLabel.textColor = _fillColor;
-		_alertLabel.hidden = TRUE;
+		_alertLabel.alpha = 0.0;
 		_alertLabel.backgroundColor = [UIColor whiteColor];
 	}
 	return _alertLabel;
