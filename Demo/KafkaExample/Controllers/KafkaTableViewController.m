@@ -49,7 +49,7 @@
 	
 	UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
 	self.navigationItem.rightBarButtonItem = refresh;
-	static NSInteger count = 1;
+	__block NSInteger count = 1;
 	__weak typeof(self) weakSelf = self;
 	[self.tableView bindRefreshStyle:_style
 						   fillColor:MainColor
@@ -60,11 +60,11 @@
 				for (NSInteger i = 0; i < 3; i++) {
 					[weakSelf.source insertObject:@"" atIndex:0];
 				}
-				[weakSelf.tableView.headRefreshControl endRefreshing];
+				[weakSelf.tableView.headRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:nil];
 				[weakSelf.tableView reloadData];
 				count--;
 			}else{
-				[weakSelf.tableView.headRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"All data is loaded"];
+				[weakSelf.tableView.headRefreshControl endRefreshingWithAlertText:@"使用中文测试" completion:nil];
 			}
 		});
 	}];
@@ -74,7 +74,7 @@
 						  atPosition:1 refreshHanler:^{
 							  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			[weakSelf.source addObjectsFromArray:@[@"",@"",@"",@"",@"",@""]]; 
-			  [weakSelf.tableView.footRefreshControl endRefreshingWithAlertText:@"did load successfully" completion:^{
+			  [weakSelf.tableView.footRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:^{
 				  [weakSelf.tableView reloadData];
 			  }]; 
 		});

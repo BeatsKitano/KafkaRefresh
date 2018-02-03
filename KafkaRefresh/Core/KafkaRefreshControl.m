@@ -13,7 +13,7 @@
 
 #import "KafkaRefreshControl.h"
 
-@interface KafkaLabel : UILabel
+@interface KafkaLabel : UILabel<CAAnimationDelegate>
 - (void)startAnimating;
 @end
 
@@ -28,6 +28,7 @@
 		new.locations = @[@0.2,@0.5,@0.8];
 		new.startPoint = CGPointMake(0, 0.5);
 		new.endPoint = CGPointMake(1, 0.5);
+		self.layer.masksToBounds = YES;
 		[self.layer addSublayer:new];
 	}
 	return self;
@@ -39,7 +40,7 @@
 }
 
 - (void)startAnimating{
-	[self setNeedsLayout];
+	self.hidden = NO;
 	new.colors = @[(id)[self.textColor colorWithAlphaComponent:0.2].CGColor,
 				   (id)[self.textColor colorWithAlphaComponent:0.1].CGColor,
 				   (id)[self.textColor colorWithAlphaComponent:0.2].CGColor];
@@ -51,10 +52,12 @@
 	animation.fillMode = kCAFillModeForwards;
 	animation.duration = 0.3;
 	animation.removedOnCompletion = NO;
-	[new addAnimation:animation forKey:nil];
+	animation.delegate = self;
+	[new addAnimation:animation forKey:animation.keyPath];
 }
 
 - (void)stopAnimating{
+	self.hidden = YES;
 	[new removeAllAnimations];
 }
 
@@ -62,7 +65,6 @@
 
 static NSString * const KafkaContentOffset = @"contentOffset";
 static NSString * const KafkaContentSize = @"contentSize";
-
 static CGFloat const KafkaRefreshHeight = 45.;
 static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 
@@ -93,7 +95,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 }
 
 - (void)setupProperties{
-	self.backgroundColor = [UIColor whiteColor];
+	self.backgroundColor = [UIColor clearColor];
 	self.alpha = 0.;
 	[self addSubview:self.alertLabel];
 	_refreshState = KafkaRefreshStateNone;
@@ -121,8 +123,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 #define KAFKA_SET_ALPHA(a) __weak typeof(self) weakSelf = self;\
 	[self setAnimateBlock:^{\
 		weakSelf.alpha = (a);\
-	} completion:NULL];
-	
+	} completion:NULL]; 
 	switch (refreshState) {
 		case KafkaRefreshStateNone:{
 			KAFKA_SET_ALPHA(0.0);
@@ -256,14 +257,11 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 - (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion {
 	if((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
 	if (text) {
-		self.alertLabel.hidden = NO;
 		[self bringSubviewToFront:self.alertLabel];
 		self.alertLabel.text = text;
-		[self.alertLabel setNeedsLayout];
 		[self.alertLabel startAnimating];
 		__weak typeof(self) weakSelf = self;
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			weakSelf.alertLabel.hidden = TRUE;
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ 
 			[weakSelf.alertLabel stopAnimating];
 			[weakSelf _endRefresh];
 			if (completion) completion(); 
@@ -279,7 +277,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	self.shouldNoLongerRefresh = YES;
 	if (self.alertLabel.isHidden) self.alertLabel.hidden = NO;
 	[self bringSubviewToFront:self.alertLabel];
-	self.alertLabel.text = text;
+	self.alertLabel.text = text; 
 	if (text) {
 		__weak typeof(self) weakSelf = self;
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

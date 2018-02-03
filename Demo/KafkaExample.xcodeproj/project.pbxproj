@@ -32,6 +32,7 @@
 		986ADD991FF60DBB006575E7 /* KafkaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986ADD971FF60DBB006575E7 /* KafkaTableViewController.m */; };
 		986ADD9E1FF60DDC006575E7 /* KafkaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986ADD9C1FF60DDC006575E7 /* KafkaCollectionViewController.m */; };
 		98766F411FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98766F401FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m */; };
+		98A9850D20246633000FD3E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98A9850F20246633000FD3E8 /* InfoPlist.strings */; };
 		98C2F86A1FEF6AB50039C749 /* KafkaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C2F8691FEF6AB50039C749 /* KafkaAppDelegate.m */; };
 		98C2F8701FEF6AB50039C749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C2F86E1FEF6AB50039C749 /* Main.storyboard */; };
 		98C2F8721FEF6AB50039C749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C2F8711FEF6AB50039C749 /* Assets.xcassets */; };
@@ -111,6 +112,8 @@
 		986ADD9C1FF60DDC006575E7 /* KafkaCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaCollectionViewController.m; sourceTree = "<group>"; };
 		98766F3F1FFC68DB00CC3DD0 /* KafkaCustomTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaCustomTableViewController.h; sourceTree = "<group>"; };
 		98766F401FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaCustomTableViewController.m; sourceTree = "<group>"; };
+		98A9850E20246633000FD3E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		98A9851020246663000FD3E8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		98C2F8651FEF6AB50039C749 /* KafkaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KafkaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C2F8681FEF6AB50039C749 /* KafkaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaAppDelegate.h; sourceTree = "<group>"; };
 		98C2F8691FEF6AB50039C749 /* KafkaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaAppDelegate.m; sourceTree = "<group>"; };
@@ -330,6 +333,7 @@
 				98C2F86E1FEF6AB50039C749 /* Main.storyboard */,
 				98C2F8711FEF6AB50039C749 /* Assets.xcassets */,
 				98C2F8761FEF6AB50039C749 /* Info.plist */,
+				98A9850F20246633000FD3E8 /* InfoPlist.strings */,
 				98C2F8771FEF6AB50039C749 /* main.m */,
 			);
 			path = KafkaExample;
@@ -448,6 +452,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 98C2F85C1FEF6AB50039C749;
 			productRefGroup = 98C2F8661FEF6AB50039C749 /* Products */;
@@ -467,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				983A091B201AB89900AEF743 /* Image.bundle in Resources */,
+				98A9850D20246633000FD3E8 /* InfoPlist.strings in Resources */,
 				98C2F8721FEF6AB50039C749 /* Assets.xcassets in Resources */,
 				98C2F8701FEF6AB50039C749 /* Main.storyboard in Resources */,
 			);
@@ -554,6 +560,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		98A9850F20246633000FD3E8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				98A9850E20246633000FD3E8 /* en */,
+				98A9851020246663000FD3E8 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		98C2F86E1FEF6AB50039C749 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -569,6 +584,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -624,6 +640,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

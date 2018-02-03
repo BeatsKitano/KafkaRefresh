@@ -47,10 +47,9 @@
 	}];
 	[self.tableView bindDefaultRefreshStyleAtPosition:KafkaRefreshPositionFooter refreshHanler:^{
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			[weakSelf.tableView.footRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"没有了"];
+			[weakSelf.tableView.footRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:NSLocalizedString(@"nothing", nil)];
 		});
 	}];
-	  
 }
 
 #pragma mark - Table view data source
@@ -131,7 +130,7 @@
 	flow.minimumLineSpacing = 1.0;
 	flow.minimumInteritemSpacing = 1.0;
 	flow.itemSize = CGSizeMake((self.view.bounds.size.width - 3.)/4, (self.view.bounds.size.width - 3.)/4 * 1.3);
-	flow.headerReferenceSize = CGSizeMake(self.view.bounds.size.width, 5.);
+//	flow.headerReferenceSize = CGSizeMake(self.view.bounds.size.width, 5.);
 	return flow;
 }
 
