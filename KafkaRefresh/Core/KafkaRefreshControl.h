@@ -70,13 +70,6 @@ When the system automatically or manually adjust contentInset,
 @property (assign, nonatomic) CGFloat progress;
 
 /**
- The library's internal logic tag, when the control is drawn,
- 
- whether it needs to be refreshed
- */
-//@property (assign, nonatomic) BOOL shouldRefreshWhenDisplayed;
-
-/**
  Block will be called when refreshing
  */
 @property (copy, nonatomic) KafkaRefreshHandler refreshHandler;

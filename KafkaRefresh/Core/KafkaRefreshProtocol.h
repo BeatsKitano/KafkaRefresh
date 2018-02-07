@@ -29,6 +29,14 @@ typedef NS_ENUM(NSInteger,KafkaRefreshState) {
 	KafkaRefreshStateWillEndRefresh
 };
 
+@protocol KafkaRefreshControlProtocol<NSObject>
+@required
+
+
+
+@end
+
+
 @protocol KafkaRefreshProgressDelegate<NSObject>
 @required
 
