@@ -7,7 +7,7 @@
 ![language](https://img.shields.io/badge/language-objc-orange.svg) 
 [![Email](https://img.shields.io/badge/e--mail-xorshine%40icloud.com-blue.svg)](mailto:xorshine@icloud.com)
 
- [ **中文文档** ](https://github.com/xorshine/KafkaRefresh/CREADME.md)
+ [ **中文文档** ](https://github.com/xorshine/KafkaRefresh/blob/master/CREADME.md)
 
 ### Screenshots
 <table>
@@ -62,8 +62,6 @@
   <td><img src="Assets/Gif/_arrow.gif"></img></td>
 </tr>
 </table>
-
-[中文文档](#inchinese)
 
 ### Overviews
 Highly scalable, custom, multi-style refresh framework.
