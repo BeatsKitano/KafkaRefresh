@@ -131,7 +131,7 @@ static CGFloat MinYForNone(KafkaRefreshControl * cSelf){
 				 && originY <= maxY && self.refreshState != KafkaRefreshStateScrolling){
 			self.refreshState = KafkaRefreshStateScrolling;
 		}
-		else if (self.scrollView.isDragging && originY > maxY
+		else if (self.scrollView.isDragging && originY > maxY && !self.isAnimating
 				 && self.refreshState != KafkaRefreshStateReady && !self.isShouldNoLongerRefresh){
 			self.refreshState = KafkaRefreshStateReady;
 		}
