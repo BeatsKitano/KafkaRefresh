@@ -240,7 +240,9 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 - (void)privateContentOffsetOfScrollViewDidChange:(CGPoint)contentOffset{}
  
 - (void)beginRefreshing{
-	if (self.refreshState != KafkaRefreshStateNone || self.isHidden) return;
+	if (self.refreshState != KafkaRefreshStateNone
+		|| self.isHidden
+		|| self.triggeredRefreshByUser) return;
 	if (self.isShouldNoLongerRefresh) {
 		self.alertLabel.hidden = YES;
 	}

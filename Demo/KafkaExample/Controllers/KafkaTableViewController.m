@@ -84,6 +84,8 @@
 
 - (void)refresh{
 	[self.tableView.headRefreshControl beginRefreshing];
+	[self.tableView.headRefreshControl beginRefreshing];
+	[self.tableView.headRefreshControl beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
