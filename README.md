@@ -1,6 +1,6 @@
 ![KafkaRefresh](Assets/titleView.png)
 
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/xorshine/KafkaRefresh)
+<!--[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/xorshine/KafkaRefresh)-->
 [![GitHub license](https://img.shields.io/github/license/xorshine/KafkaRefresh.svg)](https://github.com/xorshine/KafkaRefresh/blob/master/LICENSE)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/KafkaRefresh.svg)](https://img.shields.io/cocoapods/v/KafkaRefresh.svg)
 ![platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
@@ -128,7 +128,7 @@ pod 'KafkaRefresh'
 
 * Carthage 
 
-If anyone wants to install by *carthage* , please supply a pull request. I'm not using this package manager myself.
+	> If anyone wants to install by *carthage* , please supply a pull request. I'm not using this package manager myself.
 
 ### Usage
 
@@ -186,8 +186,7 @@ If anyone wants to install by *carthage* , please supply a pull request. I'm not
 ##### 4.End refresh
 ```objective-c
  [self.tableView.headRefreshControl endRefreshing];
- [self.tableView.footRefreshControl endRefreshing];
- 
+ [self.tableView.footRefreshControl endRefreshing]; 
 - (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion;
 
  
