@@ -132,13 +132,13 @@ pod 'KafkaRefresh'
 
 ### Usage
 
-##### 1.Import header files
 ```objective-c
  #import "KafkaRefresh.h" 
 ```
 
-##### 2.Initialization
-* The first way
+##### initialization
+
+* the first way
 ```objective-c
  [self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow
 						   fillColor:MainColor
@@ -154,7 +154,7 @@ pod 'KafkaRefresh'
 	}];
 ```
 
-* The second way
+* the second way
 ```objective-c
  KafkaArrowHeader * arrow = [[KafkaArrowHeader alloc] init];
  arrow.refreshHandler = ^{
@@ -163,9 +163,10 @@ pod 'KafkaRefresh'
  self.tableView.headRefreshControl = arrow;
 ```
 
-* The third way(global configuration)
+* the third way(global configuration)
 
 ```objective-c
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	[[KafkaRefreshDefaults standardRefreshDefaults] setHeaderDefaultStyle:KafkaRefreshStyleAnimatableRing];
 	return YES;
@@ -177,19 +178,28 @@ pod 'KafkaRefresh'
 
 ```
 
-##### 3.Manual trigger refresh
+##### triggering refresh manually
+
 ```objective-c
  [self.tableView.headRefreshControl beginRefreshing];
  [self.tableView.footRefreshControl beginRefreshing];
 ```
 
-##### 4.End refresh
-```objective-c
- [self.tableView.headRefreshControl endRefreshing];
- [self.tableView.footRefreshControl endRefreshing]; 
-- (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion;
+##### end refresh
+> When you finish refreshing and don't need to show any hints, or any animation, call the following method.
 
- 
+```objective-c
+- (void)endRefreshing; 
+```
+> When you finish the refresh and need to display the prompt message, call the following method.
+
+```objective-c
+- (void)endRefreshingWithAlertText:(NSString *)text completion:(dispatch_block_t)completion; 
+```
+
+>When you end the refresh and no longer need to refresh, call the following method.
+
+```objective-c
 - (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text;
 ```
 
