@@ -15,7 +15,7 @@
 @implementation NSObject (KafkaAnimation)
 
 - (void)setAnimateBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion{
-	[UIView animateWithDuration:0.25
+	[UIView animateWithDuration:0.15
 						  delay:0
 						options:UIViewAnimationOptionCurveLinear
 					 animations:block

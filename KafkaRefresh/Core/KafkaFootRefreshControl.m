@@ -42,6 +42,7 @@ static inline CGPoint RefreshingPoint(KafkaFootRefreshControl *cSelf){
 		}
 		weakSelf.scrollView.insetBottom = weakSelf.preSetContentInsets.bottom + weakSelf.kaf_height;
 	};
+	
 	dispatch_block_t completionBlock = ^(void){
 		if (weakSelf.refreshHandler) weakSelf.refreshHandler();
 		if (weakSelf.isTriggeredRefreshByUser) {
