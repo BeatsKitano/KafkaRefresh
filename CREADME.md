@@ -75,10 +75,7 @@
   <td><img src="assets/Gif/arrow.gif"></img></td>
   <td><img src="assets/Gif/_arrow.gif"></img></td>
 </tr>
-</table>
-
-### <a id="inchinese"></a>概述
-> 高度可扩展、自定义、多样式的刷新框架。
+</table> 
 
 ### 特点
 * 支持多样式选择与自定义
@@ -239,11 +236,7 @@ pod 'KafkaRefresh'
 	}
 }
  @end
-```
-
-### 注意事项
-* 请更新至最新版本
-* iOS11之后，如果你使用了estimatedRowHeight，estimatedRowHeight的高度与真实高度相差过大，0.8.3版本之前可能会出现UITableView重复刷新问题，0.8.3版本后该问题已经解决(iOS bug)
+``` 
 
 ### 交流
 > 1. 如需要帮助，请邮件 <xorshine@icloud.com> 
