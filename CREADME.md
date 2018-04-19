@@ -246,9 +246,8 @@ pod 'KafkaRefresh'
 * iOS11之后，如果你使用了estimatedRowHeight，estimatedRowHeight的高度与真实高度相差过大，0.8.3版本之前可能会出现UITableView重复刷新问题，0.8.3版本后该问题已经解决(iOS bug)
 
 ### 交流
-> 1. 如需要帮助，请邮件 <xorshine@icloud.com>或者wechat：Xiangxh1015；
-> 2. 个人精力有限，Kafka提供的回调接口足够去增加更丰富的UI效果，很欢迎您一起参与，并提交pull request；
-> 3. 如果您对该库有更好的设计思路，请务必e-mail或wechat。
+> 1. 如需要帮助，请邮件 <xorshine@icloud.com> 
+> 2. 个人精力有限，KafkaRefresh开放的接口足够去扩展更丰富的UI效果，欢迎您参与，并提交pull request
 	
-### License
+### 协议
 > KafkaRefresh采用MIT开源协议。
