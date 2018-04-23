@@ -77,15 +77,18 @@ static inline CGPoint RefreshingPoint(KafkaHeadRefreshControl *cSelf){
 
 - (void)setScrollViewToOriginalLocation{
 	[super setScrollViewToOriginalLocation];
-	__weak typeof(self) weakSelf = self; 
-	[self setAnimateBlock:^{
+	__weak typeof(self) weakSelf = self;
+	dispatch_block_t animationBlock = ^{
 		weakSelf.animating = YES;
 		weakSelf.scrollView.insetTop = weakSelf.preSetContentInsets.top;
-	} completion:^{
+	};
+	
+	dispatch_block_t completion = ^{
 		weakSelf.animating = NO;
 		weakSelf.triggeredRefreshByUser = NO;
 		weakSelf.refreshState = KafkaRefreshStateNone;
-	}];
+	};
+	[self setAnimateBlock:animationBlock completion:completion];
 }
 
 #pragma mark - contentOffset

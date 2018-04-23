@@ -100,7 +100,7 @@ When the system automatically or manually adjust contentInset,
  if called method "endRefreshingAndNoLongerRefreshingWithAlertText:" to end refresh,
  shouldNoLongerRefresh will set TRUE.
  */
-@property (assign, nonatomic, readonly, getter=isShouldNoLongerRefresh) BOOL shouldNoLongerRefresh;
+@property (assign, nonatomic,readonly, getter=isShouldNoLongerRefresh) BOOL shouldNoLongerRefresh;
 
 /**
  Set the color of the prompt text after the refresh is completed.
@@ -150,5 +150,11 @@ When the system automatically or manually adjust contentInset,
  @param text If the user continues to drag, it will display the “text”, and will not trigger refresh.
  */
 - (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text Kafka_REQUIRES_SUPER;
+
+/**
+ After you call ‘endRefreshingAndNoLongerRefreshingWithAlertText’,
+ you need to resume refresh available
+ */
+- (void)resumeRefreshAvailable;
 
 @end

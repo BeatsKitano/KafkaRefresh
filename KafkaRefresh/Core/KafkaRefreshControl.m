@@ -238,14 +238,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 }
 
 - (void)privateContentOffsetOfScrollViewDidChange:(CGPoint)contentOffset{}
- 
+
 - (void)beginRefreshing{
-	if (self.refreshState != KafkaRefreshStateNone
-		|| self.isHidden
-		|| self.triggeredRefreshByUser) return;
-	if (self.isShouldNoLongerRefresh) {
-		self.alertLabel.hidden = YES;
-	}
+	if (self.refreshState != KafkaRefreshStateNone || self.isHidden || self.triggeredRefreshByUser) return;
+	if (self.isShouldNoLongerRefresh)  self.alertLabel.hidden = YES;
 	self.shouldNoLongerRefresh = NO;
 	self.triggeredRefreshByUser = YES;
 	[self setScrollViewToRefreshLocation];
@@ -295,6 +291,11 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	}else{
 		[self _endRefresh];
 	}
+}
+
+- (void)resumeRefreshAvailable{
+	self.shouldNoLongerRefresh = NO;
+	self.alertLabel.alpha = 0.0;
 }
 
 - (void)_endRefresh{
