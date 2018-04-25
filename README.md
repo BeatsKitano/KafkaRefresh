@@ -120,7 +120,6 @@
 *  **iOS 7+** 
 	
 	>Support iOS 7 above system. Including iPhone X.
-
 	
 *  **Document coverage 100%** 
 	
@@ -135,7 +134,7 @@ pod 'KafkaRefresh'
 
 * Carthage 
 
-	> If anyone wants to install by *carthage* , please supply a pull request. I'm not using this package manager myself.
+> If anyone wants to install by *carthage* , please supply a pull request. I'm not using this package manager myself.
 
 ### Usage
 
@@ -143,56 +142,40 @@ pod 'KafkaRefresh'
  #import "KafkaRefresh.h" 
 ```
 
-##### initialization
-
-* the first way
+##### Initialization
+* The first way
 ```objective-c
- [self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow
-						   fillColor:MainColor
-						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		 //.......
-	}];
-
- [self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow
-						   fillColor:MinorColor
-						  atPosition:KafkaRefreshPositionFooter
-					   refreshHanler:^{
-		 //.....
-	}];
+[self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow fillColor:MainColor animatedBackgroundColor:[UIColor redColor] atPosition:KafkaRefreshPositionHeader refreshHanler:^{
+		 //to do something... 
+	}];	
 ```
-
-* the second way
+* The second way
 ```objective-c
  KafkaArrowHeader * arrow = [[KafkaArrowHeader alloc] init];
  arrow.refreshHandler = ^{
-	 //.....
+	 //to do something... 
  };
  self.tableView.headRefreshControl = arrow;
 ```
-
-* the third way(global configuration)
-
+* The third way(global configuration)
 ```objective-c
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	[[KafkaRefreshDefaults standardRefreshDefaults] setHeaderDefaultStyle:KafkaRefreshStyleAnimatableRing];
 	return YES;
 }
 
 [self.tableView bindDefaultRefreshStyleAtPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		//.....
+		//to do something... 
 }];
-
 ```
-
-##### triggering refresh manually
+##### Trigger Refresh Manually
 
 ```objective-c
  [self.tableView.headRefreshControl beginRefreshing];
  [self.tableView.footRefreshControl beginRefreshing];
 ```
 
-##### end refresh
+##### End Refresh
 > When you finish refreshing and don't need to show any hints, or any animation, call the following method.
 
 ```objective-c
@@ -209,55 +192,38 @@ pod 'KafkaRefresh'
 ```objective-c
 - (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text;
 ```
+##### Resume Refresh Available
+```objective-c
+/**
+ After you call ‘endRefreshingAndNoLongerRefreshingWithAlertText’,
+ you need to resume refresh available
+ */
+- (void)resumeRefreshAvailable;
+```
 
 ### Customize
 Take KafkaheadRefreshControl as an example
 ```objective-c
  #import "KafkaheadRefreshControl.h"
  @interface CustomHeader : KafkafootRefreshControl
-
  @end
  ```
  
  ```objective-c
  @implementation CustomHeader 
- 
- - (void)setupProperties{
-	[super setupProperties];
-	//Initialization properties
-}
- 
+
 - (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{
 	//progress callback
 }
 
 - (void)kafkaRefreshStateDidChange:(KafkaRefreshState)state{
 	[super kafkaRefreshStateDidChange:state];
-	
-	switch (state) {
-		case KafkaRefreshStateNone:{
-			break;
-		}
-		case KafkaRefreshStateScrolling:{
-			break;
-		}
-		case KafkaRefreshStateReady:{
-			break;
-		}
-		case KafkaRefreshStateRefreshing:{ 
-			break;
-		}
-		case KafkaRefreshStateWillEndRefresh:{ 
-			break;
-		}
-	}
 }
- @end
+@end
 ```
-
 ### Precautions
-* Please update the latest version；
-* After iOS 11, if you use estimatedRowHeight and the estimatedRowHeight height is too far from the true height, UITableView repeated refreshes may occur before version 0.8.3, which has been resolved since version 0.8.3 (iOS bug)
+> Please update the latest version；
+> After iOS 11, if you use estimatedRowHeight and the estimatedRowHeight height is too far from the true height, UITableView repeated refreshes may occur before version 0.8.3, which has been resolved since version 0.8.3 (iOS bug)
 
 
 ### Communication
@@ -267,4 +233,4 @@ Take KafkaheadRefreshControl as an example
 
 
 ### License
-KafkaRefresh is released under the MIT license. See LICENSE for details.
+> KafkaRefresh is released under the MIT license. See [LICENSE](https://github.com/xorshine/KafkaRefresh/blob/master/LICENSE) for details.
