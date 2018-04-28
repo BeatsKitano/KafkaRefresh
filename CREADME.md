@@ -14,7 +14,7 @@
   </p>
 </p> 
 <br>
- 
+
 ### Status
 
 [![GitHub license](https://img.shields.io/github/license/xorshine/KafkaRefresh.svg)](https://github.com/xorshine/KafkaRefresh/blob/master/LICENSE)
@@ -84,23 +84,23 @@
 
 * 非刷新状态自动隐藏
 
-> 能避免开发者手动调整contentInset后刷新控件的出现而影响视觉体验；最常见的情况时，不存在数据时，底部的刷新的控件未隐藏，使用KafkaRefresh能避免该问题。
+> 即使手动调整过contentInset，依然能够在非刷新状态自动隐藏影。最常见的情况是：当数据量过少，UITableView停止刷新后，用户依旧能看到刷新控件的存在，从而影响的视觉体验。KafkaRefresh首次解决了该问题。
 
-* 刷新结束时滑动抗抖动
+* 刷新结束时抗抖动
 
-> 当控件结束刷新，UIScrollView如果处于滑动状态，KafkaRefresh将根据刷新控件此时是否显示控制UIScrollView的contntOffset.
- 
-* 支持调整触发刷新的偏移阀值
+> 当UIScrollView处于刷新状态，且用户滑动UIScrollView，当刷新结束时，KafkaRefresh不会调整UIScrollView的内容，从而导致页面跳动；
 
-> 偏移阀值可自定义，自我把控触发刷新的条件；偏移阀值是基于控件高度的倍数，且须大于1.0。
- 
+* 支持设置控件高度
+
+> `stretchOffsetYAxisThreshold`是根据刷新控件的高度进行的比例调整。如：当设置`stretchOffsetYAxisThreshold`为1.5时，触发刷新的偏移距离将调整为原来的1.5倍。
+
 * 支持全局配置
 
-> `KafkaRefreshDefaults`支持全局设置样式,更少的代码。
+> `KafkaRefreshDefaults`类似一个配置表，通过该配置表配置全局的刷新样式，而无需在每一个页面初始化或者绑定刷新控件。
 
 * 支持进度回调
 
-> 实时回调拖拽的偏移比例，对于扩展接口，可根据进度调整动画.
+> 实时回调拖拽的偏移比例，对于扩展接口，可根据进度调整动画。该接口的开放可用于扩展更多的刷新东亚样式。
 
 * 自适应contentInset系统调整与手动调整
 
@@ -108,11 +108,11 @@
 
 * 解决刷新状态分组视图悬停问题
 
-> 即使在列表高速滑动置顶时，视图都将跟随ScrollView滑动。
+> 即使在列表滑动时，分组视图都将跟随ScrollView滑动（即使处于高速滑动状态下！）。
 
 * 文档覆盖率100%、支持横竖屏切换自适应、iOS 7+。
 
- 
+
 ### 安装
 * CocoaPods
 ```ruby
@@ -121,7 +121,7 @@ pod 'KafkaRefresh'
 
 * Carthage 
 
-如果您想通过*carthage*安装 , 请您申请一个pull request.
+>  如果您想通过*carthage*安装 , 请您申请一个pull request.
 
 ### 使用
 
@@ -157,7 +157,8 @@ pod 'KafkaRefresh'
 
 * 方式三 全局配置
 ```objective-c
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
+{
 	[[KafkaRefreshDefaults standardRefreshDefaults] setHeaderDefaultStyle:KafkaRefreshStyleAnimatableRing];
 	return YES;
 }
@@ -192,55 +193,48 @@ pod 'KafkaRefresh'
 - (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text;
 ```
 
+##### 5.重新恢复刷新
+
+```objective-c
+/**
+ 当调用过 ‘endRefreshingAndNoLongerRefreshingWithAlertText’,
+ 且重新需要恢复刷新功能室，调用下面方法
+ */
+- (void)resumeRefreshAvailable;
+```
+
 ### 自定义
+
 以KafkaheadRefreshControl为例：
 ```objective-c
  #import "KafkaheadRefreshControl.h"
  @interface CustomHeader : KafkafootRefreshControl
  @end
- ```
- ***
- .m
- 
+```
  ```objective-c
  @implementation CustomHeader 
  
- - (void)setupProperties{
+- (void)setupProperties
+{
 	[super setupProperties];
 	//初始化属性
 }
  
-- (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{
+- (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max
+{
 	//进度回调
 }
 
-- (void)kafkaRefreshStateDidChange:(KafkaRefreshState)state{
+- (void)kafkaRefreshStateDidChange:(KafkaRefreshState)state
+{
 	[super kafkaRefreshStateDidChange:state];
-	
-	switch (state) {
-		case KafkaRefreshStateNone:{
-			break;
-		}
-		case KafkaRefreshStateScrolling:{
-			break;
-		}
-		case KafkaRefreshStateReady:{
-			break;
-		}
-		case KafkaRefreshStateRefreshing:{ 
-			break;
-		}
-		case KafkaRefreshStateWillEndRefresh:{ 
-			break;
-		}
-	}
 }
  @end
-``` 
+ ```
 
 ### 交流
 > 1. 如需要帮助，请邮件 <xorshine@icloud.com> 
 > 2. 个人精力有限，KafkaRefresh开放的接口足够去扩展更丰富的UI效果，欢迎您参与，并提交pull request
-	
+
 ### 协议
 > KafkaRefresh采用MIT开源协议。
