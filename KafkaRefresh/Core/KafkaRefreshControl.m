@@ -165,6 +165,9 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 			break; 
 		}
 	}
+	if (self.shouldNoLongerRefresh) {
+		self.alpha = 1.0;
+	}
 	[self kafkaRefreshStateDidChange:refreshState];
 }
 
@@ -223,7 +226,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	if ([keyPath isEqualToString:KafkaContentOffset]) {
 		///////////////////////////////////////////////////////////////////////////////////////////
 		//If you disable the control's refresh feature, set the control to hidden
-		if (self.isHidden) return;
+		if (self.isHidden || self.shouldNoLongerRefresh) return;
 		///////////////////////////////////////////////////////////////////////////////////////////
 		
 		CGPoint point = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
