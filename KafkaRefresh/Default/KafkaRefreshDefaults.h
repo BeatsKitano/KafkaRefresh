@@ -7,7 +7,6 @@
  * This source code is licensed under the MIT license.
  */
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "KafkaRefreshStyle.h"
 
@@ -34,7 +33,7 @@
 /**
  default R G B --> 28.  164.  252.
  */
-@property (strong, nonatomic) UIColor * fillColor;
+@property (strong, nonatomic) UIColor * themeColor;
 
 /**
  refresh control‘s backgroundColor

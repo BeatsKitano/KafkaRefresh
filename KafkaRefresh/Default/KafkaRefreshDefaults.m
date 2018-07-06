@@ -28,7 +28,7 @@
 		_headDefaultStyle = KafkaRefreshStyleAnimatableArrow;
 		_footDefaultStyle = KafkaRefreshStyleNative;
 		
-		_fillColor = KafkaColorWithRGBA(28., 164., 252., 1.0);
+		_themeColor = KafkaColorWithRGBA(28., 164., 252., 1.0);
 		_backgroundColor = [UIColor whiteColor];
 		
 		_headPullingText = @"继续下拉";

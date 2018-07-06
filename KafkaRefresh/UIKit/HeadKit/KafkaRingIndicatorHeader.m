@@ -9,6 +9,7 @@
  */
 
 #import "KafkaRingIndicatorHeader.h"
+#import "KafkaCategories.h"
  
 @implementation KafkaRingIndicatorHeader
 
@@ -20,15 +21,15 @@
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
-	self.arcLayer.frame = CGRectMake(0, 0, self.kaf_width, self.kaf_height);
-	self.indicator.center = CGPointMake(self.kaf_width/2., self.kaf_height/2.);
+	self.arcLayer.frame = CGRectMake(0, 0, self.width, self.height);
+	self.indicator.center = CGPointMake(self.width/2., self.height/2.);
 }
 
-- (void)setFillColor:(UIColor *)fillColor{
-	if (super.fillColor == fillColor) {
+- (void)setThemeColor:(UIColor *)fillColor{
+	if (super.themeColor == fillColor) {
 		return;
 	}
-	[super setFillColor:fillColor];
+	[super setThemeColor:fillColor];
 	self.arcLayer.ringFillColor = fillColor;
 }
 

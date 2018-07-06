@@ -9,7 +9,7 @@
  */
 
 #import "KafkaReplicatorFooter.h"
-#import "CALayer+KafkaLayout.h" 
+#import "KafkaCategories.h"
 
 @implementation KafkaReplicatorFooter
 
@@ -20,14 +20,14 @@
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
-	self.replicatorLayer.frame = CGRectMake(0, 0, self.kaf_width, self.kaf_height);
+	self.replicatorLayer.frame = CGRectMake(0, 0, self.width, self.height);
 }
 
-- (void)setFillColor:(UIColor *)fillColor{
-	if (super.fillColor == fillColor) {
+- (void)setThemeColor:(UIColor *)fillColor{
+	if (super.themeColor == fillColor) {
 		return;
 	}
-	[super setFillColor:fillColor];
+	[super setThemeColor:fillColor];
 	self.replicatorLayer.indicatorShapeLayer.backgroundColor = fillColor.CGColor;
 }
 

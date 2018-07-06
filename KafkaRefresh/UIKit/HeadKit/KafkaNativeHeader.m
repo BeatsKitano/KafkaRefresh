@@ -9,6 +9,7 @@
  *************************************************************/
 
 #import "KafkaNativeHeader.h" 
+#import "KafkaCategories.h"
 
 @interface KafkaNativeHeader()
 
@@ -26,7 +27,7 @@
 - (void)layoutSubviews{
 	[super layoutSubviews];
 	 
-	self.indicator.center = CGPointMake(self.kaf_width/2., self.kaf_height/2.); 
+	self.indicator.center = CGPointMake(self.width/2., self.height/2.); 
 }
 
 - (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{
@@ -37,10 +38,9 @@
 	[super kafkaRefreshStateDidChange:state];
 	switch (state) {
 		case KafkaRefreshStateNone:
-		case KafkaRefreshStateScrolling:break;
-		case KafkaRefreshStateReady:{
+		case KafkaRefreshStateScrolling:
+		case KafkaRefreshStateReady:
 			break;
-		}
 		case KafkaRefreshStateRefreshing:{
 			[self.indicator startAnimating];
 			break;

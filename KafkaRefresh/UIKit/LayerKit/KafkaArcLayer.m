@@ -8,7 +8,7 @@
  */
 
 #import "KafkaArcLayer.h"
-#import "CALayer+KafkaLayout.h"
+#import "KafkaCategories.h"
 
 #define KafkaColorWithRGBA(r,g,b,a)  \
 [UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
@@ -73,7 +73,7 @@
 	self.ringShapeLayer.frame = self.ringBackgroundLayer.bounds;
 	self.ringShapeLayer.position = CGPointMake(CGRectGetMidX(self.ringBackgroundLayer.bounds), CGRectGetMidY(self.ringBackgroundLayer.bounds));
 	
-	self.bezierPath = [UIBezierPath bezierPathWithRoundedRect:self.ringShapeLayer.bounds cornerRadius:self.ringShapeLayer.kaf_width/2.];
+	self.bezierPath = [UIBezierPath bezierPathWithRoundedRect:self.ringShapeLayer.bounds cornerRadius:self.ringShapeLayer.width/2.];
 	
 	self.ringBackgroundLayer.path = self.bezierPath.CGPath;
 	self.ringShapeLayer.path = self.bezierPath.CGPath;

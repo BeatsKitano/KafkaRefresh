@@ -8,10 +8,8 @@
  * This source code is licensed under the MIT license.		 *
  *************************************************************/
 
-#define KafkaColorWithRGBA(r,g,b,a)  \
-[UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
-
 #import "KafkaRefreshControl.h"
+#import "KafkaCategories.h"
 
 @interface KafkaLabel : UILabel<CAAnimationDelegate>
 - (void)startAnimating;
@@ -35,8 +33,8 @@
 }
 
 - (void)layoutSubviews{
-	new.frame = CGRectMake(0, 0, 0, self.kaf_height);
-	new.position = CGPointMake(self.kaf_width/2.0, self.kaf_height/2.);
+	new.frame = CGRectMake(0, 0, 0, self.height);
+	new.position = CGPointMake(self.width/2.0, self.height/2.);
 }
 
 - (void)startAnimating{
@@ -50,7 +48,7 @@
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds.size.width"];
 	animation.fromValue = @(0);
-	animation.toValue = @(self.kaf_width);
+	animation.toValue = @(self.width);
 	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
 	animation.fillMode = kCAFillModeForwards;
 	animation.duration = 0.3;
@@ -104,6 +102,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	self.backgroundColor = [UIColor clearColor];
 	self.alpha = 0.;
 	[self addSubview:self.alertLabel];
+    _autoRefreshOnFoot = NO;
 	_refreshState = KafkaRefreshStateNone;
 	_stretchOffsetYAxisThreshold = kStretchOffsetYAxisThreshold;
 	_shouldNoLongerRefresh = NO;
@@ -111,9 +110,9 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	if (CGRectEqualToRect(self.frame, CGRectZero)) self.frame = CGRectMake(0, 0, 1, 1);
 }
 
-- (void)setFillColor:(UIColor *)fillColor{
-	if (_fillColor != fillColor) {
-		_fillColor = fillColor;
+- (void)setThemeColor:(UIColor *)fillColor{
+	if (_themeColor != fillColor) {
+		_themeColor = fillColor;
 		_alertLabel.textColor = fillColor;
 	}
 }
@@ -125,14 +124,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 - (void)setRefreshState:(KafkaRefreshState)refreshState{
 	if (_refreshState == refreshState) return;
 	_refreshState = refreshState;
-
-#define KAFKA_SET_ALPHA(a) __weak typeof(self) weakSelf = self;\
-	[self setAnimateBlock:^{\
-		weakSelf.alpha = (a);\
-	} completion:NULL]; 
+    @weakify(self);
 	switch (refreshState) {
 		case KafkaRefreshStateNone:{
-			KAFKA_SET_ALPHA(0.0);
+            [self setAnimateBlock:^{@strongify(self); self.alpha = 0.0; }];
 			break;
 		}
 		case KafkaRefreshStateScrolling:{
@@ -142,8 +137,8 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 			if (!self.isTriggeredRefreshByUser && !self.scrollView.isTracking) {
 				return;
 			}
-			////////////////////////////////////////////////////////////////////////////////////
-			KAFKA_SET_ALPHA(1.0);
+		 
+            [self setAnimateBlock:^{@strongify(self); self.alpha = 1.0; }];
 			break;
 		}
 		case KafkaRefreshStateReady:{
@@ -154,14 +149,14 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 				[self kafkaDidScrollWithProgress:self.stretchOffsetYAxisThreshold max:self.stretchOffsetYAxisThreshold];
 			}
 			////////////////////////////////////////////////////////////////////////////////////
-			KAFKA_SET_ALPHA(1.0);
+            [self setAnimateBlock:^{@strongify(self); self.alpha = 1.0; }];
 			break;
 		}
 		case KafkaRefreshStateRefreshing:{
 			break;
 		}
 		case KafkaRefreshStateWillEndRefresh:{
-			KAFKA_SET_ALPHA(1.0);
+            [self setAnimateBlock:^{@strongify(self); self.alpha = 1.0; }];
 			break; 
 		}
 	}
@@ -178,8 +173,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 }
 
 - (void)setStretchOffsetYAxisThreshold:(CGFloat)stretchOffsetYAxisThreshold{
-	if (_stretchOffsetYAxisThreshold != stretchOffsetYAxisThreshold &&
-		stretchOffsetYAxisThreshold > 1.0) {
+	if (_stretchOffsetYAxisThreshold != stretchOffsetYAxisThreshold && stretchOffsetYAxisThreshold > 1.0) {
 		_stretchOffsetYAxisThreshold = stretchOffsetYAxisThreshold;
 	}
 }
@@ -193,8 +187,8 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 - (void)layoutSubviews{
 	[super layoutSubviews];
 	
-	self.kaf_height = (self.kaf_height < 45.) ? KafkaRefreshHeight : self.kaf_height;
-	self.frame = CGRectMake(0, 0, self.scrollView.kaf_width, self.kaf_height);
+	self.height = (self.height < 45.) ? KafkaRefreshHeight : self.height;
+	self.frame = CGRectMake(0, 0, self.scrollView.width, self.height);
 	self.alertLabel.frame = self.bounds;
 }
 
@@ -207,14 +201,14 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 			_observering = NO;
 		}
 	}
-	else if (self.superview == nil && newSuperview){
+	else if (self.superview == nil && newSuperview) {
 		if (!_observering) {
 			_scrollView = (UIScrollView *)newSuperview;
-			/////////////////////////////////////////////////////////////////////////////////////////
-			//sometimes, this method called before `layoutSubviews`,such as UICollectionViewController
-			[self layoutIfNeeded];
-			/////////////////////////////////////////////////////////////////////////////////////////
-			_preSetContentInsets = ((UIScrollView *)newSuperview).realContentInset;
+			/**
+             sometimes, this method called before `layoutSubviews`,such as UICollectionViewController
+			*/
+            [self layoutIfNeeded];
+			_presetContentInsets = ((UIScrollView *)newSuperview).realContentInset;
 			[newSuperview addObserver:self forKeyPath:KafkaContentOffset options:options context:nil];
 			[newSuperview addObserver:self forKeyPath:KafkaContentSize options:options context:nil];
 			_observering = YES;
@@ -224,18 +218,18 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
   
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
 	if ([keyPath isEqualToString:KafkaContentOffset]) {
-		///////////////////////////////////////////////////////////////////////////////////////////
-		//If you disable the control's refresh feature, set the control to hidden
+        /**
+         If you disable the control's refresh feature, set the control to hidden
+         */
 		if (self.isHidden || self.shouldNoLongerRefresh) return;
-		///////////////////////////////////////////////////////////////////////////////////////////
 		
 		CGPoint point = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
-		///////////////////////////////////////////////////////////////////////////////////////////
-		//If you quickly scroll scrollview in an instant, contentoffset changes are not continuous
-		///////////////////////////////////////////////////////////////////////////////////////////
+		/**
+		If you quickly scroll scrollview in an instant, contentoffset changes are not continuous
+         */
 		[self privateContentOffsetOfScrollViewDidChange:point];
 	}
-	else if([keyPath isEqualToString:KafkaContentSize]){
+	else if([keyPath isEqualToString:KafkaContentSize]) {
 		[self layoutSubviews];
 	}
 }
@@ -264,34 +258,38 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 		[self bringSubviewToFront:self.alertLabel];
 		self.alertLabel.text = text;
 		[self.alertLabel startAnimating];
-		__weak typeof(self) weakSelf = self;
+		@weakify(self);
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ 
-			[weakSelf.alertLabel stopAnimating];
-			[weakSelf _endRefresh];
+			@strongify(self);
+            [self.alertLabel stopAnimating];
+			[self _endRefresh];
 			if (completion) completion(); 
 		});
-	}else{
+	} else {
 		[self _endRefresh];
 	}
 }
 
 - (void)endRefreshingAndNoLongerRefreshingWithAlertText:(NSString *)text{
 	if((!self.isRefresh && !self.isAnimating) || self.isHidden) return;
-	if (self.isShouldNoLongerRefresh) return; 
+	if (self.isShouldNoLongerRefresh) return;
 	self.shouldNoLongerRefresh = YES;
-	__weak typeof(self) weakSelf = self;
-	if (self.alertLabel.alpha == 0.0){
+   
+    @weakify(self);
+	if (self.alertLabel.alpha == 0.0) {
 		[UIView animateWithDuration:0.3 animations:^{
-			weakSelf.alertLabel.alpha = 1.0;
+             @strongify(self);
+			self.alertLabel.alpha = 1.0;
 		}];
 	}
 	[self bringSubviewToFront:self.alertLabel];
 	self.alertLabel.text = text; 
 	if (text) {
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			[weakSelf _endRefresh];
+			 @strongify(self);
+            [self _endRefresh];
 		});
-	}else{
+	} else {
 		[self _endRefresh];
 	}
 }
@@ -324,7 +322,7 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 		_alertLabel = [KafkaLabel new];
 		_alertLabel.textAlignment = NSTextAlignmentCenter;
 		_alertLabel.font =  [UIFont fontWithName:@"Helvetica" size:15.f];
-		_alertLabel.textColor = _fillColor;
+		_alertLabel.textColor = _themeColor;
 		_alertLabel.alpha = 0.0;
 		_alertLabel.backgroundColor = [UIColor whiteColor];
 	}

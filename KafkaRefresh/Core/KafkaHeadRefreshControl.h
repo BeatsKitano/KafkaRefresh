@@ -8,8 +8,7 @@
  * This source code is licensed under the MIT license.
  */
 
-#import "KafkaRefreshControl.h"
-#import "UIView+KafkaLayout.h"
+#import "KafkaRefreshControl.h" 
 
 @interface KafkaHeadRefreshControl : KafkaRefreshControl
 

@@ -13,8 +13,6 @@
 #import <Foundation/Foundation.h>
 
 /**
- 描述刷新控件所处状态
-
  - KafkaRefreshStateNone: Refresh control is not visible, and non-refresh state
  - KafkaRefreshStateScrolling: Refresh control visible, UIScrollView sliding
  - KafkaRefreshStateReady: release your hand to refresh
@@ -30,9 +28,6 @@ typedef NS_ENUM(NSInteger,KafkaRefreshState) {
 };
 
 @protocol KafkaRefreshControlProtocol<NSObject>
-@required
-
-
 
 @end
 

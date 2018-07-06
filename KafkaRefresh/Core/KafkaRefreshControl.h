@@ -10,10 +10,6 @@
 
 #import <UIKit/UIKit.h> 
 #import "KafkaRefreshProtocol.h"
-#import "UIView+KafkaLayout.h"
-#import "CALayer+KafkaLayout.h"
-#import "NSObject+KafkaAnimation.h"
-#import "UIScrollView+KafkaLayout.h"
 
 #ifndef Kafka_REQUIRES_SUPER
 # if __has_attribute(objc_requires_super)
@@ -26,12 +22,20 @@
 #define KafkaColorWithRGBA(r,g,b,a)  \
 [UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:(a)]
 
-typedef void(^KafkaRefreshHandler)(void);
+/**
+ Refresh the control's location
+ */
+typedef NS_ENUM(NSInteger,KafkaRefreshPosition) {
+    KafkaRefreshPositionHeader = 0,
+    KafkaRefreshPositionFooter
+};
+
+typedef void(^KafkaRefreshHandler)(void); 
 
 /**
  Refresh control base class, developers do not use this class directly
  */
-NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl : UIView<KafkaRefreshProgressDelegate>
+NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl: UIView <KafkaRefreshProgressDelegate>
 
 /**
  The UIScrollView to which the control is added, developers may not set
@@ -44,23 +48,28 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl : UIView<KafkaRefresh
 @property (nonatomic, readonly, getter=isRefresh) BOOL refresh;
 
 /**
+ Judge whether the animation is executed when the refresh is over
+ */
+@property (assign, nonatomic, getter=isAnimating) BOOL animating;
+
+/**
  Control refresh status, developers may not set
  */
 @property (nonatomic) KafkaRefreshState refreshState;
 
 /**
-When the system automatically or manually adjust contentInset,
+ When the system automatically or manually adjust contentInset,
  
  this value will be saved
  */
-@property (assign, nonatomic) UIEdgeInsets preSetContentInsets;
+@property (assign, nonatomic) UIEdgeInsets presetContentInsets;
 
 /**
  This value is set to TRUE if the beginRefresh method is called automatically
  
  developers may not set
  */
-@property (assign, nonatomic, getter = isTriggeredRefreshByUser) BOOL triggeredRefreshByUser;
+@property (assign, nonatomic, getter=isTriggeredRefreshByUser) BOOL triggeredRefreshByUser;
 
 /**
  the current position offset of the control as a percentage
@@ -84,7 +93,7 @@ When the system automatically or manually adjust contentInset,
 /**
  fill colors for points, lines, and faces that appear in this control.
  */
-@property (strong, nonatomic) UIColor *fillColor;
+@property (strong, nonatomic) UIColor *themeColor;
 
 /**
  The background color of the layer that executes the animation
@@ -92,15 +101,15 @@ When the system automatically or manually adjust contentInset,
 @property (strong, nonatomic) UIColor *animatedBackgroundColor;
 
 /**
- Judge whether the animation is executed when the refresh is over
- */
-@property (assign, nonatomic, getter=isAnimating) BOOL animating;
-
-/**
  if called method "endRefreshingAndNoLongerRefreshingWithAlertText:" to end refresh,
  shouldNoLongerRefresh will set TRUE.
  */
 @property (assign, nonatomic,readonly, getter=isShouldNoLongerRefresh) BOOL shouldNoLongerRefresh;
+/**
+ scrollview trigger refresh automatically that don't need to scroll to bottom.
+ default is YES;
+ */
+@property (nonatomic, assign) BOOL autoRefreshOnFoot;
 
 /**
  Set the color of the prompt text after the refresh is completed.
