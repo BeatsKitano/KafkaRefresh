@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		983A0911201AB89900AEF743 /* CALayer+KafkaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08DC201AB89900AEF743 /* CALayer+KafkaLayout.m */; };
-		983A0912201AB89900AEF743 /* NSObject+KafkaAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08DE201AB89900AEF743 /* NSObject+KafkaAnimation.m */; };
-		983A0913201AB89900AEF743 /* UIScrollView+KafkaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08E0201AB89900AEF743 /* UIScrollView+KafkaLayout.m */; };
-		983A0914201AB89900AEF743 /* UIView+KafkaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08E2201AB89900AEF743 /* UIView+KafkaLayout.m */; };
 		983A0915201AB89900AEF743 /* UIScrollView+KafkaConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08E5201AB89900AEF743 /* UIScrollView+KafkaConfiguration.m */; };
 		983A0916201AB89900AEF743 /* KafkaFootRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08E8201AB89900AEF743 /* KafkaFootRefreshControl.m */; };
 		983A0917201AB89900AEF743 /* KafkaHeadRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A08EA201AB89900AEF743 /* KafkaHeadRefreshControl.m */; };
@@ -39,6 +35,7 @@
 		98C2F8781FEF6AB50039C749 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C2F8771FEF6AB50039C749 /* main.m */; };
 		98D2C0AA2005F65000F1532F /* KafkaExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D2C0A92005F65000F1532F /* KafkaExampleUITests.m */; };
 		98D2C0B82005F67400F1532F /* KafkaExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D2C0B72005F67400F1532F /* KafkaExampleTests.m */; };
+		B946B97320E67F4C00481872 /* KafkaCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = B946B97220E67F4C00481872 /* KafkaCategories.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,14 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		983A08DB201AB89900AEF743 /* CALayer+KafkaLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+KafkaLayout.h"; sourceTree = "<group>"; };
-		983A08DC201AB89900AEF743 /* CALayer+KafkaLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+KafkaLayout.m"; sourceTree = "<group>"; };
-		983A08DD201AB89900AEF743 /* NSObject+KafkaAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KafkaAnimation.h"; sourceTree = "<group>"; };
-		983A08DE201AB89900AEF743 /* NSObject+KafkaAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KafkaAnimation.m"; sourceTree = "<group>"; };
-		983A08DF201AB89900AEF743 /* UIScrollView+KafkaLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+KafkaLayout.h"; sourceTree = "<group>"; };
-		983A08E0201AB89900AEF743 /* UIScrollView+KafkaLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+KafkaLayout.m"; sourceTree = "<group>"; };
-		983A08E1201AB89900AEF743 /* UIView+KafkaLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KafkaLayout.h"; sourceTree = "<group>"; };
-		983A08E2201AB89900AEF743 /* UIView+KafkaLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KafkaLayout.m"; sourceTree = "<group>"; };
 		983A08E4201AB89900AEF743 /* UIScrollView+KafkaConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+KafkaConfiguration.h"; sourceTree = "<group>"; };
 		983A08E5201AB89900AEF743 /* UIScrollView+KafkaConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+KafkaConfiguration.m"; sourceTree = "<group>"; };
 		983A08E7201AB89900AEF743 /* KafkaFootRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KafkaFootRefreshControl.h; sourceTree = "<group>"; };
@@ -127,6 +116,8 @@
 		98D2C0B52005F67400F1532F /* KafkaExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KafkaExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D2C0B72005F67400F1532F /* KafkaExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaExampleTests.m; sourceTree = "<group>"; };
 		98D2C0B92005F67400F1532F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B946B97120E67F4C00481872 /* KafkaCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaCategories.h; sourceTree = "<group>"; };
+		B946B97220E67F4C00481872 /* KafkaCategories.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaCategories.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,14 +164,8 @@
 		983A08DA201AB89900AEF743 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				983A08DB201AB89900AEF743 /* CALayer+KafkaLayout.h */,
-				983A08DC201AB89900AEF743 /* CALayer+KafkaLayout.m */,
-				983A08DD201AB89900AEF743 /* NSObject+KafkaAnimation.h */,
-				983A08DE201AB89900AEF743 /* NSObject+KafkaAnimation.m */,
-				983A08DF201AB89900AEF743 /* UIScrollView+KafkaLayout.h */,
-				983A08E0201AB89900AEF743 /* UIScrollView+KafkaLayout.m */,
-				983A08E1201AB89900AEF743 /* UIView+KafkaLayout.h */,
-				983A08E2201AB89900AEF743 /* UIView+KafkaLayout.m */,
+				B946B97120E67F4C00481872 /* KafkaCategories.h */,
+				B946B97220E67F4C00481872 /* KafkaCategories.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -503,14 +488,13 @@
 				983A0923201AB89900AEF743 /* KafkaRingIndicatorHeader.m in Sources */,
 				983A0919201AB89900AEF743 /* UIScrollView+KafkaRefreshControl.m in Sources */,
 				983A0921201AB89900AEF743 /* KafkaNativeHeader.m in Sources */,
-				983A0914201AB89900AEF743 /* UIView+KafkaLayout.m in Sources */,
 				983A0917201AB89900AEF743 /* KafkaHeadRefreshControl.m in Sources */,
 				983A0916201AB89900AEF743 /* KafkaFootRefreshControl.m in Sources */,
+				B946B97320E67F4C00481872 /* KafkaCategories.m in Sources */,
 				983A0915201AB89900AEF743 /* UIScrollView+KafkaConfiguration.m in Sources */,
 				983A0924201AB89900AEF743 /* KafkaArcLayer.m in Sources */,
 				983A091C201AB89900AEF743 /* KafkaArrowFooter.m in Sources */,
 				983A091A201AB89900AEF743 /* KafkaRefreshDefaults.m in Sources */,
-				983A0911201AB89900AEF743 /* CALayer+KafkaLayout.m in Sources */,
 				983A0918201AB89900AEF743 /* KafkaRefreshControl.m in Sources */,
 				983A0925201AB89900AEF743 /* KafkaReplicatorLayer.m in Sources */,
 				983A091D201AB89900AEF743 /* KafkaNativeFooter.m in Sources */,
@@ -521,8 +505,6 @@
 				986ADD9E1FF60DDC006575E7 /* KafkaCollectionViewController.m in Sources */,
 				986ADD6A1FEF6DA8006575E7 /* KafkaMainListController.m in Sources */,
 				983A0920201AB89900AEF743 /* KafkaArrowHeader.m in Sources */,
-				983A0912201AB89900AEF743 /* NSObject+KafkaAnimation.m in Sources */,
-				983A0913201AB89900AEF743 /* UIScrollView+KafkaLayout.m in Sources */,
 				98766F411FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m in Sources */,
 				986ADD991FF60DBB006575E7 /* KafkaTableViewController.m in Sources */,
 			);
