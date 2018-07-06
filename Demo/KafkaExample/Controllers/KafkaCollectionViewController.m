@@ -37,39 +37,31 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.navigationItem.title = @"UICollectionView";
-	
-	
+	 
 	self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 	 
 	__weak typeof(self) weakSelf = self;
 	
 	__block NSInteger count = 1;
-	[self.collectionView bindRefreshStyle:_style
-						   fillColor:MainColor
-			 animatedBackgroundColor:[UIColor redColor]
-						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-							  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-								  if (count > 0) {
-									  [weakSelf.collectionView.headRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:nil];
-									  count--;
-								  }else{
-									  [weakSelf.collectionView.headRefreshControl endRefreshingWithAlertText:@"使用中文测试" completion:nil];
-								  }
-							  });
-						  }];
+    [self.collectionView bindHeadRefreshHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (count > 0) {
+                [weakSelf.collectionView.headRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:nil];
+                count--;
+            }else{
+                [weakSelf.collectionView.headRefreshControl endRefreshingWithAlertText:@"使用中文测试" completion:nil];
+            }
+        });
+    } themeColor:MainColor refreshStyle:_style];
 	
-	[self.collectionView bindRefreshStyle:_style
-						   fillColor:MainColor
-						  atPosition:1 refreshHanler:^{
-							  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-								  [weakSelf.collectionView.footRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:^{
-									 
-								  }];
-							  });
-						  }];
+    [self.collectionView bindFootRefreshHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.collectionView.footRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"no more"];
+        });
+    } themeColor:MainColor refreshStyle:_style];
+    
 	self.collectionView.headRefreshControl.backgroundColor = [UIColor grayColor];
-	 
 }
  
 #pragma mark <UICollectionViewDataSource>

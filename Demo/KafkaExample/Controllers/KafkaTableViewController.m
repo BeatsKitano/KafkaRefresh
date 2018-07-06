@@ -45,41 +45,41 @@
 	self.tableView.sectionHeaderHeight = 35.;
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	self.tableView.tableFooterView = [UIView new];
-	
-	
+    
 	UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
 	self.navigationItem.rightBarButtonItem = refresh;
 	__block NSInteger count = 2;
 	__weak typeof(self) weakSelf = self;
-	[self.tableView bindRefreshStyle:_style
-						   fillColor:MainColor
-			 animatedBackgroundColor:[UIColor redColor]
-						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			if (count > 0) {
-				for (NSInteger i = 0; i < 3; i++) {
-					[weakSelf.source insertObject:@"" atIndex:0];
-				}
-				[weakSelf.tableView.headRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:nil];
-				[weakSelf.tableView reloadData];
-				count--;
-			}else{
-				[weakSelf.tableView.headRefreshControl endRefreshingWithAlertText:@"使用中文测试" completion:nil];
-			}
-		});
-	}];
-	
-	[self.tableView bindRefreshStyle:_style
-						   fillColor:MainColor
-						  atPosition:1 refreshHanler:^{
-							  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			[weakSelf.source addObjectsFromArray:@[@"",@"",@"",@"",@"",@""]]; 
-			  [weakSelf.tableView.footRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:^{
-				  [weakSelf.tableView reloadData];
-			  }]; 
-		});
-	}];
+    
+    KafkaRefreshHandler headBlock = ^(void){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (count > 0) {
+                for (NSInteger i = 0; i < 3; i++) {
+                    [weakSelf.source insertObject:@"" atIndex:0];
+                }
+                [weakSelf.tableView.headRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:nil];
+                [weakSelf.tableView reloadData];
+                count--;
+            }else{
+                [weakSelf.tableView.headRefreshControl endRefreshingWithAlertText:@"使用中文测试" completion:nil];
+            }
+        });
+    };
+    
+    [self.tableView bindHeadRefreshHandler:headBlock themeColor:MainColor refreshStyle:_style];
+    
+    KafkaRefreshHandler footBlock = ^(void){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.source addObjectsFromArray:@[@"",@"",@"",@"",@"",@""]];
+            [weakSelf.tableView.footRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:^{
+                [weakSelf.tableView reloadData];
+            }];
+        });
+    };
+
+    [self.tableView bindFootRefreshHandler:footBlock themeColor:MainColor refreshStyle:_style];
 	[self.tableView.footRefreshControl setAlertTextColor:[UIColor redColor]];
+    self.tableView.footRefreshControl.autoRefreshOnFoot = YES;
 }
 
 - (void)refresh{
