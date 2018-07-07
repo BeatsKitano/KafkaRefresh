@@ -76,7 +76,7 @@
             }];
         });
     };
-
+    
     [self.tableView bindFootRefreshHandler:footBlock themeColor:MainColor refreshStyle:_style];
 	[self.tableView.footRefreshControl setAlertTextColor:[UIColor redColor]];
     self.tableView.footRefreshControl.autoRefreshOnFoot = YES;

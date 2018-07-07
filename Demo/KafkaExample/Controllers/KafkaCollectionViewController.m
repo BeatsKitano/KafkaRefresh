@@ -43,7 +43,7 @@ static NSString * const reuseIdentifier = @"Cell";
 	 
 	__weak typeof(self) weakSelf = self;
 	
-	__block NSInteger count = 1;
+	__block NSInteger count = 3;
     [self.collectionView bindHeadRefreshHandler:^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (count > 0) {
@@ -54,7 +54,7 @@ static NSString * const reuseIdentifier = @"Cell";
             }
         });
     } themeColor:MainColor refreshStyle:_style];
-	
+   
     [self.collectionView bindFootRefreshHandler:^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.collectionView.footRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"no more"];
