@@ -108,6 +108,14 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl: UIView <KafkaRefresh
 /**
  scrollview trigger refresh automatically that don't need to scroll to bottom.
  default is YES;
+ 
+ ATTENTION:!!!
+ 
+ if (no data) {
+    [tableView.footRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"no more"];
+ } else {
+    [tableView.footRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:nil];
+ }
  */
 @property (nonatomic, assign) BOOL autoRefreshOnFoot;
 

@@ -18,23 +18,16 @@
 	self.top = self.scrollView.contentHeight;
 }
 
-static inline CGPoint RefreshingPoint(KafkaFootRefreshControl *cSelf) {
-	UIScrollView * sc = cSelf.scrollView;
-	CGFloat x = sc.left;
-	CGFloat y = sc.contentHeight - sc.height - cSelf.height;
-	return CGPointMake(x, y);
-}
-
 - (void)setScrollViewToRefreshLocation {
 	[super setScrollViewToRefreshLocation];
 	dispatch_block_t animation = ^(void){
 		if (self.isTriggeredRefreshByUser) {
 			self.refreshState = KafkaRefreshStateScrolling;
-			if (self.scrollView.contentHeight >= self.scrollView.height &&
-				self.scrollView.offsetY >= self.scrollView.contentHeight - self.scrollView.height) {
-				///////////////////////////////////////////////////////////////////////////////////////////
-				///This condition can be pre-execute refreshHandler, and will not feel scrollview scroll
-				///////////////////////////////////////////////////////////////////////////////////////////
+			if (self.scrollView.contentHeight > self.scrollView.height &&
+				self.scrollView.offsetY >= OffsetOfTriggeringFootRefreshControlToRefresh(self)) {
+				/**
+                 This condition can be pre-execute refreshHandler, and will not feel scrollview scroll
+                 */
 				[self.scrollView setContentOffset:RefreshingPoint(self)];
 				[self kafkaDidScrollWithProgress:0.5 max:self.stretchOffsetYAxisThreshold];
 			}
@@ -75,10 +68,25 @@ static inline CGPoint RefreshingPoint(KafkaFootRefreshControl *cSelf) {
 
 #pragma mark - contentOffset
 
+
+static CGPoint RefreshingPoint(KafkaFootRefreshControl *cSelf) {
+    UIScrollView * sc = cSelf.scrollView;
+    CGFloat x = sc.left;
+//    CGFloat y = sc.contentHeight - sc.height + cSelf.height*cSelf.stretchOffsetYAxisThreshold;
+    return CGPointMake(x, OffsetOfTriggeringFootRefreshControlToRefresh(cSelf));
+}
+
+
 static CGFloat OffsetOfTriggeringFootRefreshControlToRefresh(KafkaRefreshControl * cSelf) {
 	UIScrollView * sc = cSelf.scrollView;
 	CGFloat y = sc.contentHeight - sc.height + cSelf.stretchOffsetYAxisThreshold*cSelf.height + cSelf.presetContentInsets.bottom;
 	return y;
+}
+
+static CGFloat OffsetOfTriggeringFootRefreshControlToAutoRefresh(KafkaRefreshControl * cSelf) {
+    UIScrollView * sc = cSelf.scrollView;
+    CGFloat y = sc.contentHeight - sc.height + cSelf.presetContentInsets.bottom;
+    return y;
 }
 
 static CGFloat OffsetOfFootRefreshControlToRestore(KafkaRefreshControl * cSelf) {
@@ -126,7 +134,7 @@ static CGFloat OffsetOfFootRefreshControlToRestore(KafkaRefreshControl * cSelf) 
 			}
             
             if (self.autoRefreshOnFoot) {
-                if (self.scrollView.isDragging && originY > maxY - 200 && !self.isAnimating && self.refreshState == KafkaRefreshStateNone && !self.isShouldNoLongerRefresh) {
+                if (self.scrollView.isDragging && originY > OffsetOfTriggeringFootRefreshControlToAutoRefresh(self) && !self.isAnimating && self.refreshState == KafkaRefreshStateNone && !self.isShouldNoLongerRefresh) {
                     [self beginRefreshing];
                 }
                 return;
