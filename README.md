@@ -17,7 +17,7 @@
   </p>
 </p> 
 <br>
- 
+
 ### Status
 <!--[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/xorshine/KafkaRefresh)-->
 [![GitHub license](https://img.shields.io/github/license/xorshine/KafkaRefresh.svg)](https://github.com/xorshine/KafkaRefresh/blob/master/LICENSE)
@@ -27,7 +27,7 @@
 [![Email](https://img.shields.io/badge/e--mail-xorshine%40icloud.com-blue.svg)](mailto:xorshine@icloud.com) 
 
 ****
- 
+
 ### Screenshots
 <table>
 <tr height="60px" align="center">
@@ -86,46 +86,64 @@
 *  **Built-in rich animation style, support self-customization** 
 
 
-*  **Non-refresh state hidden automatically** 
-	
-	>  To avoid developers manually adjust contentInset refresh the appearance of the control after the impact of the visual experience;</br>
+* **Non-refresh state hidden automatically** 
+
+  >  To avoid developers manually adjust contentInset refresh the appearance of the control after the impact of the visual experience;</br>
   the most common situation, the absence of data, the bottom of the refresh control is not hidden, the use of KafkaRefresh to avoid the problem.
 
-*  **Anti-dithering at the end of the refresh** 
-	
-	>When the refresh control finishes refreshing, if UIScrollView is in a scrolling state, KafkaRefresh will adjust the contntOffset that controls the UIScrollView at this time according to the refresh control.
-	
-*  **Support setting the offset threshold to trigger refresh** 
-	
-	>Setting the value of `stretchOffsetYAxisThreshold` can control the refresh pull distance.This property is a ratio relative to the height of the control and must be set greater than 1.0.
+* **Anti-dithering at the end of the refresh** 
 
-*  **Support global setting** 
-	
-	>KafkaRefreshDefaults is a singleton for global settings
-	
-*  **Support progress callback** 
-	
-	>Real-time callback Drag the offset ratio, for the expansion of the interface, according to the progress of adjustment animation.
-	
-*  **Adaptive contentInset system adjustment and manual adjustment** 
-	
-	>Adaptive UINavigationController for UIScrollView's contentInset property adjustment, even if the contentInset automatically set value, then KafkaRefresh can still adapt this adjustment.
+  >When the refresh control finishes refreshing, if UIScrollView is in a scrolling state, KafkaRefresh will adjust the contntOffset that controls the UIScrollView at this time according to the refresh control.
 
-*  **Solve the section view floating problem when refreshing** 
- 
-*  **Support horizontal and vertical screen switching adaptive** 
-	
-	>No need to consider in the horizontal and vertical screen refresh refresh problem.
-	
-*  **iOS 7+** 
-	
-	>Support iOS 7 above system. Including iPhone X.
-	
-*  **Document coverage 100%** 
-	
-	> You can see the use of all methods and classes in the header file.
+* **Support setting the offset threshold to trigger refresh** 
 
- 
+  >Setting the value of `stretchOffsetYAxisThreshold` can control the refresh pull distance.This property is a ratio relative to the height of the control and must be set greater than 1.0.
+
+* **Support global setting** 
+
+  >KafkaRefreshDefaults is a singleton for global settings
+
+* **Support progress callback** 
+
+  >Real-time callback Drag the offset ratio, for the expansion of the interface, according to the progress of adjustment animation.
+
+* **Adaptive contentInset system adjustment and manual adjustment** 
+
+  >Adaptive UINavigationController for UIScrollView's contentInset property adjustment, even if the contentInset automatically set value, then KafkaRefresh can still adapt this adjustment.
+
+* **Solve the section view floating problem when refreshing** 
+
+* **Support horizontal and vertical screen switching adaptive** 
+
+  >No need to consider in the horizontal and vertical screen refresh refresh problem.
+
+* **iOS 7+**  
+
+  Support iOS 7 above system. Including iPhone X.
+
+* Support auto refresh
+
+  When the user slides the scrollview to the bottom, the refresh will be triggered automatically, without the user having to slide to the bottom and pull up the scrollview. This feature is not enabled by default, because most people will use the function without viewing the document. If it is not used correctly, it will be easy to cause the refresh to stop.
+
+  Use the preload feature, please strictly follow the requirements below:
+
+  * ```self.tableView.footRefreshControl.autoRefreshOnFoot = YES;``` please set autoRefreshOnFoot TRUE；
+
+  * in refreshHandler，Strictly follow the logic below！
+
+    ```objective-c
+     if ({No data needs to be stitched}) {
+         [weakSelf.tableView.footRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"no more"];
+     } else {
+         [weakSelf.tableView.footRefreshControl endRefreshingWithAlertText:@"did load successfully" completion:nil];
+     }
+    ```
+
+* **Document coverage 100%** 
+
+  > You can see the use of all methods and classes in the header file.
+
+
 ### Installation 
 * CocoaPods
 ```ruby
@@ -145,9 +163,21 @@ pod 'KafkaRefresh'
 ##### Initialization
 * The first way
 ```objective-c
-[self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow fillColor:MainColor animatedBackgroundColor:[UIColor redColor] atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		 //to do something... 
-	}];	
+#pragma mark - head
+
+[self.tableView bindHeadRefreshHandler:^{
+        
+    } themeColor:MainColor refreshStyle:KafkaRefreshStyleAnimatableArrow];
+
+#pragma mark - foot
+
+[self.tableView bindFootRefreshHandler:^{
+        
+    } themeColor:MainColor refreshStyle:KafkaRefreshStyleAnimatableArrow]; 
+
+#pragma mark - auto refresh
+
+self.tableView.footRefreshControl.autoRefreshOnFoot = YES;
 ```
 * The second way
 ```objective-c
@@ -164,8 +194,10 @@ pod 'KafkaRefresh'
 	return YES;
 }
 
-[self.tableView bindDefaultRefreshStyleAtPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		//to do something... 
+#pragma mark - global
+
+[self.tableView bindGlobalStyleForFootRefreshHandler:^{
+        
 }];
 ```
 ##### Trigger Refresh Manually
@@ -207,8 +239,8 @@ Take KafkaheadRefreshControl as an example
  #import "KafkaheadRefreshControl.h"
  @interface CustomHeader : KafkafootRefreshControl
  @end
- ```
- 
+```
+
  ```objective-c
  @implementation CustomHeader 
 
@@ -220,7 +252,7 @@ Take KafkaheadRefreshControl as an example
 	[super kafkaRefreshStateDidChange:state];
 }
 @end
-```
+ ```
 ### Precautions
 > Please update the latest version；
 > After iOS 11, if you use estimatedRowHeight and the estimatedRowHeight height is too far from the true height, UITableView repeated refreshes may occur before version 0.8.3, which has been resolved since version 0.8.3 (iOS bug)
