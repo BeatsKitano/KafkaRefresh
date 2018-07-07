@@ -110,6 +110,24 @@
 
 > 即使在列表滑动时，分组视图都将跟随ScrollView滑动（即使处于高速滑动状态下！）。
 
+* 支持预加载
+
+  当用户滑动scrollview接近至底部时，将会自动触发刷新，无需用户再滑至底部后拉起scrollview。该功能默认不开启，因为多数人不查看文档便欣然使用改功能，不正确使用极容易引发刷新无法停止。
+
+  使用预加载功能，请严格按照下面要求使用:
+
+  * ```self.tableView.footRefreshControl.autoRefreshOnFoot = YES;``` 请手动将刷新该属性至为TRUE；
+
+  * 在刷新调用的block块中，严格按下列逻辑编写：
+
+    ```objective-c
+     if (没有数据需要拼接了) {
+         [weakSelf.tableView.footRefreshControl endRefreshingAndNoLongerRefreshingWithAlertText:@"no more"];
+     } else {
+         [weakSelf.tableView.footRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:nil];
+     }
+    ```
+
 * 文档覆盖率100%、支持横竖屏切换自适应、iOS 7+。
 
 
@@ -133,18 +151,21 @@ pod 'KafkaRefresh'
 ##### 2.初始化控件
 * 方式一
 ```objective-c
- [self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow
-						   fillColor:MainColor
-						  atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		 //.......
-	}];
+#pragma mark - head
 
- [self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow
-						   fillColor:MinorColor
-						  atPosition:KafkaRefreshPositionFooter
-					   refreshHanler:^{
-		 //.....
-	}];
+[self.tableView bindHeadRefreshHandler:^{
+        
+    } themeColor:MainColor refreshStyle:KafkaRefreshStyleAnimatableArrow];
+
+#pragma mark - foot
+
+[self.tableView bindFootRefreshHandler:^{
+        
+    } themeColor:MainColor refreshStyle:KafkaRefreshStyleAnimatableArrow]; 
+
+#pragma mark - auto refresh
+
+self.tableView.footRefreshControl.autoRefreshOnFoot = YES;
 ```
 * 方式二
 ```objective-c
@@ -163,8 +184,10 @@ pod 'KafkaRefresh'
 	return YES;
 }
 
-[self.tableView bindDefaultRefreshStyleAtPosition:KafkaRefreshPositionHeader refreshHanler:^{
-		//.....
+#pragma mark - global
+
+[self.tableView bindGlobalStyleForFootRefreshHandler:^{
+        
 }];
 
 ```
