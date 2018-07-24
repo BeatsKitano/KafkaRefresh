@@ -33,8 +33,8 @@
 }
 
 - (void)layoutSubviews{
-	new.frame = CGRectMake(0, 0, 0, self.height);
-	new.position = CGPointMake(self.width/2.0, self.height/2.);
+	new.frame = CGRectMake(0, 0, 0, self.kr_height);
+	new.position = CGPointMake(self.kr_width/2.0, self.kr_height/2.);
 }
 
 - (void)startAnimating{
@@ -48,7 +48,7 @@
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds.size.width"];
 	animation.fromValue = @(0);
-	animation.toValue = @(self.width);
+	animation.toValue = @(self.kr_width);
 	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
 	animation.fillMode = kCAFillModeForwards;
 	animation.duration = 0.3;
@@ -187,8 +187,8 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 - (void)layoutSubviews{
 	[super layoutSubviews];
 	
-	self.height = (self.height < 45.) ? KafkaRefreshHeight : self.height;
-	self.frame = CGRectMake(0, 0, self.scrollView.width, self.height);
+	self.kr_height = (self.kr_height < 45.) ? KafkaRefreshHeight : self.kr_height;
+	self.frame = CGRectMake(0, 0, self.scrollView.kr_width, self.kr_height);
 	self.alertLabel.frame = self.bounds;
 }
 

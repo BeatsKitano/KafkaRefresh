@@ -21,8 +21,8 @@
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
-	self.arcLayer.frame = CGRectMake(0, 0, self.width, self.height);
-	self.indicator.center = CGPointMake(self.width/2., self.height/2.);
+	self.arcLayer.frame = CGRectMake(0, 0, self.kr_width, self.kr_height);
+	self.indicator.center = CGPointMake(self.kr_width/2., self.kr_height/2.);
 }
 
 - (void)setThemeColor:(UIColor *)fillColor{

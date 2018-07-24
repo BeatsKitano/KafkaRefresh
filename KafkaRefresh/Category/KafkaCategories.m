@@ -12,97 +12,97 @@
 
 @implementation UIView (KafkaLayout)
 
-- (CGFloat)left {
+- (CGFloat)kr_left {
 	return self.frame.origin.x;
 }
 
-- (void)setLeft:(CGFloat)x {
+- (void)setKr_left:(CGFloat)x {
 	CGRect frame = self.frame;
 	frame.origin.x = x;
 	self.frame = frame;
 }
 
-- (CGFloat)top {
+- (CGFloat)kr_top {
 	return self.frame.origin.y;
 }
 
-- (void)setTop:(CGFloat)y {
+- (void)setKr_top:(CGFloat)y {
 	CGRect frame = self.frame;
 	frame.origin.y = y;
 	self.frame = frame;
 }
 
-- (CGFloat)right {
+- (CGFloat)kr_right {
 	return self.frame.origin.x + self.frame.size.width;
 }
 
-- (void)setRight:(CGFloat)right {
+- (void)setKr_right:(CGFloat)right {
 	CGRect frame = self.frame;
 	frame.origin.x = right - frame.size.width;
 	self.frame = frame;
 }
 
-- (CGFloat)bottom {
+- (CGFloat)kr_bottom {
 	return self.frame.origin.y + self.frame.size.height;
 }
 
-- (void)setBottom:(CGFloat)bottom {
+- (void)setKr_bottom:(CGFloat)bottom {
 	CGRect frame = self.frame;
 	frame.origin.y = bottom - frame.size.height;
 	self.frame = frame;
 }
 
-- (CGFloat)width {
+- (CGFloat)kr_width {
 	return self.frame.size.width;
 }
 
-- (void)setWidth:(CGFloat)width {
+- (void)setKr_width:(CGFloat)width {
 	CGRect frame = self.frame;
 	frame.size.width = width;
 	self.frame = frame;
 }
 
-- (CGFloat)height {
+- (CGFloat)kr_height {
 	return self.frame.size.height;
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setKr_height:(CGFloat)height {
 	CGRect frame = self.frame;
 	frame.size.height = height;
 	self.frame = frame;
 }
 
-- (CGFloat)centerX {
+- (CGFloat)kr_centerX {
 	return self.center.x;
 }
 
-- (void)setCenterX:(CGFloat)centerX {
+- (void)setKr_centerX:(CGFloat)centerX {
 	self.center = CGPointMake(centerX, self.center.y);
 }
 
-- (CGFloat)centerY {
+- (CGFloat)kr_centerY {
 	return self.center.y;
 }
 
-- (void)setCenterY:(CGFloat)centerY {
+- (void)setKr_centerY:(CGFloat)centerY {
 	self.center = CGPointMake(self.center.x, centerY);
 }
 
-- (CGPoint)origin {
+- (CGPoint)kr_origin {
 	return self.frame.origin;
 }
 
-- (void)setOrigin:(CGPoint)origin {
+- (void)setKr_origin:(CGPoint)origin {
 	CGRect frame = self.frame;
 	frame.origin = origin;
 	self.frame = frame;
 }
 
-- (CGSize)size {
+- (CGSize)kr_size {
 	return self.frame.size;
 }
 
-- (void)setSize:(CGSize)size {
+- (void)setKr_size:(CGSize)size {
 	CGRect frame = self.frame;
 	frame.size = size;
 	self.frame = frame;
@@ -114,97 +114,97 @@
 
 @implementation CALayer (KafkaLayout)
 
-- (CGFloat)left{
+- (CGFloat)kr_left{
 	return self.frame.origin.x;
 }
 
-- (void)setLeft:(CGFloat)left{
+- (void)setKr_left:(CGFloat)left{
 	CGRect frame = self.frame;
 	frame.origin.x = left;
 	self.frame = frame;
 }
 
-- (CGFloat)top {
+- (CGFloat)kr_top {
 	return self.frame.origin.y;
 }
 
-- (void)setTop:(CGFloat)y {
+- (void)setKr_top:(CGFloat)y {
 	CGRect frame = self.frame;
 	frame.origin.y = y;
 	self.frame = frame;
 }
 
-- (CGFloat)right {
+- (CGFloat)kr_right {
 	return self.frame.origin.x + self.frame.size.width;
 }
 
-- (void)setRight:(CGFloat)right {
+- (void)setKr_right:(CGFloat)right {
 	CGRect frame = self.frame;
 	frame.origin.x = right - frame.size.width;
 	self.frame = frame;
 }
 
-- (CGFloat)bottom {
+- (CGFloat)kr_bottom {
 	return self.frame.origin.y + self.frame.size.height;
 }
 
-- (void)setBottom:(CGFloat)bottom {
+- (void)setKr_bottom:(CGFloat)bottom {
 	CGRect frame = self.frame;
 	frame.origin.y = bottom - frame.size.height;
 	self.frame = frame;
 }
 
-- (CGFloat)width {
+- (CGFloat)kr_width {
 	return self.frame.size.width;
 }
 
-- (void)setWidth:(CGFloat)width {
+- (void)setKr_width:(CGFloat)width {
 	CGRect frame = self.frame;
 	frame.size.width = width;
 	self.frame = frame;
 }
 
-- (CGFloat)height {
+- (CGFloat)kr_height {
 	return self.frame.size.height;
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setKr_height:(CGFloat)height {
 	CGRect frame = self.frame;
 	frame.size.height = height;
 	self.frame = frame;
 }
 
-- (CGFloat)positionX {
+- (CGFloat)kr_positionX {
 	return self.position.x;
 }
 
-- (void)setPositionX:(CGFloat)positionX {
+- (void)setKr_positionX:(CGFloat)positionX {
 	self.position = CGPointMake(positionX, self.position.y);
 }
 
-- (CGFloat)positionY {
+- (CGFloat)kr_positionY {
 	return self.position.y;
 }
 
-- (void)setPositionY:(CGFloat)positionY {
+- (void)setKr_positionY:(CGFloat)positionY {
 	self.position = CGPointMake(self.position.x, positionY);
 }
 
-- (CGPoint)origin {
+- (CGPoint)kr_origin {
 	return self.frame.origin;
 }
 
-- (void)setOrigin:(CGPoint)origin {
+- (void)setKr_origin:(CGPoint)origin {
 	CGRect frame = self.frame;
 	frame.origin = origin;
 	self.frame = frame;
 }
 
-- (CGSize)size {
+- (CGSize)kr_size {
 	return self.frame.size;
 }
 
-- (void)setSize:(CGSize)size {
+- (void)setKr_size:(CGSize)size {
 	CGRect frame = self.frame;
 	frame.size = size;
 	self.frame = frame;

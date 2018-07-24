@@ -36,11 +36,11 @@
 - (void)layoutSubviews{
 	[super layoutSubviews];
 	
-	self.promptlabel.center = CGPointMake(self.width/2.0, self.height/2.);
+	self.promptlabel.center = CGPointMake(self.kr_width/2.0, self.kr_height/2.);
 	
 	self.arrowImgV.frame = CGRectMake(0, 0, 12, 12);
-	self.arrowImgV.right = self.promptlabel.left-20.;
-	self.arrowImgV.top = self.promptlabel.centerY;
+	self.arrowImgV.kr_right = self.promptlabel.kr_left-20.;
+	self.arrowImgV.kr_top = self.promptlabel.kr_centerY;
 	
 	self.indicator.center = self.arrowImgV.center;
 }

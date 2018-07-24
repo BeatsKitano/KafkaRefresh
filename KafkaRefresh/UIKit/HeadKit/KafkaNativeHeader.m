@@ -27,7 +27,7 @@
 - (void)layoutSubviews{
 	[super layoutSubviews];
 	 
-	self.indicator.center = CGPointMake(self.width/2., self.height/2.); 
+	self.indicator.center = CGPointMake(self.kr_width/2., self.kr_height/2.); 
 }
 
 - (void)kafkaDidScrollWithProgress:(CGFloat)progress max:(const CGFloat)max{

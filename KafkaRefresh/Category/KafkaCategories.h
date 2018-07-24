@@ -25,16 +25,16 @@
 
 @interface UIView (KafkaLayout)
 
-@property (nonatomic) CGFloat left;
-@property (nonatomic) CGFloat top;
-@property (nonatomic) CGFloat right;
-@property (nonatomic) CGFloat bottom;
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
-@property (nonatomic) CGFloat centerX;
-@property (nonatomic) CGFloat centerY;
-@property (nonatomic) CGPoint origin;
-@property (nonatomic) CGSize  size;
+@property (nonatomic) CGFloat kr_left;
+@property (nonatomic) CGFloat kr_top;
+@property (nonatomic) CGFloat kr_right;
+@property (nonatomic) CGFloat kr_bottom;
+@property (nonatomic) CGFloat kr_width;
+@property (nonatomic) CGFloat kr_height;
+@property (nonatomic) CGFloat kr_centerX;
+@property (nonatomic) CGFloat kr_centerY;
+@property (nonatomic) CGPoint kr_origin;
+@property (nonatomic) CGSize  kr_size;
 
 @end
 
@@ -42,16 +42,16 @@
 
 @interface CALayer (KafkaLayout)
 
-@property (nonatomic) CGFloat left;
-@property (nonatomic) CGFloat top;
-@property (nonatomic) CGFloat right;
-@property (nonatomic) CGFloat bottom;
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
-@property (nonatomic) CGPoint origin;
-@property (nonatomic) CGSize  size;
-@property (nonatomic) CGFloat positionX;
-@property (nonatomic) CGFloat positionY;
+@property (nonatomic) CGFloat kr_left;
+@property (nonatomic) CGFloat kr_top;
+@property (nonatomic) CGFloat kr_right;
+@property (nonatomic) CGFloat kr_bottom;
+@property (nonatomic) CGFloat kr_width;
+@property (nonatomic) CGFloat kr_height;
+@property (nonatomic) CGPoint kr_origin;
+@property (nonatomic) CGSize  kr_size;
+@property (nonatomic) CGFloat kr_positionX;
+@property (nonatomic) CGFloat kr_positionY;
 
 @end
 

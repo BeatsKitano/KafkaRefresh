@@ -20,7 +20,7 @@
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
-	self.replicatorLayer.frame = CGRectMake(0, 0, self.width, self.height);
+	self.replicatorLayer.frame = CGRectMake(0, 0, self.kr_width, self.kr_height);
 }
 
 - (void)setThemeColor:(UIColor *)fillColor{

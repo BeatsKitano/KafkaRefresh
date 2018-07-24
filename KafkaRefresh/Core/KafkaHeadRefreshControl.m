@@ -15,13 +15,13 @@
 
 - (void)layoutSubviews{
 	[super layoutSubviews];
-	self.top = -self.height;
+	self.kr_top = -self.kr_height;
 }
  
 static inline CGPoint RefreshingPoint(KafkaHeadRefreshControl *cSelf){
 	UIScrollView * sc = cSelf.scrollView;
-	CGFloat x = sc.left;
-	CGFloat y = -(cSelf.height + cSelf.presetContentInsets.top);
+	CGFloat x = sc.kr_left;
+	CGFloat y = -(cSelf.kr_height + cSelf.presetContentInsets.top);
 	return CGPointMake(x, y);
 }
 
@@ -46,14 +46,14 @@ static inline CGPoint RefreshingPoint(KafkaHeadRefreshControl *cSelf){
 				 are Will not be affected, so the deal is very friendly in the data preloading technology.
 			///////////////////////////////////////////////////////////////////////////////////////////*/
             CGFloat min = -self.presetContentInsets.top;
-            CGFloat max = -(self.presetContentInsets.top-self.height);
+            CGFloat max = -(self.presetContentInsets.top-self.kr_height);
             if (self.scrollView.offsetY >= min && self.scrollView.offsetY <= max) {
                 [self.scrollView setContentOffset:RefreshingPoint(self)];
                 [self kafkaDidScrollWithProgress:0.5 max:self.stretchOffsetYAxisThreshold];
-                self.scrollView.insetTop = self.height + self.presetContentInsets.top;
+                self.scrollView.insetTop = self.kr_height + self.presetContentInsets.top;
             }
 		}else{
-			self.scrollView.insetTop = self.height + self.presetContentInsets.top;
+			self.scrollView.insetTop = self.kr_height + self.presetContentInsets.top;
 		}
 	};
 	
@@ -91,7 +91,7 @@ static inline CGPoint RefreshingPoint(KafkaHeadRefreshControl *cSelf){
 #pragma mark - contentOffset
 
 static CGFloat MaxYForTriggeringRefresh(KafkaRefreshControl * cSelf){
-	CGFloat y = -cSelf.presetContentInsets.top + cSelf.stretchOffsetYAxisThreshold * cSelf.top;
+	CGFloat y = -cSelf.presetContentInsets.top + cSelf.stretchOffsetYAxisThreshold * cSelf.kr_top;
 	return y;
 }
 
@@ -110,7 +110,7 @@ static CGFloat MinYForNone(KafkaRefreshControl * cSelf){
 		//fix hover problem of sectionHeader
 		/////////////////////////////////////////////////////
 		if (originY < 0 && (-originY >= self.presetContentInsets.top)) {
-			CGFloat threshold = self.presetContentInsets.top + self.height;
+			CGFloat threshold = self.presetContentInsets.top + self.kr_height;
 			if (-originY > threshold) {
 				self.scrollView.insetTop = threshold;
 			}else{
@@ -127,7 +127,7 @@ static CGFloat MinYForNone(KafkaRefreshControl * cSelf){
 		self.presetContentInsets = self.scrollView.realContentInset;
 		
 		if (self.refreshState == KafkaRefreshStateScrolling){
-			CGFloat progress = (fabs((double)originY) - self.presetContentInsets.top)/self.height;
+			CGFloat progress = (fabs((double)originY) - self.presetContentInsets.top)/self.kr_height;
 			if (progress <= self.stretchOffsetYAxisThreshold) {
 				self.progress = progress;
 			}

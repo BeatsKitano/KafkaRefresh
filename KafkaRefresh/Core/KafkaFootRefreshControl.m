@@ -15,7 +15,7 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews]; 
-	self.top = self.scrollView.contentHeight;
+	self.kr_top = self.scrollView.contentHeight;
 }
 
 - (void)setScrollViewToRefreshLocation {
@@ -23,7 +23,7 @@
 	dispatch_block_t animation = ^(void){
 		if (self.isTriggeredRefreshByUser) {
 			self.refreshState = KafkaRefreshStateScrolling;
-			if (self.scrollView.contentHeight > self.scrollView.height &&
+			if (self.scrollView.contentHeight > self.scrollView.kr_height &&
 				self.scrollView.offsetY >= OffsetOfTriggeringFootRefreshControlToRefresh(self)) {
 				/**
                  This condition can be pre-execute refreshHandler, and will not feel scrollview scroll
@@ -32,7 +32,7 @@
 				[self kafkaDidScrollWithProgress:0.5 max:self.stretchOffsetYAxisThreshold];
 			}
 		}
-		self.scrollView.insetBottom = self.presetContentInsets.bottom + self.height;
+		self.scrollView.insetBottom = self.presetContentInsets.bottom + self.kr_height;
 	};
 	
 	dispatch_block_t completion = ^(void){
@@ -71,7 +71,7 @@
 
 static CGPoint RefreshingPoint(KafkaFootRefreshControl *cSelf) {
     UIScrollView * sc = cSelf.scrollView;
-    CGFloat x = sc.left;
+    CGFloat x = sc.kr_left;
 //    CGFloat y = sc.contentHeight - sc.height + cSelf.height*cSelf.stretchOffsetYAxisThreshold;
     return CGPointMake(x, OffsetOfTriggeringFootRefreshControlToRefresh(cSelf));
 }
@@ -79,19 +79,19 @@ static CGPoint RefreshingPoint(KafkaFootRefreshControl *cSelf) {
 
 static CGFloat OffsetOfTriggeringFootRefreshControlToRefresh(KafkaRefreshControl * cSelf) {
 	UIScrollView * sc = cSelf.scrollView;
-	CGFloat y = sc.contentHeight - sc.height + cSelf.stretchOffsetYAxisThreshold*cSelf.height + cSelf.presetContentInsets.bottom;
+	CGFloat y = sc.contentHeight - sc.kr_height + cSelf.stretchOffsetYAxisThreshold*cSelf.kr_height + cSelf.presetContentInsets.bottom;
 	return y;
 }
 
 static CGFloat OffsetOfTriggeringFootRefreshControlToAutoRefresh(KafkaRefreshControl * cSelf) {
     UIScrollView * sc = cSelf.scrollView;
-    CGFloat y = sc.contentHeight - sc.height + cSelf.presetContentInsets.bottom;
+    CGFloat y = sc.contentHeight - sc.kr_height + cSelf.presetContentInsets.bottom;
     return y;
 }
 
 static CGFloat OffsetOfFootRefreshControlToRestore(KafkaRefreshControl * cSelf) {
 	UIScrollView * sc = cSelf.scrollView;
-	CGFloat y = sc.contentHeight - sc.height + cSelf.presetContentInsets.bottom;
+	CGFloat y = sc.contentHeight - sc.kr_height + cSelf.presetContentInsets.bottom;
 	return y;
 }
 
@@ -104,13 +104,13 @@ static CGFloat OffsetOfFootRefreshControlToRestore(KafkaRefreshControl * cSelf) 
 		
 		CGFloat originY = 0.0, maxY = 0.0, minY = 0.0 , contentOffsetYInBottom = 0.0;
         
-		if (self.scrollView.contentHeight + self.presetContentInsets.top <= self.scrollView.height) {
-			maxY = self.stretchOffsetYAxisThreshold * self.height;
+		if (self.scrollView.contentHeight + self.presetContentInsets.top <= self.scrollView.kr_height) {
+			maxY = self.stretchOffsetYAxisThreshold * self.kr_height;
 			minY = 0;
 			originY = contentOffset.y + self.presetContentInsets.top;
             
 			if (self.refreshState == KafkaRefreshStateScrolling) {
-				CGFloat progress = fabs(originY) / self.height;
+				CGFloat progress = fabs(originY) / self.kr_height;
 				if (progress <= self.stretchOffsetYAxisThreshold) {
 					self.progress = progress;
 				}
@@ -119,7 +119,7 @@ static CGFloat OffsetOfFootRefreshControlToRestore(KafkaRefreshControl * cSelf) 
 			maxY = OffsetOfTriggeringFootRefreshControlToRefresh(self);
 			minY = OffsetOfFootRefreshControlToRestore(self);
 			originY = contentOffset.y;
-			contentOffsetYInBottom = self.scrollView.contentHeight - self.scrollView.height;
+			contentOffsetYInBottom = self.scrollView.contentHeight - self.scrollView.kr_height;
 			/////////////////////////
 			///uncontinuous callback
 			/////////////////////////
@@ -127,7 +127,7 @@ static CGFloat OffsetOfFootRefreshControlToRestore(KafkaRefreshControl * cSelf) 
 			if (originY < minY - uncontinuousOpt) return;
 			
 			if (self.refreshState == KafkaRefreshStateScrolling){
-				CGFloat progress = fabs((originY - contentOffsetYInBottom - self.presetContentInsets.bottom))/self.height; 
+				CGFloat progress = fabs((originY - contentOffsetYInBottom - self.presetContentInsets.bottom))/self.kr_height; 
 				if (progress <= self.stretchOffsetYAxisThreshold) {
 					self.progress = progress;
 				}

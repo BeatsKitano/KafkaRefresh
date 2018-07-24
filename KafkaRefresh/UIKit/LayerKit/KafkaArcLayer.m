@@ -73,7 +73,7 @@
 	self.ringShapeLayer.frame = self.ringBackgroundLayer.bounds;
 	self.ringShapeLayer.position = CGPointMake(CGRectGetMidX(self.ringBackgroundLayer.bounds), CGRectGetMidY(self.ringBackgroundLayer.bounds));
 	
-	self.bezierPath = [UIBezierPath bezierPathWithRoundedRect:self.ringShapeLayer.bounds cornerRadius:self.ringShapeLayer.width/2.];
+	self.bezierPath = [UIBezierPath bezierPathWithRoundedRect:self.ringShapeLayer.bounds cornerRadius:self.ringShapeLayer.kr_width/2.];
 	
 	self.ringBackgroundLayer.path = self.bezierPath.CGPath;
 	self.ringShapeLayer.path = self.bezierPath.CGPath;
