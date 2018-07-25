@@ -25,12 +25,12 @@
 	self.indicator.center = CGPointMake(self.kr_width/2., self.kr_height/2.);
 }
 
-- (void)setThemeColor:(UIColor *)fillColor{
-	if (super.themeColor == fillColor) {
+- (void)setThemeColor:(UIColor *)themeColor{
+	if (super.themeColor == themeColor) {
 		return;
 	}
-	[super setThemeColor:fillColor];
-	self.arcLayer.ringFillColor = fillColor;
+	[super setThemeColor:themeColor];
+	self.arcLayer.ringFillColor = themeColor;
 }
 
 - (void)setAnimatedBackgroundColor:(UIColor *)animatedBackgroundColor{

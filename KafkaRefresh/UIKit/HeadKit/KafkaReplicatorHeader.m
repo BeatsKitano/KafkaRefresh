@@ -23,18 +23,12 @@
 	self.replicatorLayer.frame = CGRectMake(0, 0, self.kr_width, self.kr_height);
 }
 
-- (void)setThemeColor:(UIColor *)fillColor{
-	if (super.themeColor == fillColor) {
-		return;
-	}
-	[super setThemeColor:fillColor];
-	self.replicatorLayer.indicatorShapeLayer.backgroundColor = fillColor.CGColor;
+- (void)setThemeColor:(UIColor *)themeColor{
+	[super setThemeColor:themeColor];
+    self.replicatorLayer.themeColor = themeColor;
 }
 
-- (void)setAnimationStyle:(KafkaReplicatorLayerAnimationStyle)animationStyle{
-	if (_animationStyle == animationStyle) {
-		return;
-	}
+- (void)setAnimationStyle:(KafkaReplicatorLayerAnimationStyle)animationStyle{ 
 	_animationStyle = animationStyle;
 	self.replicatorLayer.animationStyle = animationStyle;
 }

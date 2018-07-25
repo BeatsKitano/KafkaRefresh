@@ -49,17 +49,11 @@
 }
 
 - (void)setRingFillColor:(UIColor *)ringFillColor{
-	if (_ringFillColor == ringFillColor) {
-		return;
-	}
 	_ringFillColor = ringFillColor;
 	self.ringShapeLayer.strokeColor = ringFillColor.CGColor;
 }
 
-- (void)setRingBackgroundColor:(UIColor *)ringBackgroundColor{
-	if (_ringBackgroundColor == ringBackgroundColor) {
-		return;
-	}
+- (void)setRingBackgroundColor:(UIColor *)ringBackgroundColor{ 
 	_ringBackgroundColor = ringBackgroundColor;
 	self.ringBackgroundLayer.strokeColor = ringBackgroundColor.CGColor;
 }

@@ -110,10 +110,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	if (CGRectEqualToRect(self.frame, CGRectZero)) self.frame = CGRectMake(0, 0, 1, 1);
 }
 
-- (void)setThemeColor:(UIColor *)fillColor{
-	if (_themeColor != fillColor) {
-		_themeColor = fillColor;
-		_alertLabel.textColor = fillColor;
+- (void)setThemeColor:(UIColor *)themeColor{
+	if (_themeColor != themeColor) {
+		_themeColor = themeColor;
+		_alertLabel.textColor = themeColor;
 	}
 }
 

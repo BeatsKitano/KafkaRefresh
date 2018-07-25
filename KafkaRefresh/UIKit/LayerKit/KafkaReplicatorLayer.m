@@ -31,9 +31,8 @@ static void * KafkaRightDot = &KafkaRightDot;
 - (void)setupProperties{
 	[self addSublayer:self.replicatorLayer];
 	[self.replicatorLayer addSublayer:self.indicatorShapeLayer];
-	
-	self.indicatorShapeLayer.strokeColor = [KafkaRefreshDefaults standardRefreshDefaults].themeColor.CGColor;
-	self.indicatorShapeLayer.backgroundColor = [KafkaRefreshDefaults standardRefreshDefaults].backgroundColor.CGColor;
+    self.indicatorShapeLayer.strokeColor = [KafkaRefreshDefaults standardRefreshDefaults].themeColor.CGColor;
+    self.indicatorShapeLayer.backgroundColor = [KafkaRefreshDefaults standardRefreshDefaults].backgroundColor.CGColor;
 }
 
 - (void)setAnimationStyle:(KafkaReplicatorLayerAnimationStyle)animationStyle{
@@ -43,7 +42,13 @@ static void * KafkaRightDot = &KafkaRightDot;
 	}
 }
 
-- (void)layoutSublayers{
+- (void)setThemeColor:(UIColor *)themeColor{
+    _themeColor = themeColor;
+    self.indicatorShapeLayer.strokeColor = themeColor.CGColor;
+    self.indicatorShapeLayer.backgroundColor = themeColor.CGColor;
+} 
+
+- (void)layoutSublayers {
 	[super layoutSublayers];
 	
 	self.replicatorLayer.frame = self.bounds;
@@ -114,9 +119,10 @@ static void * KafkaRightDot = &KafkaRightDot;
 			CGFloat x = self.kr_width/2. - 0.5 * w;
 			CGFloat y = self.kr_height/2.- h/2.0;
 			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
-			self.indicatorShapeLayer.fillColor = [UIColor clearColor].CGColor;
+            self.indicatorShapeLayer.fillColor = [UIColor clearColor].CGColor;
 			self.indicatorShapeLayer.lineWidth = 3.;
-			self.indicatorShapeLayer.backgroundColor = [UIColor clearColor].CGColor;
+            self.indicatorShapeLayer.backgroundColor = [UIColor clearColor].CGColor;
+            
 			UIBezierPath *arcPath = [UIBezierPath bezierPath];
 			[arcPath addArcWithCenter:CGPointMake(w/2.0, h/2.)
 							   radius:h/2.
@@ -249,20 +255,10 @@ static void * KafkaRightDot = &KafkaRightDot;
 	[self.indicatorShapeLayer removeAllAnimations];
 	
 	switch (self.animationStyle) {
-		case KafkaReplicatorLayerAnimationStyleWoody:{
-			
-			break;
-		}
-		case KafkaReplicatorLayerAnimationStyleAllen:{
-			
-			break;
-		}
-		case KafkaReplicatorLayerAnimationStyleCircle:{
-			
-			break;
-		}
+		case KafkaReplicatorLayerAnimationStyleWoody:
+		case KafkaReplicatorLayerAnimationStyleAllen:
+		case KafkaReplicatorLayerAnimationStyleCircle:
 		case KafkaReplicatorLayerAnimationStyleDot:{
-			
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleArc:{
