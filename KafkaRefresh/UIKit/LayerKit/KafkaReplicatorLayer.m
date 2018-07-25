@@ -101,12 +101,12 @@ static void * KafkaRightDot = &KafkaRightDot;
 		}
 		case KafkaReplicatorLayerAnimationStyleDot:{
 			CGFloat innerPadding = 30.;
-			CGFloat h = 4.0;;
-			CGFloat w = 4.0;
+			CGFloat h = 8.0;;
+			CGFloat w = 8.0;
 			CGFloat x = self.kr_width / 2. - (1.5 * w + innerPadding * 1);
 			CGFloat y = self.kr_height/2.- h/2.0;
 			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
-			self.indicatorShapeLayer.cornerRadius = 2.;
+			self.indicatorShapeLayer.cornerRadius = 4.;
 			
 			self.replicatorLayer.instanceCount = 3;
 			self.replicatorLayer.instanceDelay = 0.5/3;
@@ -198,7 +198,7 @@ static void * KafkaRightDot = &KafkaRightDot;
 		case KafkaReplicatorLayerAnimationStyleDot:{
 			CABasicAnimation *basicAnimation = [self animationKeyPath:@"transform.scale"
 																 from:@(0.3)
-																   to:@(4.)
+																   to:@(2.5)
 															 duration:0.5
 														   repeatTime:INFINITY];
 			basicAnimation.autoreverses = YES;
