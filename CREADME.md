@@ -255,7 +255,13 @@ self.tableView.footRefreshControl.autoRefreshOnFoot = YES;
  @end
  ```
 
+### FAQ
+
+* 遇到很多人咨询这样一个问题：上拉加载数据时，调用 `insertRowsAtIndexPaths: withAnimation:`拼接数据，发现tableView刷新过程发生抖动，位置发生偏移。首先申明！这不是KafkaRefresh的原因。如果想要解决这个问题，请设置`tableView.estimatedRowHeight = UITableViewAutomaticDimension;`.
+* 关于Bug的提交，请您一定要记住！应该提交基本信息！当前版本号，重现步骤（请不要过于相信您的中文能力，您写一句话我未必能看懂。）
+
 ### 交流
+
 > 1. 如需要帮助，请邮件 <xorshine@icloud.com> 
 > 2. 个人精力有限，KafkaRefresh开放的接口足够去扩展更丰富的UI效果，欢迎您参与，并提交pull request
 

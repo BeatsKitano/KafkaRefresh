@@ -83,6 +83,7 @@
 </table>
 
 ### Features
+
 *  **Built-in rich animation style, support self-customization** 
 
 
@@ -234,6 +235,7 @@ self.tableView.footRefreshControl.autoRefreshOnFoot = YES;
 ```
 
 ### Customize
+
 Take KafkaheadRefreshControl as an example
 ```objective-c
  #import "KafkaheadRefreshControl.h"
@@ -253,9 +255,13 @@ Take KafkaheadRefreshControl as an example
 }
 @end
  ```
-### Precautions
-> Please update the latest version；
-> After iOS 11, if you use estimatedRowHeight and the estimatedRowHeight height is too far from the true height, UITableView repeated refreshes may occur before version 0.8.3, which has been resolved since version 0.8.3 (iOS bug)
+### Warnings And Precautions 
+
+* Many people asked me a question that tableView jump after called `insertRowAtIndexPath: withRowAnimation:`,That Is Not Bug Of KafkaRefresh. Setting `tableView.estimatedRowHeight = UITableViewAutomaticDimension;` can solve this question when you initialize tableView.
+
+
+* Please update the latest version；
+* After iOS 11, if you use estimatedRowHeight and the estimatedRowHeight height is too far from the true height, UITableView repeated refreshes may occur before version 0.8.3, which has been resolved since version 0.8.3 (iOS bug)
 
 
 ### Communication
