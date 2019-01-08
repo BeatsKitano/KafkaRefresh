@@ -103,8 +103,8 @@ static void * KafkaRightDot = &KafkaRightDot;
 			CGFloat innerPadding = 30.;
 			CGFloat h = 8.0;;
 			CGFloat w = 8.0;
-			CGFloat x = self.kr_width / 2. - (1.5 * w + innerPadding * 1);
-			CGFloat y = self.kr_height/2.- h/2.0;
+			CGFloat x = self.kr_width / 2. - (.5 * w + innerPadding);
+			CGFloat y = self.kr_height/2. - h/2.0;
 			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
 			self.indicatorShapeLayer.cornerRadius = 4.;
 			
