@@ -55,33 +55,18 @@ static void * KafkaRightDot = &KafkaRightDot;
 	
 	CGFloat padding = 10.;
 	switch (self.animationStyle) {
-		case KafkaReplicatorLayerAnimationStyleWoody:{
-			CGFloat h = self.kr_height / 3.0;
-			CGFloat w = 3.0;
-			CGFloat x = self.kr_width / 2. - (2.5 * w + padding * 2);
-			CGFloat y = self.kr_height/2.-h/2.0;
-			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
-			self.indicatorShapeLayer.cornerRadius = 1.;
-			self.indicatorShapeLayer.transform = CATransform3DMakeScale(0.8, 0.8, 0.8);
-			
-			self.replicatorLayer.instanceCount = 5;
-			self.replicatorLayer.instanceDelay = 0.3/5;
-			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(padding, 0.0, 0.0);
-			self.replicatorLayer.instanceBlueOffset = -0.01;
-			self.replicatorLayer.instanceGreenOffset = -0.01;
-			break;
-		}
+		case KafkaReplicatorLayerAnimationStyleWoody:
 		case KafkaReplicatorLayerAnimationStyleAllen:{
 			CGFloat h = self.kr_height / 3.0;
 			CGFloat w = 3.0;
 			CGFloat x = self.kr_width / 2. - (2.5 * w + padding * 2);
-			CGFloat y = self.kr_height/2.-h/2.0;
+			CGFloat y = self.kr_height / 2. - h / 2.0;
 			self.indicatorShapeLayer.frame = CGRectMake(x, y, w, h);
 			self.indicatorShapeLayer.cornerRadius = 1.;
 			
 			self.replicatorLayer.instanceCount = 5;
 			self.replicatorLayer.instanceDelay = 0.3/5;
-			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(padding, 0.0, 0.0);
+			self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(padding+w, 0.0, 0.0);
 			self.replicatorLayer.instanceBlueOffset = -0.01;
 			self.replicatorLayer.instanceGreenOffset = -0.01;
 			break;
@@ -114,7 +99,7 @@ static void * KafkaRightDot = &KafkaRightDot;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleArc:{
-			CGFloat h = self.kr_height - 10.;;
+			CGFloat h = self.kr_height - 10.;
 			CGFloat w = h;
 			CGFloat x = self.kr_width/2. - 0.5 * w;
 			CGFloat y = self.kr_height/2.- h/2.0;
@@ -136,7 +121,9 @@ static void * KafkaRightDot = &KafkaRightDot;
 			break;
 		}
 		case KafkaReplicatorLayerAnimationStyleTriangle:{
-			self.indicatorShapeLayer.frame = CGRectMake(self.replicatorLayer.kr_width/2., 5., 8., 8.);
+            CGFloat h = 8.0;
+            CGFloat w = h;
+			self.indicatorShapeLayer.frame = CGRectMake(self.replicatorLayer.kr_width/2.-w/2, 5., w, h);
 			self.indicatorShapeLayer.cornerRadius = self.indicatorShapeLayer.kr_width/2.;
 			CGPoint topPoint = self.indicatorShapeLayer.position;
 			CGPoint leftPoint = CGPointMake(topPoint.x-15, topPoint.y+23);
