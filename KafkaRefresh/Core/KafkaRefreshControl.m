@@ -121,6 +121,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	_alertLabel.textColor = alertTextColor;
 }
 
+- (void)setAlertBackgroundColor:(UIColor *)alertBackgroundColor{
+	_alertLabel.backgroundColor = alertBackgroundColor;
+}
+
 - (void)setRefreshState:(KafkaRefreshState)refreshState{
 	if (_refreshState == refreshState) return;
 	_refreshState = refreshState;
