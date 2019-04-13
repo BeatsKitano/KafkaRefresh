@@ -127,6 +127,13 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl: UIView <KafkaRefresh
 - (void)setAlertTextColor:(UIColor *)alertTextColor;
 
 /**
+ Set the background color of the prompt text after the refresh is completed.
+
+ @param alertBackgroundColor color
+ */
+- (void)setAlertBackgroundColor:(UIColor *)alertBackgroundColor;
+
+/**
  Called right after initialization is completed
  */
 - (void)setupProperties Kafka_REQUIRES_SUPER;
