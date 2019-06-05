@@ -12,6 +12,7 @@
 #import "KafkaTableViewController.h"
 #import "KafkaCollectionViewController.h"
 #import "KafkaCustomTableViewController.h"
+#import "KafkaScrollViewController.h"
 #import "KafkaRefresh.h"
 
 
@@ -55,7 +56,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -75,7 +76,9 @@
 	}
 	else if (section == 2){
 		label.text = @"Custom";
-	}
+    } else if (section == 3){
+        label.text = @"ScrollView";
+    }
 	
 	return label;
 }
@@ -107,6 +110,9 @@
 	else if (section == 2){
 		cell.textLabel.text = @"Custom";
 	}
+    else if (section == 3){
+        cell.textLabel.text = @"ScrollView";
+    }
 	cell.detailTextLabel.text = [[self textArray] objectAtIndex:indexPath.row];
 }
 
@@ -123,6 +129,10 @@
 		KafkaCustomTableViewController *customVC = [[KafkaCustomTableViewController alloc] initWithRefreshStyle:indexPath.row];
 		[self.navigationController pushViewController:customVC animated:YES];
 	}
+    else if (indexPath.section == 3){
+        KafkaScrollViewController *customVC = [[KafkaScrollViewController alloc] initWithRefreshStyle:indexPath.row];
+        [self.navigationController pushViewController:customVC animated:YES];
+    }
 }
 
 - (UICollectionViewFlowLayout *)flow{

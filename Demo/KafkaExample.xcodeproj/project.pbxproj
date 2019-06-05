@@ -36,6 +36,7 @@
 		98D2C0AA2005F65000F1532F /* KafkaExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D2C0A92005F65000F1532F /* KafkaExampleUITests.m */; };
 		98D2C0B82005F67400F1532F /* KafkaExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D2C0B72005F67400F1532F /* KafkaExampleTests.m */; };
 		B946B97320E67F4C00481872 /* KafkaCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = B946B97220E67F4C00481872 /* KafkaCategories.m */; };
+		B97F4C3B227C5D17004C6A71 /* KafkaScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B97F4C3A227C5D17004C6A71 /* KafkaScrollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,8 @@
 		98D2C0B92005F67400F1532F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B946B97120E67F4C00481872 /* KafkaCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaCategories.h; sourceTree = "<group>"; };
 		B946B97220E67F4C00481872 /* KafkaCategories.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaCategories.m; sourceTree = "<group>"; };
+		B97F4C39227C5D17004C6A71 /* KafkaScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KafkaScrollViewController.h; sourceTree = "<group>"; };
+		B97F4C3A227C5D17004C6A71 /* KafkaScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KafkaScrollViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +286,8 @@
 				986ADD9C1FF60DDC006575E7 /* KafkaCollectionViewController.m */,
 				98766F3F1FFC68DB00CC3DD0 /* KafkaCustomTableViewController.h */,
 				98766F401FFC68DB00CC3DD0 /* KafkaCustomTableViewController.m */,
+				B97F4C39227C5D17004C6A71 /* KafkaScrollViewController.h */,
+				B97F4C3A227C5D17004C6A71 /* KafkaScrollViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				98C2F86A1FEF6AB50039C749 /* KafkaAppDelegate.m in Sources */,
 				983A0922201AB89900AEF743 /* KafkaReplicatorHeader.m in Sources */,
 				983A091E201AB89900AEF743 /* KafkaReplicatorFooter.m in Sources */,
+				B97F4C3B227C5D17004C6A71 /* KafkaScrollViewController.m in Sources */,
 				986ADD9E1FF60DDC006575E7 /* KafkaCollectionViewController.m in Sources */,
 				986ADD6A1FEF6DA8006575E7 /* KafkaMainListController.m in Sources */,
 				983A0920201AB89900AEF743 /* KafkaArrowHeader.m in Sources */,

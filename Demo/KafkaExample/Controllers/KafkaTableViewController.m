@@ -71,6 +71,8 @@
     KafkaRefreshHandler footBlock = ^(void){
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.source addObjectsFromArray:@[@"",@"",@"",@"",@"",@""]];
+            
+            [weakSelf.tableView reloadData];
             [weakSelf.tableView.footRefreshControl endRefreshingWithAlertText:@"Did load successfully" completion:^{
                 [weakSelf.tableView reloadData];
             }];
@@ -83,9 +85,7 @@
 }
 
 - (void)refresh{
-	[self.tableView.headRefreshControl beginRefreshing];
-	[self.tableView.headRefreshControl beginRefreshing];
-	[self.tableView.headRefreshControl beginRefreshing];
+	[self.tableView.headRefreshControl beginRefreshing]; 
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
