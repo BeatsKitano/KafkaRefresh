@@ -98,9 +98,9 @@
 
 - (UIImageView *)arrowImgV{
 	if (!_arrowImgV) {
-		NSString *path = [[NSBundle mainBundle] pathForResource:@"Image" ofType:@"bundle"];
-		NSString *urlString = [path stringByAppendingPathComponent:@"arrow48.png"];
-		UIImage *image = [UIImage imageWithContentsOfFile:urlString];
+        NSBundle *b = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"Image" ofType:@"bundle"]];
+        NSString *path = [b pathForResource:@"arrow48.png" ofType:nil];
+		UIImage *image = [UIImage imageWithContentsOfFile:path];
 		_arrowImgV = [[UIImageView alloc] initWithImage:image];
 		_arrowImgV.layer.anchorPoint = CGPointMake(0.5, 0);
 	}
