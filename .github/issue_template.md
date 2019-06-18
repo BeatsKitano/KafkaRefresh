@@ -10,7 +10,4 @@
 - 请您务必给出详细的重现步骤。
 
 
-
-## ☕️
-
-![sponsor](../sponsor.jpg)
+# ☕️  [赞助](https://github.com/OpenFeyn/KafkaRefresh/blob/master/sponsor.jpg)
