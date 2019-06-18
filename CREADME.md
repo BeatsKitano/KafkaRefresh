@@ -77,7 +77,13 @@
 </tr>
 </table> 
 
+
+## ☕️☕️☕️ 赞助
+
+![sponsor](sponsor.jpg)
+
 ### 关于新版2.0
+
 * 开源KafkaRefresh纯属自娱自乐。那时较闲。KafkaRefresh有很大不足，如：更细粒度的视觉动画、更规范的API命名、支持Swift、支持更多的自定义...等等。无奈的是，手头事情之多，使之暂无闲心更新2.0。怕是要很久之后吧。
 
 * 有人问为何要以Kafka命名，Apache基金会开源过一款分布式消息系统也叫做Kafka，KafkaRefresh跟Apache Kafka没任何关系。当时不知道，即使知道，还是会叫KafkaRefresh。其实是个人喜欢的一个作家叫Kafka，KafkaRefresh的内置样式也用了一些我喜欢的人的名字命名，这没什么意义，或许是为了当时的方便罢了。
