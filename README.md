@@ -81,12 +81,7 @@
   <td><img src="assets/Gif/_arrow.gif"></img></td>
 </tr>
 </table>
-
-
-##  SPONSOR ☕️
-
-![sponsor](sponsor.jpg)
-
+ 
 ### Features
 
 *  **Built-in rich animation style, support self-customization** 
