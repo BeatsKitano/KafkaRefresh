@@ -266,11 +266,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ 
 			@strongify(self);
             [self.alertLabel stopAnimating];
-			[self _endRefresh];
-			if (completion) completion(); 
+            [self _endRefresh:completion];
 		});
 	} else {
-		[self _endRefresh];
+        [self _endRefresh:nil];
 	}
 }
 
@@ -292,10 +291,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	if (text) {
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			 @strongify(self);
-            [self _endRefresh];
+            [self _endRefresh:nil];
 		});
 	} else {
-		[self _endRefresh];
+        [self _endRefresh:nil];
 	}
 }
 
@@ -304,13 +303,13 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	self.alertLabel.alpha = 0.0;
 }
 
-- (void)_endRefresh{
+- (void)_endRefresh:(dispatch_block_t)completion{
 	[self kafkaRefreshStateDidChange:KafkaRefreshStateWillEndRefresh];
 	self.refreshState = KafkaRefreshStateScrolling;
-	[self setScrollViewToOriginalLocation];
+    [self setScrollViewToOriginalLocation:completion];
 }
 
-- (void)setScrollViewToOriginalLocation{}
+- (void)setScrollViewToOriginalLocation:(dispatch_block_t)completion{}
 
 #pragma mark -
 

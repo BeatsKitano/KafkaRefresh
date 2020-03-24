@@ -51,8 +51,8 @@
 	});
 }
 
-- (void)setScrollViewToOriginalLocation {
-	[super setScrollViewToOriginalLocation];
+- (void)setScrollViewToOriginalLocation:(dispatch_block_t)completion {
+    [super setScrollViewToOriginalLocation:completion];
     @weakify(self);
 	[self setAnimateBlock:^{
         @strongify(self);
@@ -63,6 +63,9 @@
 		self.animating = NO;
 		self.triggeredRefreshByUser = NO;
 		self.refreshState = KafkaRefreshStateNone;
+        if (completion) {
+            completion();
+        }
 	}];
 }
 
@@ -97,7 +100,8 @@ static CGFloat OffsetOfFootRefreshControlToRestore(KafkaRefreshControl * cSelf) 
 
 - (void)privateContentOffsetOfScrollViewDidChange:(CGPoint)contentOffset{
 	[super privateContentOffsetOfScrollViewDidChange:contentOffset];
-	
+	if(self.isRefresh || self.isAnimating) return;
+    
 	if (self.refreshState != KafkaRefreshStateRefreshing) {
 		if (self.isTriggeredRefreshByUser) return;
 		self.presetContentInsets = self.scrollView.realContentInset;

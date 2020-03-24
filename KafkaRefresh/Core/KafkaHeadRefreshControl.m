@@ -73,8 +73,8 @@ static inline CGPoint RefreshingPoint(KafkaHeadRefreshControl *cSelf){
 	});
 }
 
-- (void)setScrollViewToOriginalLocation{
-	[super setScrollViewToOriginalLocation];
+- (void)setScrollViewToOriginalLocation:(dispatch_block_t)block{
+    [super setScrollViewToOriginalLocation:block];
 	dispatch_block_t animation = ^{
 		self.animating = YES;
 		self.scrollView.insetTop = self.presetContentInsets.top;
@@ -84,6 +84,9 @@ static inline CGPoint RefreshingPoint(KafkaHeadRefreshControl *cSelf){
 		self.animating = NO;
 		self.triggeredRefreshByUser = NO;
 		self.refreshState = KafkaRefreshStateNone;
+        if (block) {
+            block();
+        }
     };
 	[self setAnimateBlock:animation completion:completion];
 }

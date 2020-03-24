@@ -143,7 +143,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl: UIView <KafkaRefresh
  */
 - (void)privateContentOffsetOfScrollViewDidChange:(CGPoint)contentOffset Kafka_REQUIRES_SUPER;
 - (void)setScrollViewToRefreshLocation Kafka_REQUIRES_SUPER;
-- (void)setScrollViewToOriginalLocation Kafka_REQUIRES_SUPER;
+- (void)setScrollViewToOriginalLocation:(dispatch_block_t)block Kafka_REQUIRES_SUPER;
 
 #pragma mark - public
 
