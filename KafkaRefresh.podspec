@@ -7,9 +7,9 @@ Pod::Spec.new do |s|
 	s.license      = "MIT"
 	s.author       = { "k" => "xorshine@icloud.com" }
 
-	s.platform     = :ios, '7.0'
+	s.platform     = :ios, '9.0'
 	s.requires_arc = true
-	s.ios.deployment_target = '7.0'
+	s.ios.deployment_target = '9.0'
 
 	s.source       = { :git => "https://github.com/xorshine/KafkaRefresh.git", :tag => s.version}
 
