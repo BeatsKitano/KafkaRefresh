@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href=#>
-    <img src="https://github.com/xorshine/KafkaRefresh/blob/master/assets/titleView.png" alt="" width=60 height=60>
+    <img src="https://github.com/xorshine/KafkaRefresh/blob/master/Assets/titleView.png" alt="" width=60 height=60>
   </a>
 
   <h3 align="center">KafkaRefresh</h3> 
