@@ -1,4 +1,3 @@
-
 <p align="center">
   <a href=#>
     <img src="https://github.com/xorshine/KafkaRefresh/blob/master/Assets/titleView.png" alt="" width=60 height=60>
@@ -19,7 +18,8 @@
 <br>
 
 ### Status
-<!--[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/xorshine/KafkaRefresh)-->
+<!--[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/xorshine/KafkaRefresh)[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHHHsiang%2FKafkaRefresh.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHHHsiang%2FKafkaRefresh?ref=badge_shield)
+-->
 [![GitHub license](https://img.shields.io/github/license/xorshine/KafkaRefresh.svg)](https://github.com/xorshine/KafkaRefresh/blob/master/LICENSE)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/KafkaRefresh.svg)](https://img.shields.io/cocoapods/v/KafkaRefresh.svg)
 ![platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
@@ -271,3 +271,6 @@ Take KafkaheadRefreshControl as an example
 
 ### License
 > KafkaRefresh is released under the MIT license. See [LICENSE](https://github.com/xorshine/KafkaRefresh/blob/master/LICENSE) for details.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHHHsiang%2FKafkaRefresh.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHHHsiang%2FKafkaRefresh?ref=badge_large)
