@@ -13,7 +13,6 @@
 
 @interface KafkaNativeHeader()
 
-@property (strong, nonatomic) UIActivityIndicatorView * indicator;
 
 @end
 

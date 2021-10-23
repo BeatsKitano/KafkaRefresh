@@ -133,7 +133,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface KafkaRefreshControl: UIView <KafkaRefresh
  @param alertBackgroundColor color
  */
 - (void)setAlertBackgroundColor:(UIColor *)alertBackgroundColor;
-
+ 
 /**
  Called right after initialization is completed
  */

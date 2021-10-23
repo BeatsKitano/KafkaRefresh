@@ -30,7 +30,9 @@
     __kindof KafkaRefreshControl *head = nil;
     switch (style) {
         case KafkaRefreshStyleNative: {
-            head = [[KafkaNativeHeader alloc] init];
+            KafkaNativeHeader *h = [[KafkaNativeHeader alloc] init];
+            h.indicator.color = color;
+            head = h;
             break;
         }
         case KafkaRefreshStyleReplicatorWoody:
@@ -39,7 +41,7 @@
         case KafkaRefreshStyleReplicatorDot:
         case KafkaRefreshStyleReplicatorArc:
         case KafkaRefreshStyleReplicatorTriangle:{
-            head = [[KafkaReplicatorHeader alloc] init];
+             head = [[KafkaReplicatorHeader alloc] init];
             ((KafkaReplicatorHeader *)head).animationStyle = style - 1;
             break;
         }

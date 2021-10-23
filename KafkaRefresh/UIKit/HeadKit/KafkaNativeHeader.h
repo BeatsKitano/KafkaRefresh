@@ -12,5 +12,5 @@
 #import "KafkaHeadRefreshControl.h"
 
 @interface KafkaNativeHeader : KafkaHeadRefreshControl
-
+@property (strong, nonatomic) UIActivityIndicatorView * indicator;
 @end
