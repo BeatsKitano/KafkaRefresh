@@ -62,8 +62,12 @@
 #pragma mark - lazy
 
 - (UIActivityIndicatorView *)indicator{
-	if (!_indicator) {
-		_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	if (!_indicator) { 
+        if (@available(iOS 13.0, *)) {
+            _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
+        } else {
+            _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        }
 		_indicator.hidesWhenStopped = NO;
 	}
 	return _indicator;
