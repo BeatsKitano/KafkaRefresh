@@ -246,7 +246,11 @@
 	if (@available(iOS 11.0, *)) {
 		inset.top -= (self.adjustedContentInset.top - self.contentInset.top);
 	}
-	self.contentInset = inset;
+//	self.contentInset = inset;
+    CGFloat top = self.contentInset.top;
+    if (round(top) != round(inset.top)) {
+        self.contentInset = inset;
+    }
 }
 
 - (CGFloat)insetBottom{

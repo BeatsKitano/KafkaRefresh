@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 	s.name         = "KafkaRefresh"
-	s.version      = "1.6.0"
-	s.summary      = "Highly scalable, custom, multi-style refresh framework."
+	s.version      = "1.7.0"
+	s.summary      = "Highly scalable, customize, multi-style refresh framework."
 
 	s.homepage     = "https://github.com/xorshine/KafkaRefresh"
 	s.license      = "MIT"
@@ -16,11 +16,6 @@ Pod::Spec.new do |s|
 	s.source_files = "KafkaRefresh/KafkaRefresh.h"
 	s.public_header_files = "KafkaRefresh/KafkaRefresh.h"
 	s.resource     = 'KafkaRefresh/Resource/Image.bundle'
-	# spec.resource_bundles = {
- #    	'MapBox' => ['MapView/Map/Resources/*.png'],
- #    	'OtherResources' => ['MapView/Map/OtherResources/*.png']
- #   }
-
  
 	s.subspec 'Category' do |ss|
 		ss.source_files = "KafkaRefresh/Category/**/*"
