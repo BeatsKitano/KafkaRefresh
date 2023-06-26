@@ -10,6 +10,7 @@
 
 #import "KafkaRingIndicatorHeader.h"
 #import "KafkaCategories.h"
+#import "KafkaRefreshDefaults.h"
  
 @implementation KafkaRingIndicatorHeader
 
@@ -84,7 +85,7 @@
 
 - (UIActivityIndicatorView *)indicator{
 	if (!_indicator) {
-		_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:[KafkaRefreshDefaults standardRefreshDefaults].isDark ? UIActivityIndicatorViewStyleWhite : UIActivityIndicatorViewStyleGray];
 		_indicator.hidesWhenStopped = YES;
 	}
 	return _indicator;

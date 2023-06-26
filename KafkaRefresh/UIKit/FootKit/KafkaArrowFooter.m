@@ -122,7 +122,7 @@
 
 - (UIActivityIndicatorView *)indicator{
 	if (!_indicator) {
-		_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:[KafkaRefreshDefaults standardRefreshDefaults].isDark ? UIActivityIndicatorViewStyleWhite : UIActivityIndicatorViewStyleGray];
 	}
 	return _indicator;
 }

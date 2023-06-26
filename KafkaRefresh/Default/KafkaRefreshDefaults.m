@@ -35,6 +35,8 @@
 		_footPullingText = @"继续上拉";
 		_readyText = @"松开刷新";
 		_refreshingText = @"正在加载";
+        _font = [UIFont fontWithName:@"Helvetica" size:15.f];
+        _isDark = NO;
 	}
 	return self;
 }

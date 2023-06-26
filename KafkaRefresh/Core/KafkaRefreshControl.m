@@ -10,6 +10,7 @@
 
 #import "KafkaRefreshControl.h"
 #import "KafkaCategories.h"
+#import "KafkaRefreshDefaults.h"
 
 @interface KafkaLabel : UILabel<CAAnimationDelegate>
 - (void)startAnimating;
@@ -326,10 +327,10 @@ static CGFloat const kStretchOffsetYAxisThreshold = 1.0;
 	if (!_alertLabel) {
 		_alertLabel = [KafkaLabel new];
 		_alertLabel.textAlignment = NSTextAlignmentCenter;
-		_alertLabel.font =  [UIFont fontWithName:@"Helvetica" size:15.f];
-		_alertLabel.textColor = _themeColor;
+		_alertLabel.font =  [KafkaRefreshDefaults standardRefreshDefaults].font;
+		_alertLabel.textColor = [KafkaRefreshDefaults standardRefreshDefaults].themeColor;
 		_alertLabel.alpha = 0.0;
-		_alertLabel.backgroundColor = [UIColor whiteColor];
+		_alertLabel.backgroundColor = [KafkaRefreshDefaults standardRefreshDefaults].backgroundColor;
 	}
 	return _alertLabel;
 }

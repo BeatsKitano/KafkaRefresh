@@ -60,4 +60,8 @@
  */
 @property (copy, nonatomic) NSString * refreshingText;
 
+@property (copy, nonatomic) UIFont * font;
+
+@property (assign, nonatomic) BOOL isDark;
+
 @end
