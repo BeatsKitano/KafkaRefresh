@@ -16,6 +16,7 @@
   </p>
 </p> 
 <br>
+ 
 
 ### Status
 <!--[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/xorshine/KafkaRefresh)[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHHHsiang%2FKafkaRefresh.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHHHsiang%2FKafkaRefresh?ref=badge_shield)
@@ -27,6 +28,13 @@
 [![Email](https://img.shields.io/badge/e--mail-xorshine%40icloud.com-blue.svg)](mailto:xorshine@icloud.com) 
 
 ****
+
+### Thanks
+
+ <p align="center">
+	  <img src="https://github.com/xorshine/KafkaRefresh/blob/master/jetbrains.png" alt="https://www.jetbrains.com" width=596 height=128> 
+  </p>
+
 
 ### Screenshots
 <table>
